@@ -71,6 +71,20 @@ ABL.perturb_temperature                  = false
 time.plot_interval                       = 1000                
 io.plot_file                             = plt                 
 io.KE_int                                = -1                  
+incflo.post_processing                   = sampling            
+
+# --- Sampling parameters ---
+sampling.output_frequency                = 100                 
+sampling.fields                          = velocity            
+
+#---- sample defs ----
+sampling.labels                          = Farm_TR             
+sampling.Farm_TR.type                    = PlaneSampler        
+sampling.Farm_TR.num_points              = 513 193             
+sampling.Farm_TR.origin                  = 650440.0 4049040.0 100.0
+sampling.Farm_TR.axis1                   = 5120.0 0.0 0.0      
+sampling.Farm_TR.axis2                   = 0.0 1920.0 0.0      
+sampling.Farm_TR.normal                  = 0.0 0.0 0.0         
 
 #---- tagging defs ----
 tagging.labels                           = Farm_level_0_zone TR KP AF BR CV
