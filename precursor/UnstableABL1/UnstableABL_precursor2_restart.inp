@@ -6,6 +6,7 @@ time.checkpoint_interval                 = 2000
 incflo.physics                           = ABL                 # List of physics models to include in simulation.
 incflo.verbose                           = 3                   
 io.check_file                            = chk                 
+io.restart_file                          = chkrestart          
 incflo.use_godunov                       = true                
 incflo.godunov_type                      = weno_z              
 incflo.diffusion_type                    = 0                   # Type of diffusion scheme used.  0 = explicit diffusion, 1 = Crank-Nicolson, 2 = fully implicit
