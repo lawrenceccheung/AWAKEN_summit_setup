@@ -1,0 +1,59 @@
+turbines:
+
+#   nrel5mwADM_calib:
+#     turbinetype_name:    "NREL 2.8-127 ADM Calib"
+#     turbinetype_comment: 
+#     Actuator_type:       TurbineFastDisk
+#     Actuator_openfast_input_file: OpenFAST3p1_NREL2p8-127/NREL-2p8-127.fst
+#     Actuator_rotor_diameter:      127
+#     Actuator_hub_height:          90
+#     Actuator_num_points_blade:    64
+#     Actuator_num_points_tower:    12
+# #    Actuator_epsilon:             [10.0, 10.0, 10.0]
+# #    Actuator_epsilon_tower:       [5.0, 5.0, 5.0]
+#     Actuator_openfast_start_time: 0.0
+#     Actuator_openfast_stop_time:  1000.0
+#     Actuator_nacelle_drag_coeff:  1.0
+#     Actuator_nacelle_area:        8.0
+#     Actuator_output_frequency:    10
+#     turbinetype_filedir: OpenFAST3p1_NREL2p8-127
+
+  nrel2.8_127_ADM_bugfix:
+    turbinetype_name:    "NREL 2.8-127 ADM bugfix"
+    turbinetype_comment: 
+    Actuator_type:       TurbineFastDisk
+    Actuator_openfast_input_file: OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.fst
+    Actuator_rotor_diameter:      127
+    Actuator_hub_height:          90
+    Actuator_num_points_blade:    64
+    Actuator_num_points_tower:    12
+#    Actuator_epsilon:             [10.0, 10.0, 10.0]
+#    Actuator_epsilon_tower:       [5.0, 5.0, 5.0]
+    Actuator_openfast_start_time: 0.0
+    Actuator_openfast_stop_time:  1000.0
+    Actuator_nacelle_drag_coeff:  1.0
+    Actuator_nacelle_area:        8.0
+    Actuator_output_frequency:    10
+    turbinetype_filedir: OpenFAST3p3_NREL2p8-127.bugfix
+
+  Joukowski_GE2.8-127_calib:
+    turbinetype_name:    "NREL GE2.8-127 Joukowski Calib"
+    turbinetype_comment: "Dummy layout"
+    Actuator_type:                JoukowskyDisk
+    Actuator_rotor_diameter:      127
+    Actuator_hub_height:          90     
+    Actuator_output_frequency:    10                   
+    # --------------------
+    Actuator_diameters_to_sample: 2.5     # How far upstream to sample inflow wind
+    #Actuator_epsilon:             [5.0]   # Epsilon in Z (might need to play with this guy)
+    Actuator_num_points_r:        40      # number of radial (might need to play with this guy)
+    Actuator_num_points_t:        5       # number of pts in theta (might need to play with this guy)
+    #Actuator_vortex_core_size:    24.0    # might need to play with this
+    # Performance tables come from https://raw.githubusercontent.com/NREL/openfast-turbine-models/master/IEA-scaled/NREL-2.8-127/NREL-2.8-127_openfast.csv
+    Actuator_wind_speed:          3.0 3.889649963239854 4.684006996752303 5.377830233987229 5.966542092267928 6.44625847394617 6.8138143922059236 7.066784852446481 7.203500851477444 7.22306038896904 7.320786359429763 7.535153078939617 7.864746237154081 8.30739130337076 8.860167873258558 9.519428936578247 10.280824938773394 10.681872976809931 11.13933247768231 12.08928744604103 13.12442240111568 14.237907914913496 15.422397632159566 16.670076738763772 17.972713521001396 19.321713675239476 20.708177009893884 22.122956165519163 23.556716965618207 25.0
+    Actuator_rpm:                 5.000000000016245 5.000000000016245 5.638983607759451 6.474263713908542 7.183002304786018 7.760523391866565 8.203016709967672 8.507562855934777 8.672152549756454 8.695699891032191 8.813350258732857 9.071422122887496 9.468212823176732 10.001104484991524 10.66658129117735 11.460252678062853 12.03880269963151 12.03880269963151 12.03880269963151 12.03880269963151 12.03880269963151 12.03880269963151 12.03880269963151 12.03880269963151 12.03880269963151 12.03880269963151 12.03880269963151 12.03880269963151 12.03880269963151 12.03880269963151 
+    Actuator_thrust_coeff:        1.0126639483787587 0.840327937484299 0.7961959353934434 0.7961959353934436 0.7961959353934436 0.7961959353934435 0.7961959353934435 0.7961959353934435 0.7961959353934435 0.7961959353934434 0.7961959353934435 0.7961959353934435 0.7961959353934434 0.7156683533319497 0.6292067505753718 0.5450912104401278 0.46734421176952423 0.4329099112918308 0.3728873584289857 0.28345012213041204 0.2181711924948629 0.16975065018347846 0.13354082513086452 0.10632315304021239 0.08563574092904329 0.06994026801786918 0.057797679316391966 0.04848897545870961 0.041357350192293064 0.03572262020670054 
+    Actuator_use_tip_correction:  True
+    Actuator_use_root_correction: True    
+    Actuator_num_blades:          3
+
