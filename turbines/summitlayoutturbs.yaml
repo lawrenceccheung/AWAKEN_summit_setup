@@ -138,7 +138,7 @@ turbines:
     turbinetype_name:             "Summit_GE2.5-116"
     turbinetype_comment:          UNCalibrated Joukowski Model 
     Actuator_type:                JoukowskyDisk
-    Actuator_rotor_diameter:      127
+    Actuator_rotor_diameter:      116
     Actuator_hub_height:          90
     Actuator_output_frequency:    10
     Actuator_diameters_to_sample: 2.5     # How far upstream to sample inflow wind
