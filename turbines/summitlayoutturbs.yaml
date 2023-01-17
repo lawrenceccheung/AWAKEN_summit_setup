@@ -9,7 +9,7 @@ turbines:
     Actuator_type:                JoukowskyDisk
     Actuator_rotor_diameter:      82.5
     Actuator_hub_height:          80
-    Actuator_output_frequency:    10                   
+    Actuator_output_frequency:    1                   
     Actuator_diameters_to_sample: 2.5     # How far upstream to sample inflow wind
     Actuator_epsilon:             [5.0, 5.0, 5.0]   # Epsilon in Z (might need to play with this guy)
     Actuator_num_points_r:        40      # number of radial (might need to play with this guy)
@@ -29,7 +29,7 @@ turbines:
     Actuator_type:                JoukowskyDisk
     Actuator_rotor_diameter:      103
     Actuator_hub_height:          80     
-    Actuator_output_frequency:    10                   
+    Actuator_output_frequency:    1                   
     # --------------------
     # Plot curves notebook in ~/nscratch/2021/AWAKEN/turbinerun/GE1.7-103/PlotCurves3.ipynb
     # Calibration notebook in ~/nscratch/2021/AWAKEN/turbinerun/GE1.7-103/RunCalibration_Joukowski_dx_Eps5.ipynb
@@ -50,7 +50,7 @@ turbines:
     Actuator_type:                JoukowskyDisk
     Actuator_rotor_diameter:      103
     Actuator_hub_height:          80     
-    Actuator_output_frequency:    10                   
+    Actuator_output_frequency:    1                   
     # --------------------
     # Plot curves notebook in ~/nscratch/2021/AWAKEN/turbinerun/GE1.7-103/PlotCurves3.ipynb
     # Calibration notebook in ~/nscratch/2021/AWAKEN/turbinerun/GE1.7-103/RunCalibration_Joukowski_dx_Eps5.ipynb
@@ -71,7 +71,7 @@ turbines:
     Actuator_type:                JoukowskyDisk
     Actuator_rotor_diameter:      100
     Actuator_hub_height:          80     
-    Actuator_output_frequency:    10                   
+    Actuator_output_frequency:    1                   
     # Plot curves notebook in ~/nscratch/2021/AWAKEN/turbinerun/GE1.79-100/PlotCurves4.ipynb
     # Calibration notebook in ~/nscratch/2021/AWAKEN/turbinerun/GE2.3-116/RunCalibration_Joukowski_Eps5.00.ipynb
     # --------------------
@@ -93,7 +93,7 @@ turbines:
     Actuator_type:                JoukowskyDisk
     Actuator_rotor_diameter:      116
     Actuator_hub_height:          79.13     
-    Actuator_output_frequency:    10                   
+    Actuator_output_frequency:    1                   
     Actuator_diameters_to_sample: 2.5     # How far upstream to sample inflow wind
     Actuator_epsilon:             [5.0, 5.0, 5.0]   # Epsilon in Z (might need to play with this guy)
     Actuator_num_points_r:        40      # number of radial (might need to play with this guy)
@@ -120,7 +120,7 @@ turbines:
     Actuator_type:                JoukowskyDisk
     Actuator_rotor_diameter:      107
     Actuator_hub_height:          80
-    Actuator_output_frequency:    10                   
+    Actuator_output_frequency:    1                   
     Actuator_diameters_to_sample: 2.5     # How far upstream to sample inflow wind
     Actuator_epsilon:             [5.0, 5.0, 5.0]   # Epsilon in Z (might need to play with this guy)
     Actuator_num_points_r:        40      # number of radial (might need to play with this guy)
@@ -140,7 +140,7 @@ turbines:
     Actuator_type:                JoukowskyDisk
     Actuator_rotor_diameter:      116
     Actuator_hub_height:          90
-    Actuator_output_frequency:    10
+    Actuator_output_frequency:    1
     Actuator_diameters_to_sample: 2.5     # How far upstream to sample inflow wind
     Actuator_epsilon:             [5.0, 5.0, 5.0]   # Epsilon in Z (might need to play with this guy)
     Actuator_num_points_r:        40      # number of radial (might need to play with this guy)
@@ -161,7 +161,7 @@ turbines:
     Actuator_type:                JoukowskyDisk
     Actuator_rotor_diameter:      127
     Actuator_hub_height:          90
-    Actuator_output_frequency:    10
+    Actuator_output_frequency:    1
     Actuator_diameters_to_sample: 2.5     # How far upstream to sample inflow wind
     Actuator_epsilon:             [5.0, 5.0, 5.0]   # Epsilon in Z (might need to play with this guy)
     Actuator_num_points_r:        40      # number of radial (might need to play with this guy)
@@ -188,8 +188,8 @@ turbines:
     Actuator_epsilon:             [5.0, 5.0, 5.0]
     Actuator_epsilon_tower:       [5.0, 5.0, 5.0]
     Actuator_openfast_start_time: 0.0
-    Actuator_openfast_stop_time:  1000.0
+    Actuator_openfast_stop_time:  10000.0
     Actuator_nacelle_drag_coeff:  1.0
     Actuator_nacelle_area:        8.0
-    Actuator_output_frequency:    10
+    Actuator_output_frequency:    1
     turbinetype_filedir: OpenFAST3p3_NREL2p8-127.bugfix
