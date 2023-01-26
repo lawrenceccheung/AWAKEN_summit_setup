@@ -1,0 +1,35 @@
+Calibrate_Joukowski_0_EPS5.00_WS_7.0:
+    casename: Calibrate_Joukowski_0_EPS5.00_WS_7.0
+    WDir: 270.0
+    submitted: false
+    WS: 7.0
+    dir: Calibrate_Joukowski_0_EPS5.00_WS_7.0
+    inputfile: Calibrate_Joukowski_0_EPS5.00_WS_7.0.inp
+Calibrate_Joukowski_1_EPS5.00_WS_9.0:
+    casename: Calibrate_Joukowski_1_EPS5.00_WS_9.0
+    WDir: 270.0
+    submitted: false
+    WS: 9.0
+    dir: Calibrate_Joukowski_1_EPS5.00_WS_9.0
+    inputfile: Calibrate_Joukowski_1_EPS5.00_WS_9.0.inp
+Calibrate_Joukowski_2_EPS5.00_WS_10.0:
+    casename: Calibrate_Joukowski_2_EPS5.00_WS_10.0
+    WDir: 270.0
+    submitted: false
+    WS: 10.0
+    dir: Calibrate_Joukowski_2_EPS5.00_WS_10.0
+    inputfile: Calibrate_Joukowski_2_EPS5.00_WS_10.0.inp
+Calibrate_Joukowski_3_EPS5.00_WS_11.0:
+    casename: Calibrate_Joukowski_3_EPS5.00_WS_11.0
+    WDir: 270.0
+    submitted: false
+    WS: 11.0
+    dir: Calibrate_Joukowski_3_EPS5.00_WS_11.0
+    inputfile: Calibrate_Joukowski_3_EPS5.00_WS_11.0.inp
+Calibrate_Joukowski_4_EPS5.00_WS_13.0:
+    casename: Calibrate_Joukowski_4_EPS5.00_WS_13.0
+    WDir: 270.0
+    submitted: false
+    WS: 13.0
+    dir: Calibrate_Joukowski_4_EPS5.00_WS_13.0
+    inputfile: Calibrate_Joukowski_4_EPS5.00_WS_13.0.inp
