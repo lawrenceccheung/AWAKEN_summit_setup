@@ -1,0 +1,26 @@
+# Description of scene
+turbines:
+  defaults:
+    turbfile: '/ascldap/users/lcheung/GPFS/AWAKEN/testmovie/turbine.stl'
+    hubheight: 90
+    yaw: 175
+    azimuth: 0.0
+  turbinelist:
+  - name: turbine1
+    pos: [100, 100]
+  - name: turbine2
+    pos: [200, 200, 200]
+    yaw: 270
+  - name: turbine3
+    pos: [200, 300]
+    azimuth: 30 
+
+solidplanes: 
+  defaults:
+    color: [1.0, 0.0, 0.0]
+  planelist:
+  - name: Plane1
+    origin: [0,0,0]
+    p1: [1000, 0, 0]
+    p2: [0, 1000, 0]
+    color: [0.0, 1.0, 0.0]
