@@ -1,0 +1,208 @@
+turbines:
+  defaults:
+    turbfile: /ascldap/users/lcheung/GPFS/AWAKEN/testmovie/turbine.stl
+    hubheight: 90.0
+    yaw: 175.0
+    azimuth: 0.0
+  turbinelist:
+  - name: 2019-WTW-4713-KP
+    pos:
+    - 644600.601753
+    - 4027108.285963
+    azimuth: 0.0
+  - name: 2019-WTW-4655-KP
+    pos:
+    - 642097.122368
+    - 4030694.510509
+    azimuth: 0.0
+  - name: 2019-WTW-4651-KP
+    pos:
+    - 640524.009474
+    - 4030645.516444
+    azimuth: 0.0
+  - name: 2019-WTW-4726-KP
+    pos:
+    - 647045.61963
+    - 4026325.291169
+    azimuth: 0.0
+  - name: 2019-WTW-4671-KP
+    pos:
+    - 643717.500753
+    - 4029868.723641
+    azimuth: 0.0
+  - name: 2019-WTW-4715-KP
+    pos:
+    - 641404.515835
+    - 4025585.036081
+    azimuth: 0.0
+sampleplanes:
+  sampleplanelist:
+  - name: 2019-WTW-4713-KP_HHplane
+    files: KPturbs/T2019-WTW-4713-KP_KPturbhh_16425.0.vtk
+    clip:
+      name: 2019-WTW-4713-KP_HHplane_clip1
+      origin:
+      - 644598.4228594314
+      - 4027133.190830452
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4713-KP_SWplane
+    files: KPturbsSW/T2019-WTW-4713-KP_KPsw_16425.0.vtk
+    clip:
+      name: 2019-WTW-4713-KP_SWplane_clip2
+      origin:
+      - 644598.4228594314
+      - 4027133.190830452
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4655-KP_HHplane
+    files: KPturbs/T2019-WTW-4655-KP_KPturbhh_16425.0.vtk
+    clip:
+      name: 2019-WTW-4655-KP_HHplane_clip1
+      origin:
+      - 642094.9434744313
+      - 4030719.4153764523
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4655-KP_SWplane
+    files: KPturbsSW/T2019-WTW-4655-KP_KPsw_16425.0.vtk
+    clip:
+      name: 2019-WTW-4655-KP_SWplane_clip2
+      origin:
+      - 642094.9434744313
+      - 4030719.4153764523
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4651-KP_HHplane
+    files: KPturbs/T2019-WTW-4651-KP_KPturbhh_16425.0.vtk
+    clip:
+      name: 2019-WTW-4651-KP_HHplane_clip1
+      origin:
+      - 640521.8305804313
+      - 4030670.421311452
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4651-KP_SWplane
+    files: KPturbsSW/T2019-WTW-4651-KP_KPsw_16425.0.vtk
+    clip:
+      name: 2019-WTW-4651-KP_SWplane_clip2
+      origin:
+      - 640521.8305804313
+      - 4030670.421311452
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4726-KP_HHplane
+    files: KPturbs/T2019-WTW-4726-KP_KPturbhh_16425.0.vtk
+    clip:
+      name: 2019-WTW-4726-KP_HHplane_clip1
+      origin:
+      - 647043.4407364313
+      - 4026350.196036452
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4726-KP_SWplane
+    files: KPturbsSW/T2019-WTW-4726-KP_KPsw_16425.0.vtk
+    clip:
+      name: 2019-WTW-4726-KP_SWplane_clip2
+      origin:
+      - 647043.4407364313
+      - 4026350.196036452
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4671-KP_HHplane
+    files: KPturbs/T2019-WTW-4671-KP_KPturbhh_16425.0.vtk
+    clip:
+      name: 2019-WTW-4671-KP_HHplane_clip1
+      origin:
+      - 643715.3218594313
+      - 4029893.6285084523
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4671-KP_SWplane
+    files: KPturbsSW/T2019-WTW-4671-KP_KPsw_16425.0.vtk
+    clip:
+      name: 2019-WTW-4671-KP_SWplane_clip2
+      origin:
+      - 643715.3218594313
+      - 4029893.6285084523
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4715-KP_HHplane
+    files: KPturbs/T2019-WTW-4715-KP_KPturbhh_16425.0.vtk
+    clip:
+      name: 2019-WTW-4715-KP_HHplane_clip1
+      origin:
+      - 641402.3369414313
+      - 4025609.9409484523
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4715-KP_SWplane
+    files: KPturbsSW/T2019-WTW-4715-KP_KPsw_16425.0.vtk
+    clip:
+      name: 2019-WTW-4715-KP_SWplane_clip2
+      origin:
+      - 641402.3369414313
+      - 4025609.9409484523
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+solidplanes:
+  defaults:
+    color:
+    - 0.8
+    - 0.75
+    - 0.75
+  planelist:
+  - name: ground
+    origin:
+    - 653106.1017967543
+    - 4023617.986548658
+    - 0.0
+    p1:
+    - 651885.921398287
+    - 4037564.712321942
+    - 0.0
+    p2:
+    - 628201.2343444607
+    - 4021439.0929799667
+    - 0.0
+output:
+  filename: test.png
+  imagesize:
+  - 1080
+  - 600

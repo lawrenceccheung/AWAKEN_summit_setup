@@ -6,21 +6,45 @@ turbines:
     yaw: 175
     azimuth: 0.0
   turbinelist:
-  - name: turbine1
-    pos: [100, 100]
-  - name: turbine2
-    pos: [200, 200, 200]
-    yaw: 270
-  - name: turbine3
-    pos: [200, 300]
-    azimuth: 30 
+  - name: 2019-WTW-4713-KP
+    pos: [644600.601753, 4027108.285963]
+    azimuth: 30
+  - name: 2019-WTW-4655-KP
+    pos:
+    - 642097.122368
+    - 4030694.5105089997
+    azimuth: 0.0
 
-solidplanes: 
+  # - name: turbine2
+  #   pos: [200, 200, 200]
+  #   yaw: 270
+  # - name: turbine3
+  #   pos: [200, 300]
+  #   azimuth: 30 
+
+XXXsolidplanesXXX: 
   defaults:
     color: [1.0, 0.0, 0.0]
   planelist:
   - name: Plane1
-    origin: [0,0,0]
-    p1: [1000, 0, 0]
-    p2: [0, 1000, 0]
-    color: [0.0, 1.0, 0.0]
+    origin: [653106.1017967543, 4023617.986548658, 0]
+    p1: [-1220.1803984672154, 13946.725773284437, 0]
+    p2: [-24904.867452293638, -2178.893568691456 , 0]
+    color: [0.50, 0.50, 0.50]
+
+sampleplanes:
+  sampleplanelist:
+  - name: KPHHplane
+    files: T2019-WTW-4713-KP_KPturbhh_16435.0.vtk
+    clip:
+      name:   KPHHplane_clip1
+      origin: [644600.601753, 4027308.285963, 90.0] 
+      normal: [0, -1, 0]
+  - name: KPSWplane
+    files: T2019-WTW-4713-KP_KPsw_16427.0.vtk
+    clip:
+      name:   KPSWplane_clip1
+      origin: [644600.601753, 4027308.285963, 90.0] 
+      normal: [0, -1, 0]
+
+outputs:

@@ -19,6 +19,14 @@ except:
 # Helper functions to get defaults from a dictionary
 getdictval = lambda d, k, default: default[k] if k not in d else d[k]
 
+def deleteall():
+    """
+    Delete all objects in paraview
+    """
+    for x in GetSources().values(): 
+        Delete(x[0])
+    return
+
 # =====================================
 def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw, azimuth=0.0):
     """
@@ -76,7 +84,7 @@ def plotTurbineList(turbdict):
     """
     defaults = turbdict['defaults']  if 'defaults' in turbdict else {}
     for turbspec in turbdict['turbinelist']:
-        print(turbspec)
+        #print(turbspec)
         turbname = turbspec['name']
         turbfile = getdictval(turbspec, 'turbfile', defaults)
         azimuth  = getdictval(turbspec, 'azimuth', defaults)
@@ -153,15 +161,188 @@ def plotPlaneList(planedict):
         plotPlane(name, origin, p1, p2, color=color)
 
 # =====================================
-configyaml='config.yaml'
 
-# Load the yaml input file
-with open(configyaml) as fp:
-    Loader = yaml.load
-    yamldict = Loader(fp)
-    #print(yamldict)
-    # Plot the turbines
-    if 'turbines' in yamldict:
-        plotTurbineList(yamldict['turbines'])
-    if 'solidplanes' in yamldict:
-        plotPlaneList(yamldict['solidplanes'])
+def getClipPlane(name, targetplane, origin, normal):
+    kPHHplane = FindSource(targetplane)
+    # create a new 'Clip'
+    clip1 = Clip(registrationName=name, Input=kPHHplane)
+    clip1.ClipType = 'Plane'
+    clip1.HyperTreeGridClipper = 'Plane'
+    clip1.Scalars = [None, '']
+    # init the 'Plane' selected for 'ClipType'
+    clip1.ClipType.Origin = origin
+    # init the 'Plane' selected for 'HyperTreeGridClipper'
+    clip1.HyperTreeGridClipper.Origin = origin
+    # Properties modified on clip1
+    clip1.Scalars = ['POINTS', '']
+    # Properties modified on clip1.ClipType
+    clip1.ClipType.Normal = normal
+
+    # get active view
+    renderView1 = GetActiveViewOrCreate('RenderView')
+
+    # show data in view
+    clip1Display = Show(clip1, renderView1, 'UnstructuredGridRepresentation')
+
+    # get color transfer function/color map for 'velocity'
+    velocityLUT = GetColorTransferFunction('velocity')
+
+    # get opacity transfer function/opacity map for 'velocity'
+    velocityPWF = GetOpacityTransferFunction('velocity')
+
+    # trace defaults for the display properties.
+    clip1Display.Representation = 'Surface'
+    clip1Display.ColorArrayName = ['POINTS', 'velocity']
+    clip1Display.LookupTable = velocityLUT
+    clip1Display.SelectTCoordArray = 'None'
+    clip1Display.SelectNormalArray = 'None'
+    clip1Display.SelectTangentArray = 'None'
+    clip1Display.OSPRayScaleArray = 'velocity'
+    clip1Display.OSPRayScaleFunction = 'PiecewiseFunction'
+    clip1Display.SelectOrientationVectors = 'None'
+    clip1Display.ScaleFactor = 102.80000000000001
+    clip1Display.SelectScaleArray = 'None'
+    clip1Display.GlyphType = 'Arrow'
+    clip1Display.GlyphTableIndexArray = 'None'
+    clip1Display.GaussianRadius = 5.14
+    clip1Display.SetScaleArray = ['POINTS', 'velocity']
+    clip1Display.ScaleTransferFunction = 'PiecewiseFunction'
+    clip1Display.OpacityArray = ['POINTS', 'velocity']
+    clip1Display.OpacityTransferFunction = 'PiecewiseFunction'
+    clip1Display.DataAxesGrid = 'GridAxesRepresentation'
+    clip1Display.PolarAxes = 'PolarAxesRepresentation'
+    clip1Display.ScalarOpacityFunction = velocityPWF
+    clip1Display.ScalarOpacityUnitDistance = 79.60793272669744
+    clip1Display.OpacityArrayName = ['POINTS', 'velocity']
+    clip1Display.SelectInputVectors = ['POINTS', 'velocity']
+    clip1Display.WriteLog = ''
+    # init the 'PiecewiseFunction' selected for 'ScaleTransferFunction'
+    clip1Display.ScaleTransferFunction.Points = [-3.67132568359375, 0.0, 0.5, 0.0, 3.2155568599700928, 1.0, 0.5, 0.0]
+    # init the 'PiecewiseFunction' selected for 'OpacityTransferFunction'
+    clip1Display.OpacityTransferFunction.Points = [-3.67132568359375, 0.0, 0.5, 0.0, 3.2155568599700928, 1.0, 0.5, 0.0]
+    
+    # set active source
+    SetActiveSource(FindSource(targetplane))
+
+def plotSamplePlane(name, filename, clipopt={}):
+    if not isinstance(filename, list):
+        filenamelist = [filename]
+    else:
+        filenamelist = filename
+    # create a new 'Legacy VTK Reader'
+    sampleplane = LegacyVTKReader(registrationName=name, FileNames=filenamelist)
+
+    # get active view
+    renderView1 = GetActiveViewOrCreate('RenderView')
+
+    # show data in view
+    sampleplaneDisplay = Show(sampleplane, renderView1, 'StructuredGridRepresentation')
+
+    # trace defaults for the display properties.
+    sampleplaneDisplay.Representation = 'Surface'
+    sampleplaneDisplay.ColorArrayName = [None, '']
+    sampleplaneDisplay.SelectTCoordArray = 'None'
+    sampleplaneDisplay.SelectNormalArray = 'None'
+    sampleplaneDisplay.SelectTangentArray = 'None'
+    sampleplaneDisplay.OSPRayScaleArray = 'velocity'
+    sampleplaneDisplay.OSPRayScaleFunction = 'PiecewiseFunction'
+    sampleplaneDisplay.SelectOrientationVectors = 'None'
+    sampleplaneDisplay.ScaleFactor = 202.0
+    sampleplaneDisplay.SelectScaleArray = 'None'
+    sampleplaneDisplay.GlyphType = 'Arrow'
+    sampleplaneDisplay.GlyphTableIndexArray = 'None'
+    sampleplaneDisplay.GaussianRadius = 10.1
+    sampleplaneDisplay.SetScaleArray = ['POINTS', 'velocity']
+    sampleplaneDisplay.ScaleTransferFunction = 'PiecewiseFunction'
+    sampleplaneDisplay.OpacityArray = ['POINTS', 'velocity']
+    sampleplaneDisplay.OpacityTransferFunction = 'PiecewiseFunction'
+    sampleplaneDisplay.DataAxesGrid = 'GridAxesRepresentation'
+    sampleplaneDisplay.PolarAxes = 'PolarAxesRepresentation'
+    sampleplaneDisplay.ScalarOpacityUnitDistance = 124.39538251074127
+    sampleplaneDisplay.SelectInputVectors = ['POINTS', 'velocity']
+    sampleplaneDisplay.WriteLog = ''
+
+    # init the 'PiecewiseFunction' selected for 'ScaleTransferFunction'
+    sampleplaneDisplay.ScaleTransferFunction.Points = [-3.6802566051483154, 0.0, 0.5, 0.0, 2.4374403953552246, 1.0, 0.5, 0.0]
+
+    # init the 'PiecewiseFunction' selected for 'OpacityTransferFunction'
+    sampleplaneDisplay.OpacityTransferFunction.Points = [-3.6802566051483154, 0.0, 0.5, 0.0, 2.4374403953552246, 1.0, 0.5, 0.0]
+
+    # reset view to fit data
+    renderView1.ResetCamera(False)
+    # get the material library
+    materialLibrary1 = GetMaterialLibrary()
+    # update the view to ensure updated data information
+    renderView1.Update()
+    # set scalar coloring
+    ColorBy(sampleplaneDisplay, ('POINTS', 'velocity', 'Magnitude'))
+    # rescale color and/or opacity maps used to include current data range
+    sampleplaneDisplay.RescaleTransferFunctionToDataRange(True, False)
+    # show color bar/color legend
+    sampleplaneDisplay.SetScalarBarVisibility(renderView1, True)    
+    # get color transfer function/color map for 'velocity'
+    velocityLUT = GetColorTransferFunction('velocity')
+    # get opacity transfer function/opacity map for 'velocity'
+    velocityPWF = GetOpacityTransferFunction('velocity')
+    # get 2D transfer function for 'velocity'
+    velocityTF2D = GetTransferFunction2D('velocity')
+
+    # Handle any clip planes
+    if bool(clipopt):
+        normal    = clipopt['normal']
+        origin    = clipopt['origin']
+        clipname  = clipopt['name']
+        targetname = name
+        getClipPlane(clipname, targetname, origin, normal)
+        # hide data in view
+        Hide(sampleplane, renderView1)
+
+    return sampleplane, sampleplaneDisplay
+
+def plotSamplePlaneList(planedict):
+    defaults = planedict['defaults']  if 'defaults' in planedict else {}
+    for planespec in planedict['sampleplanelist']:
+        #print(planespec)
+        name   = planespec['name']
+        files  = planespec['files']
+        if 'clip' in planespec:
+            clipopt = planespec['clip']
+        else:
+            clipopt = {}
+        plotSamplePlane(name, files, clipopt=clipopt)
+
+# =====================================
+def saveoutput(outputdict):
+    filename = outputdict['filename']
+    imagesize = outputdict['imagesize']
+    SaveScreenshot(filename,ImageResolution=imagesize)
+    return
+
+# =====================================
+def processyamlinput(yamlfile, verbose=False):
+    # Load the yaml input file
+    with open(yamlfile) as fp:
+        Loader = yaml.load
+        yamldict = Loader(fp)
+        # Plot the turbines
+        if 'turbines' in yamldict:
+            if verbose: print("Loading turbines")
+            plotTurbineList(yamldict['turbines'])
+        if 'solidplanes' in yamldict:
+            if verbose: print("Loading solid planes")
+            plotPlaneList(yamldict['solidplanes'])
+        if 'sampleplanes' in yamldict:
+            if verbose: print("Loading sample planes")
+            plotSamplePlaneList(yamldict['sampleplanes'])
+        if 'output' in yamldict:
+            if verbose: print("saving output")
+            saveoutput(yamldict['output'])
+        if verbose: print("Done")
+    return
+
+# =====================================
+
+if __name__ == "__main__":
+    inputfile='test.yaml' 
+    #inputfile='config.yaml'
+    processyamlinput(inputfile)
