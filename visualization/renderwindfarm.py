@@ -8,6 +8,7 @@ from paraview.simple import *
 #### disable automatic camera reset on 'Show'
 paraview.simple._DisableFirstRenderCameraReset()
 
+import argparse
 import ruamel.yaml as yaml
 try:
     yaml = yaml.YAML()
@@ -28,7 +29,7 @@ def deleteall():
     return
 
 # =====================================
-def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw, azimuth=0.0):
+def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw, azimuth=0.0, yawoffset=270.0):
     """
     Plot a turbine from an stl file in turbstl
     """
@@ -70,7 +71,7 @@ def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw, azimuth=0.0):
     # Properties modified on turbinestlDisplay.PolarAxes
     turbinestlDisplay.PolarAxes.Translation = [xpos, ypos, zpos]
 
-    newyaw = 360.0 - yaw
+    newyaw = yawoffset - yaw #360.0 - yaw
 
     # Properties modified on turbinestlDisplay
     turbinestlDisplay.Orientation = [0.0, azimuth, newyaw]
@@ -312,10 +313,19 @@ def plotSamplePlaneList(planedict):
         plotSamplePlane(name, files, clipopt=clipopt)
 
 # =====================================
+def runCommands(execdict):
+    if 'execstring' in execdict:
+        exec(execdict['execstring'])
+    return
+
+# =====================================
 def saveoutput(outputdict):
-    filename = outputdict['filename']
-    imagesize = outputdict['imagesize']
-    SaveScreenshot(filename,ImageResolution=imagesize)
+    if 'filename' in outputdict:
+        filename = outputdict['filename']
+        imagesize = outputdict['imagesize']
+        SaveScreenshot(filename,ImageResolution=imagesize)
+    if 'savestate' in outputdict:
+        SaveState(outputdict['savestate'])
     return
 
 # =====================================
@@ -334,6 +344,9 @@ def processyamlinput(yamlfile, verbose=False):
         if 'sampleplanes' in yamldict:
             if verbose: print("Loading sample planes")
             plotSamplePlaneList(yamldict['sampleplanes'])
+        if 'runcommands' in yamldict:
+            if verbose: print("running commands")
+            runCommands(yamldict['runcommands'])
         if 'output' in yamldict:
             if verbose: print("saving output")
             saveoutput(yamldict['output'])
@@ -343,6 +356,16 @@ def processyamlinput(yamlfile, verbose=False):
 # =====================================
 
 if __name__ == "__main__":
-    inputfile='test.yaml' 
-    #inputfile='config.yaml'
-    processyamlinput(inputfile)
+    title="Render wind farm scene"
+    parser = argparse.ArgumentParser(description=title)
+    parser.add_argument('inputfile')
+    parser.add_argument('-v', '--verbose', 
+                        help="Verbose output",
+                        default=False,
+                        action='store_true')
+    # Load the options
+    args      = parser.parse_args()
+    inputfile = args.inputfile
+    verbose   = args.verbose
+
+    processyamlinput(inputfile, verbose=verbose)

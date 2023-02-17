@@ -23,6 +23,10 @@ except:
     loaderkwargs = {}
     dumperkwargs = {'default_flow_style':False }
 
+def getazimuthal(t, rotorspeed):
+    revpersec=rotorspeed/60.0
+    degpersec=revpersec*360.0
+
 if useruamel:
     from ruamel.yaml.comments import CommentedMap 
     def comseq(d):
@@ -40,24 +44,28 @@ if useruamel:
 # Set some simulation globals
 time       = 16425.0
 turbhh     = 90.0
-maxturbs   = 5
+maxturbs   = 10
 defaultyaw = 175.0
 outfilename= 'test.yaml'
+outpng     = 'test.png'
 summitcsv  = 'UnstableABL_farmrun_turbines.csv'
 planedir   = 'KPturbs/'
 planedirSW = 'KPturbsSW/'
-
+plotHH     = True
+plotSW     = True
 # =====================================
 
 # Construct a normal wind direction vector
-theta = (270-defaultyaw)*np.pi/180.0
+theta   = (270-defaultyaw)*np.pi/180.0
 winddir = [np.cos(theta), np.sin(theta), 0.0]
 
 yamldict = OrderedDict()
 
 # Write the turbine defaults
 turbdefaults = OrderedDict()
-turbdefaults['turbfile']  = '/ascldap/users/lcheung/GPFS/AWAKEN/testmovie/turbine.stl'
+#turbdefaults['turbfile']  = '/ascldap/users/lcheung/GPFS/AWAKEN/testmovie/turbine.stl'
+#turbdefaults['turbfile']  = '/ascldap/users/lcheung/GPFS/AWAKEN/testmovie/nrel_2p8_127_nospinnac.stl'
+turbdefaults['turbfile']  = '/hpc_projects/AWAKEN/turbines/NREL-2.8-127_Surface/nrel_2p8_127_nospinnac.stl'
 turbdefaults['hubheight'] = turbhh
 turbdefaults['yaw']       = defaultyaw
 turbdefaults['azimuth']   = 0.0
@@ -90,32 +98,34 @@ for turb in subsetdf.iterrows():
     turblist.append(comseq(turbspec))
 
     # Add the HH sampling planes
-    samplespec = OrderedDict()
-    samplespec['name'] = name+'_HHplane'
-    samplespec['files'] = planedir+'T'+name+'_KPturbhh_%0.1f.vtk'%time
-    # Set the clipping parameters
-    clipspec         = OrderedDict()
-    clipspec['name'] = samplespec['name']+'_clip1'
-    turborigin = np.array([pos[0], pos[1], turbhh])
-    cliporigin = turborigin + 25.0*np.array(winddir)
-    clipspec['origin'] = [float(x) for x in cliporigin]
-    clipspec['normal'] = [-float(x) for x in winddir]
-    samplespec['clip'] = comseq(clipspec)
-    sampleplanelist.append(comseq(samplespec))
+    if plotHH:
+        samplespec = OrderedDict()
+        samplespec['name'] = name+'_HHplane'
+        samplespec['files'] = planedir+'T'+name+'_KPturbhh_%0.1f.vtk'%time
+        # Set the clipping parameters
+        clipspec         = OrderedDict()
+        clipspec['name'] = samplespec['name']+'_clip1'
+        turborigin = np.array([pos[0], pos[1], turbhh])
+        cliporigin = turborigin + 25.0*np.array(winddir)
+        clipspec['origin'] = [float(x) for x in cliporigin]
+        clipspec['normal'] = [-float(x) for x in winddir]
+        samplespec['clip'] = comseq(clipspec)
+        sampleplanelist.append(comseq(samplespec))
 
     # Add the SW sampling planes
-    samplespec = OrderedDict()
-    samplespec['name'] = name+'_SWplane'
-    samplespec['files'] = planedirSW+'T'+name+'_KPsw_%0.1f.vtk'%time
-    # Set the clipping parameters
-    clipspec         = OrderedDict()
-    clipspec['name'] = samplespec['name']+'_clip2'
-    turborigin = np.array([pos[0], pos[1], turbhh])
-    cliporigin = turborigin + 25.0*np.array(winddir)
-    clipspec['origin'] = [float(x) for x in cliporigin]
-    clipspec['normal'] = [-float(x) for x in winddir]
-    samplespec['clip'] = comseq(clipspec)
-    sampleplanelist.append(comseq(samplespec))
+    if plotSW:
+        samplespec = OrderedDict()
+        samplespec['name'] = name+'_SWplane'
+        samplespec['files'] = planedirSW+'T'+name+'_KPsw_%0.1f.vtk'%time
+        # Set the clipping parameters
+        clipspec         = OrderedDict()
+        clipspec['name'] = samplespec['name']+'_clip2'
+        turborigin = np.array([pos[0], pos[1], turbhh])
+        cliporigin = turborigin + 75.0*np.array(winddir)
+        clipspec['origin'] = [float(x) for x in cliporigin]
+        clipspec['normal'] = [-float(x) for x in winddir]
+        samplespec['clip'] = comseq(clipspec)
+        sampleplanelist.append(comseq(samplespec))
 
     if len(turblist)>maxturbs: break
 
@@ -141,10 +151,29 @@ planespec['p2']     = [float(x) for x in groundp2]
 solidplanelist.append(comseq(planespec))
 yamldict['solidplanes']['planelist'] = solidplanelist
 
+# ==== Run commands ====
+cmds="""
+# get active view
+renderView1 = GetActiveViewOrCreate('RenderView')
+# current camera placement for renderView1
+renderView1.CameraPosition = [671618.73738299, 3980791.5060513862, 12211.242737607341]
+renderView1.CameraFocalPoint = [656470.2445981951, 4008876.380595388, 4817.156163513052]
+renderView1.CameraViewUp = [-0.1790840105081062, 0.15131067127383754, 0.9721285912568323]
+renderView1.CameraViewAngle = 0.774818133952874
+renderView1.CameraParallelScale = 15350.625424485204
+RenderAllViews()
+"""
+
+# ==== Output section ====
+yamldict['runcommands'] = OrderedDict()
+yamldict['runcommands']['execstring'] = cmds
+
+
 # ==== Output section ====
 yamldict['output'] = OrderedDict()
-yamldict['output']['filename']  = 'test.png'
-yamldict['output']['imagesize'] = [1080,600]
+yamldict['output']['filename']  = outpng #'test.png'
+yamldict['output']['imagesize'] = [1900,1200]
+#yamldict['output']['savestate']  = 'testscene.pvsm'
 
 
 # ========= write the yaml file ==========
