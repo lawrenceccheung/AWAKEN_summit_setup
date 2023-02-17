@@ -74,9 +74,9 @@ def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw, azimuth=0.0, yawoffset
     newyaw = yawoffset - yaw #360.0 - yaw
 
     # Properties modified on turbinestlDisplay
-    turbinestlDisplay.Orientation = [0.0, azimuth, newyaw]
+    turbinestlDisplay.Orientation = [azimuth, 0.0, newyaw] #[0.0, azimuth, newyaw]
     # Properties modified on turbinestlDisplay.PolarAxes
-    turbinestlDisplay.PolarAxes.Orientation = [0.0, azimuth, newyaw]
+    turbinestlDisplay.PolarAxes.Orientation = [azimuth, 0.0, newyaw] #[0.0, azimuth, newyaw]
     return turbinestl, turbinestlDisplay
 
 def plotTurbineList(turbdict):
