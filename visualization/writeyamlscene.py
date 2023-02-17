@@ -10,7 +10,7 @@ from collections            import OrderedDict
 # Load ruamel or pyyaml as needed
 try:
     import ruamel.yaml as yaml
-    print("# Loaded ruamel.yaml")
+    #print("# Loaded ruamel.yaml")
     useruamel=True
     loaderkwargs = {'Loader':yaml.RoundTripLoader}
     dumperkwargs = {'Dumper':yaml.RoundTripDumper, 'indent':2, 'default_flow_style':False} # 'block_seq_indent':2, 'line_break':0, 'explicit_start':True, 
@@ -18,7 +18,7 @@ try:
 
 except:
     import yaml as yaml
-    print("# Loaded yaml")
+    #print("# Loaded yaml")
     useruamel=False
     loaderkwargs = {}
     dumperkwargs = {'default_flow_style':False }
@@ -44,13 +44,13 @@ if useruamel:
 # Set some simulation globals
 time       = 16425.0
 turbhh     = 90.0
-maxturbs   = 10
+maxturbs   = 20
 defaultyaw = 175.0
 outfilename= 'test.yaml'
 outpng     = 'test.png'
-summitcsv  = 'UnstableABL_farmrun_turbines.csv'
-planedir   = 'KPturbs/'
-planedirSW = 'KPturbsSW/'
+summitcsv  = '../../lcheung/awaken.github/SummitRuns/AWAKEN_summit_setup/UnstableABL_farmrun1/UnstableABL_farmrun_turbines.csv' 
+planedir   = '../KP_turbine_vtk/KPturbs/'
+planedirSW = '../KP_turbine_vtk/KPturbsSW/'
 plotHH     = True
 plotSW     = True
 # =====================================
