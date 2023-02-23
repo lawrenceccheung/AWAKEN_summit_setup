@@ -26,6 +26,7 @@ def deleteall():
     """
     for x in GetSources().values(): 
         Delete(x[0])
+    RenderAllViews()
     return
 
 # =====================================
@@ -313,6 +314,112 @@ def plotSamplePlaneList(planedict):
         plotSamplePlane(name, files, clipopt=clipopt)
 
 # =====================================
+
+def plotPolyLine(name, linesegments, color=[0.0, 0.0, 0.0], closeloop=False):
+    """
+    """
+    # create a new 'Poly Line Source'
+    polyLineSource1 = PolyLineSource(registrationName=name)
+
+    # Build point list
+    allpoints = []
+    for seg in linesegments:
+        allpoints = allpoints + seg
+    if closeloop: allpoints = allpoints + linesegments[0]
+    polyLineSource1.Points = allpoints
+
+    # get active view
+    renderView1 = GetActiveViewOrCreate('RenderView')
+
+    # show data in view
+    polyLineSource1Display = Show(polyLineSource1, renderView1, 
+                                  'GeometryRepresentation')
+
+    # trace defaults for the display properties.
+    polyLineSource1Display.Representation = 'Surface'
+    polyLineSource1Display.ColorArrayName = [None, '']
+    polyLineSource1Display.SelectTCoordArray = 'None'
+    polyLineSource1Display.SelectNormalArray = 'None'
+    polyLineSource1Display.SelectTangentArray = 'None'
+    polyLineSource1Display.OSPRayScaleFunction = 'PiecewiseFunction'
+    polyLineSource1Display.SelectOrientationVectors = 'None'
+    polyLineSource1Display.ScaleFactor = 0.1
+    polyLineSource1Display.SelectScaleArray = 'None'
+    polyLineSource1Display.GlyphType = 'Arrow'
+    polyLineSource1Display.GlyphTableIndexArray = 'None'
+    polyLineSource1Display.GaussianRadius = 0.005
+    polyLineSource1Display.SetScaleArray = [None, '']
+    polyLineSource1Display.ScaleTransferFunction = 'PiecewiseFunction'
+    polyLineSource1Display.OpacityArray = [None, '']
+    polyLineSource1Display.OpacityTransferFunction = 'PiecewiseFunction'
+    polyLineSource1Display.DataAxesGrid = 'GridAxesRepresentation'
+    polyLineSource1Display.PolarAxes = 'PolarAxesRepresentation'
+    polyLineSource1Display.SelectInputVectors = [None, '']
+    polyLineSource1Display.WriteLog = ''
+
+    # change solid color
+    polyLineSource1Display.AmbientColor = color
+    polyLineSource1Display.DiffuseColor = color
+    return
+
+def plotPolyLineList(polydict):
+    defaultdict =  {'color':[0,0,0],
+                    'closeloop':False}
+    defaults = polydict['defaults'] if 'defaults' in polydict else defaultdict
+    for polyspec in polydict['polylinelist']:
+        name   = polyspec['name']
+        color  = getdictval(polyspec, 'color', defaults)
+        closeloop  = getdictval(polyspec, 'closeloop', defaults)
+        points = polyspec['points']
+        plotPolyLine(name, points, color=color, closeloop=closeloop)
+    return
+
+# =====================================
+def setRenderViewProps(renderdict):
+    # get active view
+    exestr="renderView1 = GetActiveViewOrCreate('RenderView')\n"
+    exec(exestr)
+    for prop in renderdict['properties']:
+        exestr = 'renderView1.%s = %s\n'%(prop, 
+                                          repr(renderdict['properties'][prop]))
+        exec(exestr)
+    exestr = "RenderAllViews()\n"
+    exec(exestr)
+    return
+
+def setColorBarProps(CBdict):
+    defaultdict =  {'var':'velocity',
+                    'colormap':'Cool to Warm (Extended)'}
+    defaults = CBdict['defaults'] if 'defaults' in CBdict else defaultdict
+    var = defaults['var']
+    # get color transfer function/color map for 'velocity'
+    velocityLUT = GetColorTransferFunction(var)
+    # Apply a preset using its name. Note this may not work as expected when presets have duplicate names.
+    velocityLUT.ApplyPreset(defaults['colormap'], True)
+    # get opacity transfer function/opacity map for 'velocity'
+    velocityPWF = GetOpacityTransferFunction(var)
+    # get 2D transfer function for 'velocity'
+    velocityTF2D = GetTransferFunction2D(var)
+
+    if 'limits' in CBdict:
+        CBlimits = CBdict['limits']
+        # Rescale transfer function
+        velocityLUT.RescaleTransferFunction(CBlimits[0], CBlimits[1])
+        velocityPWF.RescaleTransferFunction(CBlimits[0], CBlimits[1])
+        velocityTF2D.RescaleTransferFunction(CBlimits[0], CBlimits[1], 0.0, 1.0)
+
+    # get active view
+    renderView1 = GetActiveViewOrCreate('RenderView')
+    # get color legend/bar for velocityLUT in view renderView1
+    velocityLUTColorBar = GetScalarBar(velocityLUT, renderView1)
+    for prop in CBdict['properties']:
+        exestr = 'velocityLUTColorBar.%s = %s\n'%(prop, 
+                                                  repr(CBdict['properties'][prop]))
+        exec(exestr)
+    return
+    
+
+# =====================================
 def runCommands(execdict):
     if 'execstring' in execdict:
         exec(execdict['execstring'])
@@ -341,9 +448,18 @@ def processyamlinput(yamlfile, verbose=False):
         if 'solidplanes' in yamldict:
             if verbose: print("Loading solid planes")
             plotPlaneList(yamldict['solidplanes'])
+        if 'polylines' in yamldict:
+            if verbose: print("Loading polylines")
+            plotPolyLineList(yamldict['polylines'])
         if 'sampleplanes' in yamldict:
             if verbose: print("Loading sample planes")
             plotSamplePlaneList(yamldict['sampleplanes'])
+        if 'renderview' in yamldict:
+            if verbose: print("Setting renderview")
+            setRenderViewProps(yamldict['renderview'])
+        if 'colorbar' in yamldict:
+            if verbose: print("Setting colorbar")
+            setColorBarProps(yamldict['colorbar'])            
         if 'runcommands' in yamldict:
             if verbose: print("running commands")
             runCommands(yamldict['runcommands'])
