@@ -26,8 +26,8 @@ transport.laminar_prandtl                = 0.7                 # Laminar prandtl
 transport.turbulent_prandtl              = 0.3333              # Turbulent prandtl number
 
 # --- Geometry and Mesh ---
-geometry.prob_lo                         = 661880.0 4044880.0 0.0
-geometry.prob_hi                         = 672120.0 4055120.0 2560.0
+geometry.prob_lo                         = 661880.0 4043880.0 0.0
+geometry.prob_hi                         = 672120.0 4054120.0 2560.0
 amr.n_cell                               = 512 512 128         # Number of cells in x, y, and z directions
 amr.max_level                            = 1                   
 geometry.is_periodic                     = 1 1 0               
@@ -85,9 +85,9 @@ tagging.Farm_level_0_zone.type           = GeometryRefinement
 tagging.Farm_level_0_zone.shapes         = Farm_level_0_zone   
 tagging.Farm_level_0_zone.level          = 0                   
 tagging.Farm_level_0_zone.Farm_level_0_zone.type = box                 
-tagging.Farm_level_0_zone.Farm_level_0_zone.origin = 671333.4017633576 4046363.844178624 -10.0
+tagging.Farm_level_0_zone.Farm_level_0_zone.origin = 671744.3433696559 4046403.6167480894 -10.0
 tagging.Farm_level_0_zone.Farm_level_0_zone.xaxis = -522.9344564859495 5977.168188550473 0.0
-tagging.Farm_level_0_zone.Farm_level_0_zone.yaxis = -7969.557584733964 -697.2459419812659 0.0
+tagging.Farm_level_0_zone.Farm_level_0_zone.yaxis = -8965.75228282571 -784.4016847289241 0.0
 tagging.Farm_level_0_zone.Farm_level_0_zone.zaxis = 0.0 0.0 1100.0      
 
 #---- postprocessing defs ----
@@ -100,13 +100,13 @@ farmhh_.fields                           = velocity temperature tke
 farmhh_.labels                           = Farm_hh90 Farm_hh60 
 farmhh_.Farm_hh90.type                   = PlaneSampler        
 farmhh_.Farm_hh90.num_points             = 206 206             
-farmhh_.Farm_hh90.origin                 = 661880.0 4044880.0 90.0
+farmhh_.Farm_hh90.origin                 = 661880.0 4043880.0 90.0
 farmhh_.Farm_hh90.axis1                  = 0.0 10240.0 0.0     
 farmhh_.Farm_hh90.axis2                  = 10240.0 0.0 0.0     
 farmhh_.Farm_hh90.normal                 = 0.0 0.0 0.0         
 farmhh_.Farm_hh60.type                   = PlaneSampler        
 farmhh_.Farm_hh60.num_points             = 206 206             
-farmhh_.Farm_hh60.origin                 = 661880.0 4044880.0 60.0
+farmhh_.Farm_hh60.origin                 = 661880.0 4043880.0 60.0
 farmhh_.Farm_hh60.axis1                  = 0.0 10240.0 0.0     
 farmhh_.Farm_hh60.axis2                  = 10240.0 0.0 0.0     
 farmhh_.Farm_hh60.normal                 = 0.0 0.0 0.0         
