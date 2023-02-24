@@ -9,6 +9,7 @@ from paraview.simple import *
 paraview.simple._DisableFirstRenderCameraReset()
 
 import argparse
+import numpy as np
 import ruamel.yaml as yaml
 try:
     yaml = yaml.YAML()
@@ -30,7 +31,139 @@ def deleteall():
     return
 
 # =====================================
-def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw, azimuth=0.0, yawoffset=270.0):
+def plotTower(towername, xpos, ypos, towerheight, yaw, 
+              yawoffset=270.0, radius=1.5, nacelleL=10):
+    hubspacing=1.5
+    # create a new 'Cylinder'
+    cylinder1 = Cylinder(registrationName=towername)
+
+    # Properties modified on cylinder1
+    cylinder1.Resolution = 12
+    cylinder1.Height = towerheight
+    cylinder1.Radius = radius
+
+    # get active view
+    renderView1 = GetActiveViewOrCreate('RenderView')
+    
+    # show data in view
+    cylinder1Display = Show(cylinder1, renderView1, 'GeometryRepresentation')
+
+    # trace defaults for the display properties.
+    cylinder1Display.Representation = 'Surface'
+    cylinder1Display.ColorArrayName = [None, '']
+    cylinder1Display.SelectTCoordArray = 'TCoords'
+    cylinder1Display.SelectNormalArray = 'Normals'
+    cylinder1Display.SelectTangentArray = 'None'
+    cylinder1Display.OSPRayScaleArray = 'Normals'
+    cylinder1Display.OSPRayScaleFunction = 'PiecewiseFunction'
+    cylinder1Display.SelectOrientationVectors = 'None'
+    cylinder1Display.SelectScaleArray = 'None'
+    cylinder1Display.GlyphType = 'Arrow'
+    cylinder1Display.GlyphTableIndexArray = 'None'
+    cylinder1Display.GaussianRadius = 0.05
+    cylinder1Display.SetScaleArray = ['POINTS', 'Normals']
+    cylinder1Display.ScaleTransferFunction = 'PiecewiseFunction'
+    cylinder1Display.OpacityArray = ['POINTS', 'Normals']
+    cylinder1Display.OpacityTransferFunction = 'PiecewiseFunction'
+    cylinder1Display.DataAxesGrid = 'GridAxesRepresentation'
+    cylinder1Display.PolarAxes = 'PolarAxesRepresentation'
+    cylinder1Display.SelectInputVectors = ['POINTS', 'Normals']
+    cylinder1Display.WriteLog = ''
+    # init the 'PiecewiseFunction' selected for 'ScaleTransferFunction'
+    cylinder1Display.ScaleTransferFunction.Points = [-1.0, 0.0, 0.5, 0.0, 1.0, 1.0, 0.5, 0.0]
+    # init the 'PiecewiseFunction' selected for 'OpacityTransferFunction'
+    cylinder1Display.OpacityTransferFunction.Points = [-1.0, 0.0, 0.5, 0.0, 1.0, 1.0, 0.5, 0.0]
+    newyaw = yawoffset - yaw 
+    windvec = np.array([np.cos(newyaw*np.pi/180.0), 
+                        np.sin(newyaw*np.pi/180.0), 
+                        0.0])
+    toweroffset = (0.5*nacelleL + hubspacing)*windvec
+    towercenter = [xpos + toweroffset[0], 
+                   ypos + toweroffset[1],
+                   0.5*towerheight + toweroffset[2]]
+    # Properties modified on turbinestlDisplay
+    cylinder1Display.Position = towercenter
+    # Properties modified on turbinestlDisplay.DataAxesGrid
+    cylinder1Display.DataAxesGrid.Position = towercenter
+    # Properties modified on turbinestlDisplay.PolarAxes
+    cylinder1Display.PolarAxes.Translation = towercenter
+    # Properties modified on box1Display
+    cylinder1Display.Orientation = [90.0, 0.0, newyaw]
+    # Properties modified on box1Display.PolarAxes
+    cylinder1Display.PolarAxes.Orientation = [90.0, 0.0, newyaw]   
+    return
+
+def plotNacelle(nacellename, xpos, ypos, zpos, yaw, 
+                yawoffset=270.0, L=10, W=8, H=8):
+    hubspacing = 1.5
+    # create a new 'Box'
+    box1 = Box(registrationName=nacellename)
+    
+    # Properties modified on box1
+    box1.XLength = L
+    box1.YLength = W
+    box1.ZLength = H
+    box1.Center = [0.0, 0.0, 0.0]
+    # get active view
+    renderView1 = GetActiveViewOrCreate('RenderView')
+    # show data in view
+    box1Display = Show(box1, renderView1, 'GeometryRepresentation')
+    # trace defaults for the display properties.
+    box1Display.Representation = 'Surface'
+    box1Display.ColorArrayName = [None, '']
+    box1Display.SelectTCoordArray = 'TCoords'
+    box1Display.SelectNormalArray = 'Normals'
+    box1Display.SelectTangentArray = 'None'
+    box1Display.OSPRayScaleArray = 'Normals'
+    box1Display.OSPRayScaleFunction = 'PiecewiseFunction'
+    box1Display.SelectOrientationVectors = 'None'
+    box1Display.ScaleFactor = 0.30000000000000004
+    box1Display.SelectScaleArray = 'None'
+    box1Display.GlyphType = 'Arrow'
+    box1Display.GlyphTableIndexArray = 'None'
+    box1Display.GaussianRadius = 0.015
+    box1Display.SetScaleArray = ['POINTS', 'Normals']
+    box1Display.ScaleTransferFunction = 'PiecewiseFunction'
+    box1Display.OpacityArray = ['POINTS', 'Normals']
+    box1Display.OpacityTransferFunction = 'PiecewiseFunction'
+    box1Display.DataAxesGrid = 'GridAxesRepresentation'
+    box1Display.PolarAxes = 'PolarAxesRepresentation'
+    box1Display.SelectInputVectors = ['POINTS', 'Normals']
+    box1Display.WriteLog = ''
+    # init the 'PiecewiseFunction' selected for 'ScaleTransferFunction'
+    box1Display.ScaleTransferFunction.Points = [-1.0, 0.0, 0.5, 0.0, 1.0, 1.0, 0.5, 0.0]
+
+    # init the 'PiecewiseFunction' selected for 'OpacityTransferFunction'
+    box1Display.OpacityTransferFunction.Points = [-1.0, 0.0, 0.5, 0.0, 1.0, 1.0, 0.5, 0.0]
+
+    newyaw = yawoffset - yaw 
+    windvec = np.array([np.cos(newyaw*np.pi/180.0), 
+                        np.sin(newyaw*np.pi/180.0), 
+                        0.0])
+    nacelleoffset = (0.5*L + hubspacing)*windvec
+    nacellecenter = [xpos + nacelleoffset[0], 
+                     ypos + nacelleoffset[1],
+                     zpos + nacelleoffset[2]]
+    # Properties modified on turbinestlDisplay
+    box1Display.Position = nacellecenter
+    # Properties modified on turbinestlDisplay.DataAxesGrid
+    box1Display.DataAxesGrid.Position = nacellecenter
+    # Properties modified on turbinestlDisplay.PolarAxes
+    box1Display.PolarAxes.Translation = nacellecenter
+
+    # Properties modified on box1Display
+    box1Display.Origin = [0.0, 0.0, 0.0]
+
+    # Properties modified on box1Display
+    box1Display.Orientation = [0.0, 0.0, newyaw]
+    # Properties modified on box1Display.PolarAxes
+    box1Display.PolarAxes.Orientation = [0.0, 0.0, newyaw]   
+    return
+
+def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw, 
+                azimuth=0.0, 
+                yawoffset=270.0,
+                drawnacelle=True, drawtower=True):
     """
     Plot a turbine from an stl file in turbstl
     """
@@ -78,15 +211,26 @@ def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw, azimuth=0.0, yawoffset
     turbinestlDisplay.Orientation = [azimuth, 0.0, newyaw] #[0.0, azimuth, newyaw]
     # Properties modified on turbinestlDisplay.PolarAxes
     turbinestlDisplay.PolarAxes.Orientation = [azimuth, 0.0, newyaw] #[0.0, azimuth, newyaw]
+    if drawnacelle:
+        nacellename = turbname + "_nacelle"
+        plotNacelle(nacellename, xpos, ypos, zpos, yaw, 
+                    yawoffset=yawoffset, L=10, W=5, H=5)
+    if drawtower:
+        towername = turbname + "_tower"
+        plotTower(towername, xpos, ypos, zpos, yaw, yawoffset=270.0, 
+                  radius=1.5, nacelleL=10)
+
     return turbinestl, turbinestlDisplay
 
-def plotTurbineList(turbdict):
+def plotTurbineList(turbdict, verbose=True):
     """
     Plot a list of turbines from the dict in turbdict
     """
     defaults = turbdict['defaults']  if 'defaults' in turbdict else {}
-    for turbspec in turbdict['turbinelist']:
-        #print(turbspec)
+    for iturb, turbspec in enumerate(turbdict['turbinelist']):
+        if verbose:
+            print(" turbine [%i/%i]"%(iturb+1, 
+                                    len(turbdict['turbinelist'])))
         turbname = turbspec['name']
         turbfile = getdictval(turbspec, 'turbfile', defaults)
         azimuth  = getdictval(turbspec, 'azimuth', defaults)
@@ -301,10 +445,12 @@ def plotSamplePlane(name, filename, clipopt={}):
 
     return sampleplane, sampleplaneDisplay
 
-def plotSamplePlaneList(planedict):
+def plotSamplePlaneList(planedict, verbose=False):
     defaults = planedict['defaults']  if 'defaults' in planedict else {}
-    for planespec in planedict['sampleplanelist']:
-        #print(planespec)
+    for iplane, planespec in enumerate(planedict['sampleplanelist']):
+        if verbose:
+            print(" plane [%i/%i]"%(iplane+1, 
+                                    len(planedict['sampleplanelist'])))
         name   = planespec['name']
         files  = planespec['files']
         if 'clip' in planespec:
@@ -453,7 +599,7 @@ def processyamlinput(yamlfile, verbose=False):
             plotPolyLineList(yamldict['polylines'])
         if 'sampleplanes' in yamldict:
             if verbose: print("Loading sample planes")
-            plotSamplePlaneList(yamldict['sampleplanes'])
+            plotSamplePlaneList(yamldict['sampleplanes'], verbose=verbose)
         if 'renderview' in yamldict:
             if verbose: print("Setting renderview")
             setRenderViewProps(yamldict['renderview'])
