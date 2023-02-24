@@ -20,7 +20,7 @@ Run this [precursor notebook](../precursor/UnstableABL1/precursor4_10m_largerdom
 Then, after some iteration, you can compare results with this [Postprocessing notebook](../precursor/UnstableABL1/Postprocessing.ipynb).
 
 ## Setting up the precursor run
-Once you have the correct boundary conditions determined, run the [UnstableABL_setup2.ipynb](#UnstableABL_setup2.ipynb) notebook to set up the appropriate domain for a wind farm configuration.
+Once you have the correct boundary conditions determined, run the [UnstableABL_setup2.ipynb](UnstableABL_setup2.ipynb) notebook to set up the appropriate domain for a wind farm configuration.
 
 ## Setting up the turbine run
 Once you have boundary plane data saved from the precursor, run the [UnstableABL_FarmRunSmall.ipynb](UnstableABL_FarmRunSmall.ipynb) notebook.
