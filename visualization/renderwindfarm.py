@@ -246,7 +246,8 @@ def plotTurbineList(turbdict, verbose=True):
 
 # =====================================
 def plotPlane(name, origin, p1, p2, 
-              xres=10, yres=10, color=[0.0, 0.0, 0.0]):
+              xres=10, yres=10, color=[0.0, 0.0, 0.0], 
+              representation='Surface'):
 
     # create a new 'Plane'
     plane1             = Plane(registrationName=name)
@@ -264,7 +265,7 @@ def plotPlane(name, origin, p1, p2,
     plane1Display = Show(plane1, renderView1, 'GeometryRepresentation')
 
     # trace defaults for the display properties.
-    plane1Display.Representation = 'Surface'
+    plane1Display.Representation = representation #'Surface'
     plane1Display.ColorArrayName = [None, '']
     plane1Display.SelectTCoordArray = 'TextureCoordinates'
     plane1Display.SelectNormalArray = 'Normals'
@@ -297,14 +298,17 @@ def plotPlane(name, origin, p1, p2,
     plane1Display.DiffuseColor = color
 
 def plotPlaneList(planedict):
-    defaults = planedict['defaults']  if 'defaults' in planedict else {}
+    defaultdict = {'color':[0.0, 0.0, 0.0], 'reprenstation':'Surface'}
+    defaults = planedict['defaults']  if 'defaults' in planedict else defaultdict
     for planespec in planedict['planelist']:
         name   = planespec['name']
         origin = planespec['origin']
         p1     = planespec['p1']
         p2     = planespec['p2']
-        color  = getdictval(planespec, 'color', defaults)        
-        plotPlane(name, origin, p1, p2, color=color)
+        color  = getdictval(planespec, 'color', defaults)
+        representation  = getdictval(planespec, 'representation', defaults)
+        plotPlane(name, origin, p1, p2, color=color, 
+                  representation=representation)
 
 # =====================================
 
@@ -370,13 +374,18 @@ def getClipPlane(name, targetplane, origin, normal):
     # set active source
     SetActiveSource(FindSource(targetplane))
 
-def plotSamplePlane(name, filename, clipopt={}):
+def plotSamplePlane(name, filename, clipopt={}, displayprop={}):
     if not isinstance(filename, list):
         filenamelist = [filename]
     else:
         filenamelist = filename
     # create a new 'Legacy VTK Reader'
-    sampleplane = LegacyVTKReader(registrationName=name, FileNames=filenamelist)
+    if filenamelist[0].endswith('.shp'):
+        sampleplane = GDALVectorReader(registrationName=name, FileName=filenamelist)
+        plotarray = [None, '']
+    else:
+        sampleplane = LegacyVTKReader(registrationName=name, FileNames=filenamelist)
+        plotarray = ['POINTS', 'velocity']
 
     # get active view
     renderView1 = GetActiveViewOrCreate('RenderView')
@@ -398,14 +407,14 @@ def plotSamplePlane(name, filename, clipopt={}):
     sampleplaneDisplay.GlyphType = 'Arrow'
     sampleplaneDisplay.GlyphTableIndexArray = 'None'
     sampleplaneDisplay.GaussianRadius = 10.1
-    sampleplaneDisplay.SetScaleArray = ['POINTS', 'velocity']
+    sampleplaneDisplay.SetScaleArray = plotarray
     sampleplaneDisplay.ScaleTransferFunction = 'PiecewiseFunction'
-    sampleplaneDisplay.OpacityArray = ['POINTS', 'velocity']
+    sampleplaneDisplay.OpacityArray = plotarray
     sampleplaneDisplay.OpacityTransferFunction = 'PiecewiseFunction'
     sampleplaneDisplay.DataAxesGrid = 'GridAxesRepresentation'
     sampleplaneDisplay.PolarAxes = 'PolarAxesRepresentation'
     sampleplaneDisplay.ScalarOpacityUnitDistance = 124.39538251074127
-    sampleplaneDisplay.SelectInputVectors = ['POINTS', 'velocity']
+    sampleplaneDisplay.SelectInputVectors = plotarray
     sampleplaneDisplay.WriteLog = ''
 
     # init the 'PiecewiseFunction' selected for 'ScaleTransferFunction'
@@ -420,18 +429,34 @@ def plotSamplePlane(name, filename, clipopt={}):
     materialLibrary1 = GetMaterialLibrary()
     # update the view to ensure updated data information
     renderView1.Update()
-    # set scalar coloring
-    ColorBy(sampleplaneDisplay, ('POINTS', 'velocity', 'Magnitude'))
-    # rescale color and/or opacity maps used to include current data range
-    sampleplaneDisplay.RescaleTransferFunctionToDataRange(True, False)
-    # show color bar/color legend
-    sampleplaneDisplay.SetScalarBarVisibility(renderView1, True)    
-    # get color transfer function/color map for 'velocity'
-    velocityLUT = GetColorTransferFunction('velocity')
-    # get opacity transfer function/opacity map for 'velocity'
-    velocityPWF = GetOpacityTransferFunction('velocity')
-    # get 2D transfer function for 'velocity'
-    velocityTF2D = GetTransferFunction2D('velocity')
+    if plotarray[1] == 'velocity':
+        # set scalar coloring
+        ColorBy(sampleplaneDisplay, ('POINTS', 'velocity', 'Magnitude'))
+        # rescale color and/or opacity maps used to include current data range
+        sampleplaneDisplay.RescaleTransferFunctionToDataRange(True, False)
+        # show color bar/color legend
+        sampleplaneDisplay.SetScalarBarVisibility(renderView1, True)    
+        # get color transfer function/color map for 'velocity'
+        velocityLUT = GetColorTransferFunction('velocity')
+        # get opacity transfer function/opacity map for 'velocity'
+        velocityPWF = GetOpacityTransferFunction('velocity')
+        # get 2D transfer function for 'velocity'
+        velocityTF2D = GetTransferFunction2D('velocity')
+    else:
+        # get color transfer function/color map for 'vtkBlockColors'
+        vtkBlockColorsLUT = GetColorTransferFunction('vtkBlockColors')
+        # get opacity transfer function/opacity map for 'vtkBlockColors'
+        vtkBlockColorsPWF = GetOpacityTransferFunction('vtkBlockColors')
+        # get 2D transfer function for 'vtkBlockColors'
+        vtkBlockColorsTF2D = GetTransferFunction2D('vtkBlockColors')
+        # Hide the scalar bar for this color map if no visible data is colored by it.
+        HideScalarBarIfNotNeeded(vtkBlockColorsLUT, renderView1)
+
+    if displayprop:
+        for k,g in displayprop.items():
+            exestr = 'sampleplaneDisplay.%s = %s\n'%(k, repr(g))
+            exec(exestr)
+            
 
     # Handle any clip planes
     if bool(clipopt):
@@ -457,11 +482,17 @@ def plotSamplePlaneList(planedict, verbose=False):
             clipopt = planespec['clip']
         else:
             clipopt = {}
-        plotSamplePlane(name, files, clipopt=clipopt)
+        if 'displayprop' in planespec:
+            displayprop = planespec['displayprop']
+        else:
+            displayprop = {}
+        plotSamplePlane(name, files, clipopt=clipopt, displayprop=displayprop)
 
 # =====================================
 
-def plotPolyLine(name, linesegments, color=[0.0, 0.0, 0.0], closeloop=False):
+def plotPolyLine(name, linesegments, 
+                 color=[0.0, 0.0, 0.0], 
+                 closeloop=False, makesurface=False, surfacecolor=None):
     """
     """
     # create a new 'Poly Line Source'
@@ -506,18 +537,54 @@ def plotPolyLine(name, linesegments, color=[0.0, 0.0, 0.0], closeloop=False):
     # change solid color
     polyLineSource1Display.AmbientColor = color
     polyLineSource1Display.DiffuseColor = color
+    if makesurface:
+        surfcolor = color if surfacecolor is None else surfacecolor
+        # find source
+        rect1 = FindSource(name)
+        # create a new 'Delaunay 2D'
+        delaunay2D1 = Delaunay2D(registrationName=name+'_surface', Input=rect1)
+        # show data in view
+        delaunay2D1Display = Show(delaunay2D1, renderView1, 'GeometryRepresentation')
+        # trace defaults for the display properties.
+        delaunay2D1Display.Representation = 'Surface'
+        delaunay2D1Display.ColorArrayName = [None, '']
+        delaunay2D1Display.SelectTCoordArray = 'None'
+        delaunay2D1Display.SelectNormalArray = 'None'
+        delaunay2D1Display.SelectTangentArray = 'None'
+        delaunay2D1Display.OSPRayScaleFunction = 'PiecewiseFunction'
+        delaunay2D1Display.SelectOrientationVectors = 'None'
+        delaunay2D1Display.ScaleFactor = 0.1
+        delaunay2D1Display.SelectScaleArray = 'None'
+        delaunay2D1Display.GlyphType = 'Arrow'
+        delaunay2D1Display.GlyphTableIndexArray = 'None'
+        delaunay2D1Display.GaussianRadius = 0.005
+        delaunay2D1Display.SetScaleArray = [None, '']
+        delaunay2D1Display.ScaleTransferFunction = 'PiecewiseFunction'
+        delaunay2D1Display.OpacityArray = [None, '']
+        delaunay2D1Display.OpacityTransferFunction = 'PiecewiseFunction'
+        delaunay2D1Display.DataAxesGrid = 'GridAxesRepresentation'
+        delaunay2D1Display.PolarAxes = 'PolarAxesRepresentation'
+        delaunay2D1Display.SelectInputVectors = [None, '']
+        delaunay2D1Display.WriteLog = ''
+        # change solid color
+        delaunay2D1Display.AmbientColor = surfcolor
+        delaunay2D1Display.DiffuseColor = surfcolor
     return
 
 def plotPolyLineList(polydict):
     defaultdict =  {'color':[0,0,0],
-                    'closeloop':False}
+                    'closeloop':False,
+                    'makesurface':False, 'surfacecolor':[1,1,1]}
     defaults = polydict['defaults'] if 'defaults' in polydict else defaultdict
     for polyspec in polydict['polylinelist']:
         name   = polyspec['name']
-        color  = getdictval(polyspec, 'color', defaults)
+        color      = getdictval(polyspec, 'color', defaults)
         closeloop  = getdictval(polyspec, 'closeloop', defaults)
+        makesurface= getdictval(polyspec, 'makesurface', defaults)
+        surfacecolor = getdictval(polyspec, 'surfacecolor', defaults)
         points = polyspec['points']
-        plotPolyLine(name, points, color=color, closeloop=closeloop)
+        plotPolyLine(name, points, color=color, closeloop=closeloop,
+                     makesurface=makesurface, surfacecolor=surfacecolor)
     return
 
 # =====================================
