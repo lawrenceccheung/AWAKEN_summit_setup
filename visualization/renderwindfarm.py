@@ -8,6 +8,7 @@ from paraview.simple import *
 #### disable automatic camera reset on 'Show'
 paraview.simple._DisableFirstRenderCameraReset()
 
+import sys
 import argparse
 import numpy as np
 import ruamel.yaml as yaml
@@ -231,6 +232,7 @@ def plotTurbineList(turbdict, verbose=True):
         if verbose:
             print(" turbine [%i/%i]"%(iturb+1, 
                                     len(turbdict['turbinelist'])))
+            sys.stdout.flush()
         turbname = turbspec['name']
         turbfile = getdictval(turbspec, 'turbfile', defaults)
         azimuth  = getdictval(turbspec, 'azimuth', defaults)
@@ -476,6 +478,7 @@ def plotSamplePlaneList(planedict, verbose=False):
         if verbose:
             print(" plane [%i/%i]"%(iplane+1, 
                                     len(planedict['sampleplanelist'])))
+            sys.stdout.flush()
         name   = planespec['name']
         files  = planespec['files']
         if 'clip' in planespec:
@@ -586,6 +589,67 @@ def plotPolyLineList(polydict):
         plotPolyLine(name, points, color=color, closeloop=closeloop,
                      makesurface=makesurface, surfacecolor=surfacecolor)
     return
+# =====================================
+def add3DText(name, text, pos, color=[0.0, 0.0, 0.0], scale=[1,1,1]):
+    # create a new '3D Text'
+    a3DText1 = a3DText(registrationName=name)
+    # Properties modified on a3DText1
+    a3DText1.Text = text
+
+    # get active view
+    renderView1 = GetActiveViewOrCreate('RenderView')
+    a3DText1Display = Show(a3DText1, renderView1, 'GeometryRepresentation')
+    # trace defaults for the display properties.
+    a3DText1Display.Representation = 'Surface'
+    a3DText1Display.ColorArrayName = [None, '']
+    a3DText1Display.SelectTCoordArray = 'None'
+    a3DText1Display.SelectNormalArray = 'None'
+    a3DText1Display.SelectTangentArray = 'None'
+    a3DText1Display.OSPRayScaleFunction = 'PiecewiseFunction'
+    a3DText1Display.SelectOrientationVectors = 'None'
+    a3DText1Display.ScaleFactor = 0.5254759460687638
+    a3DText1Display.SelectScaleArray = 'None'
+    a3DText1Display.GlyphType = 'Arrow'
+    a3DText1Display.GlyphTableIndexArray = 'None'
+    a3DText1Display.GaussianRadius = 0.026273797303438186
+    a3DText1Display.SetScaleArray = [None, '']
+    a3DText1Display.ScaleTransferFunction = 'PiecewiseFunction'
+    a3DText1Display.OpacityArray = [None, '']
+    a3DText1Display.OpacityTransferFunction = 'PiecewiseFunction'
+    a3DText1Display.DataAxesGrid = 'GridAxesRepresentation'
+    a3DText1Display.PolarAxes = 'PolarAxesRepresentation'
+    a3DText1Display.SelectInputVectors = [None, '']
+    a3DText1Display.WriteLog = ''
+
+    # change solid color
+    a3DText1Display.AmbientColor = color
+    a3DText1Display.DiffuseColor = color
+    # Properties modified on a3DText1Display
+    a3DText1Display.Position = pos
+    # Properties modified on a3DText1Display.DataAxesGrid
+    a3DText1Display.DataAxesGrid.Position = pos
+    # Properties modified on a3DText1Display.PolarAxes
+    a3DText1Display.PolarAxes.Translation = pos
+
+    # Properties modified on a3DText1Display
+    a3DText1Display.Scale = scale
+    # Properties modified on a3DText1Display.DataAxesGrid
+    a3DText1Display.DataAxesGrid.Scale = scale
+    # Properties modified on a3DText1Display.PolarAxes
+    a3DText1Display.PolarAxes.Scale = scale
+    return
+
+def plot3DTextList(textdict):
+    defaultdict =  {'color':[0,0,0], 'scale':[1,1,1]}
+    defaults = textdict['defaults'] if 'defaults' in textdict else defaultdict
+    for textspec in textdict['textlist']:
+        name       = textspec['name']
+        text       = textspec['text']
+        pos        = textspec['pos']
+        color      = getdictval(textspec, 'color', defaults)
+        scale      = getdictval(textspec, 'scale', defaults)
+        add3DText(name, text, pos, color=color, scale=scale)
+    return
 
 # =====================================
 def setRenderViewProps(renderdict):
@@ -667,6 +731,9 @@ def processyamlinput(yamlfile, verbose=False):
         if 'sampleplanes' in yamldict:
             if verbose: print("Loading sample planes")
             plotSamplePlaneList(yamldict['sampleplanes'], verbose=verbose)
+        if 'annotate3D' in yamldict:
+            if verbose: print("Adding annotation")
+            plot3DTextList(yamldict['annotate3D'])
         if 'renderview' in yamldict:
             if verbose: print("Setting renderview")
             setRenderViewProps(yamldict['renderview'])
@@ -677,7 +744,7 @@ def processyamlinput(yamlfile, verbose=False):
             if verbose: print("running commands")
             runCommands(yamldict['runcommands'])
         if 'output' in yamldict:
-            if verbose: print("saving output")
+            if verbose: print("saving output: "+yamldict['output']['filename'])
             saveoutput(yamldict['output'])
         if verbose: print("Done")
     return
