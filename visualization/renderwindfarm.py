@@ -227,7 +227,10 @@ def plotTurbineList(turbdict, verbose=True):
     """
     Plot a list of turbines from the dict in turbdict
     """
-    defaults = turbdict['defaults']  if 'defaults' in turbdict else {}
+    defaults = {'turbfile':'', 'azimuth':0.0, 'yaw':0.0, 
+                   'drawnacelle':True, 'drawtower':True}
+    if 'defaults' in turbdict: defaults.update(turbdict['defaults'])
+
     for iturb, turbspec in enumerate(turbdict['turbinelist']):
         if verbose:
             print(" turbine [%i/%i]"%(iturb+1, 
@@ -241,9 +244,13 @@ def plotTurbineList(turbdict, verbose=True):
         ypos     = pos[1]
         zpos     = defaults['hubheight'] if len(pos)<3 else pos[2]
         yaw      = getdictval(turbspec, 'yaw', defaults)
+        drawtower= getdictval(turbspec, 'drawtower', defaults)
+        drawnacelle= getdictval(turbspec, 'drawnacelle', defaults)
         turbstl, turbstlDisplay = plotTurbine(turbname, turbfile, 
                                               xpos, ypos, zpos, yaw, 
-                                              azimuth=azimuth)
+                                              azimuth=azimuth, 
+                                              drawnacelle=drawnacelle,
+                                              drawtower=drawtower)
     return
 
 # =====================================
