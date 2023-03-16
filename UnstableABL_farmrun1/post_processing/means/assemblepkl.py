@@ -20,7 +20,8 @@ import pickle
 
 extractvar = lambda xrds, var, i : xrds[var][i,:].data.reshape(tuple(xrds.attrs['ijk_dims'][::-1]))
 
-def makePKL(ncfile, itimevec, pklfile, vxvar='velocityx', vyvar='velocityy', vzvar='velocityz',
+def makePKL(ncfile, itimevec, pklfile, vxvar='velocityx', vyvar='velocityy',
+            vzvar='velocityz', groupname=None,
             verbose=0, overwrite=False):
     # If pklfile exists, load it
     if os.path.isfile(pklfile) and (not overwrite):
@@ -42,8 +43,12 @@ def makePKL(ncfile, itimevec, pklfile, vxvar='velocityx', vyvar='velocityy', vzv
         db['vz'] = {}
         db['time'] = []
     # Now load the ncfile data
-    groups=ppsample.getGroups(ppsample.loadDataset(ncfile))
-    with xr.open_dataset(ncfile, group=groups[0]) as ds:
+    if groupname is None:
+        groups= ppsample.getGroups(ppsample.loadDataset(ncfile))
+        group = groups[0]
+    else:
+        group = groupname
+    with xr.open_dataset(ncfile, group=group) as ds:
         xm = ds['coordinates'].data[:,0].reshape(tuple(ds.attrs['ijk_dims'][1::-1]))
         ym = ds['coordinates'].data[:,1].reshape(tuple(ds.attrs['ijk_dims'][1::-1]))
         zm = ds['coordinates'].data[:,2].reshape(tuple(ds.attrs['ijk_dims'][1::-1]))
@@ -75,7 +80,8 @@ def makePKL(ncfile, itimevec, pklfile, vxvar='velocityx', vyvar='velocityy', vzv
     return
 
 
-def makePKLinflow(ncfile, itimevec, pklfile, vxvar='velocityx', vyvar='velocityy', vzvar='velocityz',
+def makePKLinflow(ncfile, itimevec, pklfile, vxvar='velocityx',
+                  vyvar='velocityy', vzvar='velocityz', groupname=None,
                   verbose=0, overwrite=False):
     # If pklfile exists, load it
     if os.path.isfile(pklfile) and (not overwrite):
@@ -97,8 +103,12 @@ def makePKLinflow(ncfile, itimevec, pklfile, vxvar='velocityx', vyvar='velocityy
         db['vz'] = {}
         db['time'] = []
     # Now load the ncfile data
-    groups=ppsample.getGroups(ppsample.loadDataset(ncfile))
-    with xr.open_dataset(ncfile, group=groups[0]) as ds:
+    if groupname is None:
+        groups= ppsample.getGroups(ppsample.loadDataset(ncfile))
+        group = groups[0]
+    else:
+        group = groupname
+    with xr.open_dataset(ncfile, group=group) as ds:
         xm = ds['coordinates'].data[:,0].reshape(tuple(ds.attrs['ijk_dims'][::-1]))
         ym = ds['coordinates'].data[:,1].reshape(tuple(ds.attrs['ijk_dims'][::-1]))
         zm = ds['coordinates'].data[:,2].reshape(tuple(ds.attrs['ijk_dims'][::-1]))
@@ -156,6 +166,12 @@ if __name__ == "__main__":
         type=str,
     )
     parser.add_argument(
+        '--group',
+        help="Group name",
+        type=str,
+        default='None'
+    )
+    parser.add_argument(
         '--vxvar',
         help="Velocity x variable name",
         type=str,
@@ -198,6 +214,7 @@ if __name__ == "__main__":
     vzvar     = args.vzvar
     overwrite = args.overwrite
     inflow    = args.inflow
+    group     = None if args.group=='None' else args.group
     verbose   = args.verbose
     
     if verbose>0:
@@ -207,12 +224,16 @@ if __name__ == "__main__":
         print('vxvar     = '+vxvar)        
         print('vyvar     = '+vyvar)        
         print('vzvar     = '+vzvar)
+        print('group     = '+repr(group))
         print('inflow    = '+repr(inflow))
         print('overwrite = '+repr(overwrite))
 
     if inflow:
-        makePKLinflow(ncfile, itime, outfile, vxvar=vxvar, vyvar=vyvar, vzvar=vzvar,
+        makePKLinflow(ncfile, itime, outfile,
+                      vxvar=vxvar, vyvar=vyvar, vzvar=vzvar,
+                      groupname=group,
                       overwrite=overwrite, verbose=verbose)
     else:
         makePKL(ncfile, itime, outfile, vxvar=vxvar, vyvar=vyvar, vzvar=vzvar,
+                groupname=group,
                 overwrite=overwrite, verbose=verbose)
