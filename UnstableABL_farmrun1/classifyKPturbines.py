@@ -77,8 +77,11 @@ allcategories = [frontrow,
 
 turbinecategorylist = {}
 
+
 scriptdir    = os.path.dirname(os.path.abspath(__file__))
 summitcsv    = 'UnstableABL_farmrun_turbines.csv'
+
+allturbines = turblist = getturbnames(getTurbSubset(scriptdir+'/'+summitcsv, '-KP'))
 
 for d in allcategories:
     turblist = getTurbCategoryList(scriptdir+'/'+summitcsv, '-KP', d)
