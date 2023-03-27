@@ -1,0 +1,105 @@
+title:           King Plains # Optional, some descriptive stuff
+skiprows:        0           # Optional, how many rows to skip at the start of each file
+timeoffset:      16125       # Optional, the amount of time to add since the start of the simulation
+avgover:         [300, 1000] # Optional, only average over this amount of data
+
+turbinegroups:
+  allturbines: # This group must be here
+    globpattern: "*-KP_OpenFAST3p3_NREL2p8-127.bugfix/*.out"   # optional, quick way to load all files in dir
+    filelist:                                                  # this must be here if globpattern not present
+  frontrow:
+    filelist:
+    - 2019-WTW-4726-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T3.out
+    - 2019-WTW-4715-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T5.out
+    - 2019-WTW-4718-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T10.out
+    - 2019-WTW-4723-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T16.out
+    - 2019-WTW-4716-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T18.out
+    - 2019-WTW-4725-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T20.out
+    - 2019-WTW-7915-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T21.out
+    - 2019-WTW-4721-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T27.out
+    - 2019-WTW-7916-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T37.out
+    - 2019-WTW-4722-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T43.out
+    - 2019-WTW-4717-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T44.out
+    - 2019-WTW-4724-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T49.out
+    - 2019-WTW-7913-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T7.out
+    - 2019-WTW-4689-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T23.out
+    - 2019-WTW-4683-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T51.out
+    - 2019-WTW-4687-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T72.out
+    - 2019-WTW-4680-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T73.out
+    - 2019-WTW-4682-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T76.out
+    - 2019-WTW-4681-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T80.out
+    - 2019-WTW-4740-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T81.out
+    - 2019-WTW-4686-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T82.out
+  AFwaked:
+    filelist:
+    - 2019-WTW-4677-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T62.out
+    - 2019-WTW-4678-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T67.out
+    - 2019-WTW-4679-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T70.out
+    - 2019-WTW-4676-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T78.out
+    - 2019-WTW-7917-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T77.out
+    - 2019-WTW-4661-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T86.out
+  midrow:
+    filelist:
+    - 2019-WTW-4713-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.out
+    - 2019-WTW-4691-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T6.out
+    - 2019-WTW-4694-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T9.out
+    - 2019-WTW-4690-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T11.out
+    - 2019-WTW-4697-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T13.out
+    - 2019-WTW-4698-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T14.out
+    - 2019-WTW-4701-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T15.out
+    - 2019-WTW-4693-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T19.out
+    - 2019-WTW-4710-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T25.out
+    - 2019-WTW-4692-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T30.out
+    - 2019-WTW-4695-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T31.out
+    - 2019-WTW-7914-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T32.out
+    - 2019-WTW-4702-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T34.out
+    - 2019-WTW-4704-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T35.out
+    - 2019-WTW-4712-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T36.out
+    - 2019-WTW-4711-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T38.out
+    - 2019-WTW-4703-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T45.out
+    - 2019-WTW-4709-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T46.out
+    - 2019-WTW-4696-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T48.out
+    - 2019-WTW-4673-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T17.out
+    - 2019-WTW-4674-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T22.out
+    - 2019-WTW-4675-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T33.out
+    - 2019-WTW-4668-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T54.out
+    - 2019-WTW-4663-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T56.out
+    - 2019-WTW-4670-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T63.out
+    - 2019-WTW-4664-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T69.out
+    - 2019-WTW-4669-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T71.out
+    - 2019-WTW-4666-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T74.out
+    - 2019-WTW-4667-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T79.out
+    - 2019-WTW-4665-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T84.out
+    - 2019-WTW-7919-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T57.out
+    - 2019-WTW-7918-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T59.out
+    - 2019-WTW-4736-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T60.out
+    - 2019-WTW-4662-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T65.out
+    - 2019-WTW-7920-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T66.out
+    - 2019-WTW-4741-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T83.out
+  backrow:
+    filelist:
+    - 2019-WTW-4655-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T1.out
+    - 2019-WTW-4651-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T2.out
+    - 2019-WTW-4671-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T4.out
+    - 2019-WTW-4657-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T8.out
+    - 2019-WTW-4656-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T12.out
+    - 2019-WTW-7921-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T24.out
+    - 2019-WTW-4648-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T26.out
+    - 2019-WTW-4652-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T28.out
+    - 2019-WTW-4658-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T29.out
+    - 2019-WTW-7912-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T39.out
+    - 2019-WTW-4654-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T40.out
+    - 2019-WTW-4650-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T41.out
+    - 2019-WTW-4653-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T42.out
+    - 2019-WTW-4672-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T47.out
+    - 2019-WTW-7911-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T68.out
+    - 2019-WTW-7910-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T50.out
+    - 2019-WTW-4737-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T52.out
+    - 2019-WTW-4643-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T55.out
+    - 2019-WTW-4642-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T64.out
+    - 2019-WTW-4644-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T75.out
+    - 2019-WTW-4641-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T85.out
+    - 2019-WTW-4732-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T53.out
+    - 2019-WTW-4730-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T58.out
+    - 2019-WTW-4731-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T61.out
+    - 2019-WTW-4729-KP_OpenFAST3p3_NREL2p8-127.bugfix/NREL-2p8-127.T87.out
