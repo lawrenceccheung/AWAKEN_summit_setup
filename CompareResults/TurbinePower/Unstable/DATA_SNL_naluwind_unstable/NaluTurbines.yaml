@@ -1,0 +1,16 @@
+title:           King Plains # Optional, some descriptive stuff
+skiprows:        0           # Optional, how many rows to skip at the start of each file
+#timeoffset:      16125       # Optional, the amount of time to add since the start of the simulation
+avgover:         [300, 1000] # Optional, only average over this amount of data
+
+turbinegroups:
+  allturbines: # This group must be here
+    globpattern: "OpenFAST_*/*.out"   # optional, quick way to load all files in dir
+    filelist:                                                  # this must be here if globpattern not present
+  frontrow:
+    filelist:   #(Example only)
+    - OpenFAST_040/NREL-2p8-127.T41.out
+    - OpenFAST_039/NREL-2p8-127.T40.out
+  AFwaked:
+    filelist:   #(Example only)
+    - OpenFAST_038/NREL-2p8-127.T37.out
