@@ -1,0 +1,46 @@
+title:           King Plains # Optional, some descriptive stuff
+skiprows:        0           # Optional, how many rows to skip at the start of each file
+#timeoffset:      16125       # Optional, the amount of time to add since the start of the simulation
+avgover:         [300, 1000] # Optional, only average over this amount of data
+
+turbinegroups:
+  allturbines: # This group must be here
+    globpattern: "OpenFAST_*/*.out"   # optional, quick way to load all files in dir
+    filelist:                                                  # this must be here if globpattern not present
+  frontrow:
+    filelist:  
+    - OpenFAST_001/NREL-2p8-127.T2.out
+    - OpenFAST_002/NREL-2p8-127.T3.out
+    - OpenFAST_005/NREL-2p8-127.T6.out
+    - OpenFAST_010/NREL-2p8-127.T11.out
+    - OpenFAST_011/NREL-2p8-127.T12.out
+    - OpenFAST_013/NREL-2p8-127.T14.out
+    - OpenFAST_014/NREL-2p8-127.T15.out
+    - OpenFAST_016/NREL-2p8-127.T17.out
+    - OpenFAST_023/NREL-2p8-127.T24.out
+    - OpenFAST_025/NREL-2p8-127.T26.out
+    - OpenFAST_026/NREL-2p8-127.T27.out
+    - OpenFAST_031/NREL-2p8-127.T31.out
+
+
+  midrow:
+    filelist:
+    - OpenFAST_000/NREL-2p8-127.T1.out
+    - OpenFAST_003/NREL-2p8-127.T4.out
+    - OpenFAST_004/NREL-2p8-127.T5.out
+    - OpenFAST_006/NREL-2p8-127.T7.out
+    - OpenFAST_007/NREL-2p8-127.T8.out
+    - OpenFAST_008/NREL-2p8-127.T9.out
+    - OpenFAST_009/NREL-2p8-127.T10.out
+    - OpenFAST_012/NREL-2p8-127.T13.out
+    - OpenFAST_015/NREL-2p8-127.T16.out
+    - OpenFAST_017/NREL-2p8-127.T18.out
+    - OpenFAST_018/NREL-2p8-127.T19.out
+    - OpenFAST_019/NREL-2p8-127.T20.out
+    - OpenFAST_020/NREL-2p8-127.T21.out
+    - OpenFAST_021/NREL-2p8-127.T22.out
+    - OpenFAST_022/NREL-2p8-127.T23.out
+    - OpenFAST_024/NREL-2p8-127.T25.out
+    - OpenFAST_027/NREL-2p8-127.T28.out
+    - OpenFAST_028/NREL-2p8-127.T29.out
+    - OpenFAST_029/NREL-2p8-127.T30.out
