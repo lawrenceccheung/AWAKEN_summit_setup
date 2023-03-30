@@ -1,0 +1,65 @@
+title:           Eastern King Plains # Optional, some descriptive stuff
+skiprows:        0           # Optional, how many rows to skip at the start of each file
+#timeoffset:      16125       # Optional, the amount of time to add since the start of the simulation
+avgover:         [300, 1000] # Optional, only average over this amount of data
+
+turbinegroups:
+  allturbines: # This group must be here
+    globpattern: "*.out"   # optional, quick way to load all files in dir
+    filelist:                                                  # this must be here if globpattern not present
+  frontrow:
+    filelist:  
+    - NREL-2p8-127.wt4.out
+    - NREL-2p8-127.wt6.out
+    - NREL-2p8-127.wt8.out
+    - NREL-2p8-127.wt11.out
+    - NREL-2p8-127.wt17.out
+    - NREL-2p8-127.wt19.out
+    - NREL-2p8-127.wt21.out
+    - NREL-2p8-127.wt22.out
+    - NREL-2p8-127.wt24.out
+    - NREL-2p8-127.wt28.out
+    - NREL-2p8-127.wt38.out
+    - NREL-2p8-127.wt44.out
+    - NREL-2p8-127.wt45.out
+    - NREL-2p8-127.wt50.out
+  midrow:
+    filelist:  
+    - NREL-2p8-127.wt1.out
+    - NREL-2p8-127.wt7.out
+    - NREL-2p8-127.wt10.out
+    - NREL-2p8-127.wt12.out
+    - NREL-2p8-127.wt14.out
+    - NREL-2p8-127.wt15.out
+    - NREL-2p8-127.wt16.out
+    - NREL-2p8-127.wt18.out
+    - NREL-2p8-127.wt20.out
+    - NREL-2p8-127.wt23.out
+    - NREL-2p8-127.wt26.out
+    - NREL-2p8-127.wt31.out
+    - NREL-2p8-127.wt32.out
+    - NREL-2p8-127.wt33.out
+    - NREL-2p8-127.wt34.out
+    - NREL-2p8-127.wt35.out
+    - NREL-2p8-127.wt36.out
+    - NREL-2p8-127.wt37.out
+    - NREL-2p8-127.wt39.out
+    - NREL-2p8-127.wt46.out
+    - NREL-2p8-127.wt47.out
+    - NREL-2p8-127.wt49.out
+  backrow:
+    filelist:  
+    - NREL-2p8-127.wt2.out
+    - NREL-2p8-127.wt3.out
+    - NREL-2p8-127.wt5.out
+    - NREL-2p8-127.wt9.out
+    - NREL-2p8-127.wt13.out
+    - NREL-2p8-127.wt25.out
+    - NREL-2p8-127.wt27.out
+    - NREL-2p8-127.wt29.out
+    - NREL-2p8-127.wt30.out
+    - NREL-2p8-127.wt40.out
+    - NREL-2p8-127.wt41.out
+    - NREL-2p8-127.wt42.out
+    - NREL-2p8-127.wt43.out
+    - NREL-2p8-127.wt48.out
