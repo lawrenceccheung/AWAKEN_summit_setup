@@ -1,0 +1,39 @@
+title:           Thunder Ranch # Optional, some descriptive stuff
+skiprows:        0           # Optional, how many rows to skip at the start of each file
+timeoffset:      17000       # Optional, the amount of time to add since the start of the simulation
+avgover:         # Optional, only average over this amount of data
+
+turbinegroups:
+  allturbines: # This group must be here
+    globpattern: "NREL*.out"   # optional, quick way to load all files in dir
+    filelist:                                                  # this must be here if globpattern not present
+  frontrow:
+    filelist:  
+    - NREL-2p5-116.T10.out
+    - NREL-2p5-116.T11.out
+    - NREL-2p5-116.T12.out
+    - NREL-2p5-116.T13.out
+    - NREL-2p5-116.T14.out
+    - NREL-2p5-116.T15.out
+    - NREL-2p5-116.T16.out
+    - NREL-2p5-116.T17.out
+    - NREL-2p5-116.T18.out
+    - NREL-2p5-116.T19.out
+    - NREL-2p5-116.T1.out
+    - NREL-2p5-116.T20.out
+    - NREL-2p5-116.T21.out
+    - NREL-2p5-116.T22.out
+    - NREL-2p5-116.T23.out
+    - NREL-2p5-116.T24.out
+    - NREL-2p5-116.T25.out
+    - NREL-2p5-116.T26.out
+    - NREL-2p5-116.T27.out
+    - NREL-2p5-116.T28.out
+    - NREL-2p5-116.T2.out
+    - NREL-2p5-116.T3.out
+    - NREL-2p5-116.T4.out
+    - NREL-2p5-116.T5.out
+    - NREL-2p5-116.T6.out
+    - NREL-2p5-116.T7.out
+    - NREL-2p5-116.T8.out
+    - NREL-2p5-116.T9.out
