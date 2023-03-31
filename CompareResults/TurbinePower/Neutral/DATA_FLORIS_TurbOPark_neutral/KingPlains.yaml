@@ -1,0 +1,101 @@
+title: King Plains TurbOPark
+skiprows: 0
+turbinegroups:
+  allturbines:
+    globpattern: KP*/*.out
+  frontrow:
+    filelist:
+    - KP.T59/T59.out
+    - KP.T60/T60.out
+    - KP.T61/T61.out
+    - KP.T62/T62.out
+    - KP.T63/T63.out
+    - KP.T64/T64.out
+    - KP.T65/T65.out
+    - KP.T66/T66.out
+    - KP.T67/T67.out
+    - KP.T68/T68.out
+    - KP.T69/T69.out
+    - KP.T70/T70.out
+    - KP.T71/T71.out
+    - KP.T72/T72.out
+    - KP.T73/T73.out
+    - KP.T74/T74.out
+    - KP.T79/T79.out
+    - KP.T80/T80.out
+    - KP.T81/T81.out
+    - KP.T82/T82.out
+    - KP.T83/T83.out
+  midrow:
+    filelist:
+    - KP.T0/T0.out
+    - KP.T1/T1.out
+    - KP.T2/T2.out
+    - KP.T5/T5.out
+    - KP.T6/T6.out
+    - KP.T7/T7.out
+    - KP.T8/T8.out
+    - KP.T9/T9.out
+    - KP.T10/T10.out
+    - KP.T11/T11.out
+    - KP.T13/T13.out
+    - KP.T18/T18.out
+    - KP.T19/T19.out
+    - KP.T20/T20.out
+    - KP.T32/T32.out
+    - KP.T33/T33.out
+    - KP.T34/T34.out
+    - KP.T44/T44.out
+    - KP.T45/T45.out
+    - KP.T46/T46.out
+    - KP.T47/T47.out
+    - KP.T48/T48.out
+    - KP.T49/T49.out
+    - KP.T50/T50.out
+    - KP.T51/T51.out
+    - KP.T52/T52.out
+    - KP.T53/T53.out
+    - KP.T54/T54.out
+    - KP.T55/T55.out
+    - KP.T56/T56.out
+    - KP.T57/T57.out
+    - KP.T58/T58.out
+    - KP.T75/T75.out
+    - KP.T76/T76.out
+    - KP.T77/T77.out
+    - KP.T78/T78.out
+  backrow:
+    filelist:
+    - KP.T12/T12.out
+    - KP.T14/T14.out
+    - KP.T15/T15.out
+    - KP.T16/T16.out
+    - KP.T17/T17.out
+    - KP.T21/T21.out
+    - KP.T22/T22.out
+    - KP.T23/T23.out
+    - KP.T24/T24.out
+    - KP.T25/T25.out
+    - KP.T26/T26.out
+    - KP.T27/T27.out
+    - KP.T28/T28.out
+    - KP.T29/T29.out
+    - KP.T30/T30.out
+    - KP.T31/T31.out
+    - KP.T35/T35.out
+    - KP.T36/T36.out
+    - KP.T37/T37.out
+    - KP.T38/T38.out
+    - KP.T39/T39.out
+    - KP.T40/T40.out
+    - KP.T41/T41.out
+    - KP.T42/T42.out
+    - KP.T43/T43.out
+  AFwaked:
+    filelist:
+    - KP.T3/T3.out
+    - KP.T4/T4.out
+    - KP.T84/T84.out
+    - KP.T85/T85.out
+    - KP.T86/T86.out
+    - KP.T87/T87.out

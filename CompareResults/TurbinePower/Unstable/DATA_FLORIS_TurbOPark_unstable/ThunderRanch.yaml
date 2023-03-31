@@ -1,0 +1,133 @@
+title: Thunder Ranch TurbOPark
+skiprows: 0
+turbinegroups:
+  allturbines:
+    globpattern: TR*/*.out
+  frontrow:
+    filelist:
+    - TR.T0/T0.out
+    - TR.T2/T2.out
+    - TR.T3/T3.out
+    - TR.T6/T6.out
+    - TR.T9/T9.out
+    - TR.T10/T10.out
+    - TR.T21/T21.out
+    - TR.T30/T30.out
+    - TR.T35/T35.out
+    - TR.T36/T36.out
+    - TR.T37/T37.out
+    - TR.T38/T38.out
+    - TR.T39/T39.out
+    - TR.T40/T40.out
+    - TR.T41/T41.out
+    - TR.T43/T43.out
+    - TR.T44/T44.out
+    - TR.T45/T45.out
+    - TR.T93/T93.out
+    - TR.T94/T94.out
+    - TR.T96/T96.out
+    - TR.T97/T97.out
+    - TR.T98/T98.out
+    - TR.T99/T99.out
+    - TR.T102/T102.out
+    - TR.T103/T103.out
+    - TR.T104/T104.out
+    - TR.T106/T106.out
+    - TR.T107/T107.out
+    - TR.T108/T108.out
+    - TR.T109/T109.out
+    - TR.T110/T110.out
+    - TR.T111/T111.out
+    - TR.T113/T113.out
+    - TR.T114/T114.out
+    - TR.T115/T115.out
+    - TR.T116/T116.out
+    - TR.T117/T117.out
+    - TR.T119/T119.out
+  midrow:
+    filelist:
+    - TR.T1/T1.out
+    - TR.T4/T4.out
+    - TR.T5/T5.out
+    - TR.T11/T11.out
+    - TR.T12/T12.out
+    - TR.T13/T13.out
+    - TR.T14/T14.out
+    - TR.T15/T15.out
+    - TR.T16/T16.out
+    - TR.T22/T22.out
+    - TR.T23/T23.out
+    - TR.T24/T24.out
+    - TR.T25/T25.out
+    - TR.T26/T26.out
+    - TR.T27/T27.out
+    - TR.T28/T28.out
+    - TR.T29/T29.out
+    - TR.T31/T31.out
+    - TR.T32/T32.out
+    - TR.T33/T33.out
+    - TR.T34/T34.out
+    - TR.T42/T42.out
+    - TR.T46/T46.out
+    - TR.T47/T47.out
+    - TR.T48/T48.out
+    - TR.T49/T49.out
+    - TR.T53/T53.out
+    - TR.T54/T54.out
+    - TR.T55/T55.out
+    - TR.T56/T56.out
+    - TR.T57/T57.out
+    - TR.T58/T58.out
+    - TR.T63/T63.out
+    - TR.T64/T64.out
+    - TR.T65/T65.out
+    - TR.T66/T66.out
+    - TR.T67/T67.out
+    - TR.T75/T75.out
+    - TR.T87/T87.out
+    - TR.T95/T95.out
+    - TR.T100/T100.out
+    - TR.T101/T101.out
+    - TR.T105/T105.out
+    - TR.T112/T112.out
+    - TR.T118/T118.out
+  backrow:
+    filelist:
+    - TR.T7/T7.out
+    - TR.T8/T8.out
+    - TR.T17/T17.out
+    - TR.T18/T18.out
+    - TR.T19/T19.out
+    - TR.T20/T20.out
+    - TR.T59/T59.out
+    - TR.T60/T60.out
+    - TR.T61/T61.out
+    - TR.T62/T62.out
+    - TR.T68/T68.out
+    - TR.T69/T69.out
+    - TR.T70/T70.out
+    - TR.T71/T71.out
+    - TR.T72/T72.out
+  extwaked:
+    filelist:
+    - TR.T50/T50.out
+    - TR.T51/T51.out
+    - TR.T52/T52.out
+    - TR.T73/T73.out
+    - TR.T74/T74.out
+    - TR.T76/T76.out
+    - TR.T77/T77.out
+    - TR.T78/T78.out
+    - TR.T79/T79.out
+    - TR.T80/T80.out
+    - TR.T81/T81.out
+    - TR.T82/T82.out
+    - TR.T83/T83.out
+    - TR.T84/T84.out
+    - TR.T85/T85.out
+    - TR.T86/T86.out
+    - TR.T88/T88.out
+    - TR.T89/T89.out
+    - TR.T90/T90.out
+    - TR.T91/T91.out
+    - TR.T92/T92.out

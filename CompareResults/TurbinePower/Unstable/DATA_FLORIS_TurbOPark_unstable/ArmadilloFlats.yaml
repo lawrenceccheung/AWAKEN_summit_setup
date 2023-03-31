@@ -1,0 +1,122 @@
+title: Armadillo Flats TurbOPark
+skiprows: 0
+turbinegroups:
+  allturbines:
+    globpattern: AF*/*.out
+  frontrow:
+    filelist:
+    - AF.T3/T3.out
+    - AF.T7/T7.out
+    - AF.T10/T10.out
+    - AF.T11/T11.out
+    - AF.T21/T21.out
+    - AF.T22/T22.out
+    - AF.T23/T23.out
+    - AF.T24/T24.out
+    - AF.T34/T34.out
+    - AF.T37/T37.out
+    - AF.T40/T40.out
+    - AF.T43/T43.out
+    - AF.T44/T44.out
+    - AF.T56/T56.out
+    - AF.T59/T59.out
+    - AF.T62/T62.out
+    - AF.T73/T73.out
+    - AF.T81/T81.out
+    - AF.T84/T84.out
+    - AF.T97/T97.out
+    - AF.T105/T105.out
+  midrow:
+    filelist:
+    - AF.T0/T0.out
+    - AF.T4/T4.out
+    - AF.T5/T5.out
+    - AF.T6/T6.out
+    - AF.T12/T12.out
+    - AF.T13/T13.out
+    - AF.T15/T15.out
+    - AF.T16/T16.out
+    - AF.T18/T18.out
+    - AF.T19/T19.out
+    - AF.T20/T20.out
+    - AF.T26/T26.out
+    - AF.T27/T27.out
+    - AF.T28/T28.out
+    - AF.T30/T30.out
+    - AF.T31/T31.out
+    - AF.T42/T42.out
+    - AF.T46/T46.out
+    - AF.T47/T47.out
+    - AF.T48/T48.out
+    - AF.T49/T49.out
+    - AF.T51/T51.out
+    - AF.T53/T53.out
+    - AF.T54/T54.out
+    - AF.T58/T58.out
+    - AF.T60/T60.out
+    - AF.T61/T61.out
+    - AF.T63/T63.out
+    - AF.T64/T64.out
+    - AF.T65/T65.out
+    - AF.T66/T66.out
+    - AF.T68/T68.out
+    - AF.T69/T69.out
+    - AF.T70/T70.out
+    - AF.T71/T71.out
+    - AF.T74/T74.out
+    - AF.T75/T75.out
+    - AF.T76/T76.out
+    - AF.T77/T77.out
+    - AF.T78/T78.out
+    - AF.T80/T80.out
+    - AF.T82/T82.out
+    - AF.T83/T83.out
+    - AF.T90/T90.out
+    - AF.T91/T91.out
+    - AF.T95/T95.out
+    - AF.T96/T96.out
+    - AF.T100/T100.out
+    - AF.T106/T106.out
+    - AF.T107/T107.out
+  backrow:
+    filelist:
+    - AF.T1/T1.out
+    - AF.T2/T2.out
+    - AF.T8/T8.out
+    - AF.T9/T9.out
+    - AF.T14/T14.out
+    - AF.T17/T17.out
+    - AF.T25/T25.out
+    - AF.T29/T29.out
+    - AF.T32/T32.out
+    - AF.T33/T33.out
+    - AF.T35/T35.out
+    - AF.T36/T36.out
+    - AF.T38/T38.out
+    - AF.T39/T39.out
+    - AF.T41/T41.out
+    - AF.T45/T45.out
+    - AF.T50/T50.out
+    - AF.T52/T52.out
+    - AF.T55/T55.out
+    - AF.T57/T57.out
+    - AF.T67/T67.out
+    - AF.T72/T72.out
+    - AF.T79/T79.out
+    - AF.T85/T85.out
+    - AF.T86/T86.out
+    - AF.T87/T87.out
+    - AF.T88/T88.out
+    - AF.T89/T89.out
+    - AF.T92/T92.out
+    - AF.T93/T93.out
+    - AF.T94/T94.out
+    - AF.T98/T98.out
+    - AF.T99/T99.out
+    - AF.T101/T101.out
+    - AF.T102/T102.out
+    - AF.T103/T103.out
+    - AF.T104/T104.out
+    - AF.T108/T108.out
+  extwaked:
+    filelist: []

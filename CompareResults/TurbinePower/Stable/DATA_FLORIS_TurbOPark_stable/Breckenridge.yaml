@@ -1,0 +1,71 @@
+title: Breckenridge TurbOPark
+skiprows: 0
+turbinegroups:
+  allturbines:
+    globpattern: BR*/*.out
+  frontrow:
+    filelist:
+    - BR.T3/T3.out
+    - BR.T17/T17.out
+    - BR.T18/T18.out
+    - BR.T19/T19.out
+    - BR.T24/T24.out
+    - BR.T26/T26.out
+    - BR.T34/T34.out
+    - BR.T38/T38.out
+    - BR.T41/T41.out
+    - BR.T44/T44.out
+    - BR.T53/T53.out
+    - BR.T56/T56.out
+  midrow:
+    filelist:
+    - BR.T0/T0.out
+    - BR.T1/T1.out
+    - BR.T5/T5.out
+    - BR.T9/T9.out
+    - BR.T10/T10.out
+    - BR.T12/T12.out
+    - BR.T13/T13.out
+    - BR.T14/T14.out
+    - BR.T20/T20.out
+    - BR.T21/T21.out
+    - BR.T22/T22.out
+    - BR.T23/T23.out
+    - BR.T31/T31.out
+    - BR.T32/T32.out
+    - BR.T36/T36.out
+    - BR.T37/T37.out
+    - BR.T39/T39.out
+    - BR.T42/T42.out
+    - BR.T43/T43.out
+    - BR.T46/T46.out
+    - BR.T49/T49.out
+    - BR.T50/T50.out
+    - BR.T54/T54.out
+    - BR.T55/T55.out
+  backrow:
+    filelist:
+    - BR.T2/T2.out
+    - BR.T4/T4.out
+    - BR.T8/T8.out
+    - BR.T15/T15.out
+    - BR.T16/T16.out
+    - BR.T27/T27.out
+    - BR.T28/T28.out
+    - BR.T29/T29.out
+    - BR.T33/T33.out
+    - BR.T35/T35.out
+    - BR.T45/T45.out
+    - BR.T47/T47.out
+    - BR.T48/T48.out
+    - BR.T51/T51.out
+    - BR.T52/T52.out
+  extwaked:
+    filelist:
+    - BR.T6/T6.out
+    - BR.T7/T7.out
+    - BR.T11/T11.out
+    - BR.T25/T25.out
+    - BR.T27/T27.out
+    - BR.T30/T30.out
+    - BR.T40/T40.out
