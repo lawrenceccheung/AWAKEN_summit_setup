@@ -1,0 +1,2 @@
+#height[m], Uprec[m/s], Uturb[m/s], diff[m/s], plane_dist[D]
+ 
