@@ -9,10 +9,10 @@ AllDomain:
       url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_Summit_unstable_bananas1_farm_z90_wturb_inst_900.pkl
   mean:
     turbinerun:
-      filename: DATA_Summit_unstable_bananas1_farm_z90_wturb_mean_900.pkl
+      filename: DATA_Summit_unstable_bananas1_farm_z90_wturb_mean_300_960.pkl
       url: 
     precursorrun:
-      filename: DATA_Summit_unstable_bananas1_farm_z90_noturb_mean_900.pkl
+      filename: DATA_Summit_unstable_bananas1_farm_z90_noturb_mean_300_960.pkl
       url: 
   std:
     turbinerun:
@@ -33,11 +33,11 @@ KingPlains:
       url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_Summit_unstable_bananas1_KP_z90_noturb_inst_900.pkl
   mean:
     turbinerun:
-      filename: DATA_Summit_unstable_bananas1_KP_z90_wturb_mean_900.pkl
-      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_Summit_unstable_bananas1_KP_z90_wturb_mean_900.pkl
+      filename: DATA_Summit_unstable_bananas1_KP_z90_wturb_mean_300_960.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_Summit_unstable_bananas1_KP_z90_wturb_mean_300_960.pkl
     precursorrun:
-      filename: DATA_Summit_unstable_bananas1_KP_z90_noturb_mean_900.pkl
-      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_Summit_unstable_bananas1_KP_z90_noturb_mean_900.pkl
+      filename: DATA_Summit_unstable_bananas1_KP_z90_noturb_mean_300_960.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_Summit_unstable_bananas1_KP_z90_noturb_mean_300_960.pkl
   std:
     turbinerun:
       filename: DATA_Summit_unstable_bananas1_KP_z90_wturb_std_900.pkl
@@ -57,10 +57,10 @@ ThunderRanch:
       url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_Summit_unstable_bananas1_TR_z90_noturb_inst_900.pkl
   mean:
     turbinerun:
-      filename: DATA_Summit_unstable_bananas1_TR_z90_wturb_mean_900.pkl
+      filename: DATA_Summit_unstable_bananas1_TR_z90_wturb_mean_300_960.pkl
       url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_Summit_unstable_bananas1_TR_z90_wturb_mean_900.pkl
     precursorrun:
-      filename: DATA_Summit_unstable_bananas1_TR_z90_noturb_mean_900.pkl
+      filename: DATA_Summit_unstable_bananas1_TR_z90_noturb_mean_300_960.pkl
       url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_Summit_unstable_bananas1_TR_z90_noturb_mean_900.pkl
   std:
     turbinerun:
