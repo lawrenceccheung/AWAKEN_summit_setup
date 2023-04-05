@@ -1,5 +1,7 @@
 # Hub height plane comparisons
 
+The following document describes the file format and process for creating the hub-height planes for comparison.
+
 ## Writing out the pickle file
 So as long as you can get your hub-height plane loaded into python and you can do this 
 ```python
