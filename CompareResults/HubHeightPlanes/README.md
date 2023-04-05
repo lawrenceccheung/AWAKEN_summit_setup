@@ -69,4 +69,4 @@ KingPlains:
       filename: DATA_Summit_unstable_bananas1_KP_z90_noturb_std_900.pkl
       url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_Summit_unstable_bananas1_KP_z90_noturb_std_900.pkl
 ```
-If your pickle files were sufficiently small to be committed to the repo itself, then the `url` field can be left blank.
+If your pickle files were sufficiently small to be committed to the repo itself, then the `url` field can be left blank.  In the actual plotting notebook, it will look for the specified file, and if can’t find it, it will proceed to download it from the appropriate location.
