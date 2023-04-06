@@ -1,0 +1,22 @@
+KingPlains:
+  instantaneous:
+    turbinerun:
+      filename: DATA_SNL_Stable_naluwind_KP_z89_wturb_inst.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_SNL_Stable_naluwind_KP_z89_wturb_inst.pkl
+    precursorrun:
+      filename: DATA_SNL_Stable_naluwind_KP_z89_noturb_inst.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_SNL_Stable_naluwind_KP_z89_noturb_inst.pkl
+  mean:
+    turbinerun:
+      filename: DATA_SNL_Stable_naluwind_KP_z89_wturb_mean.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_SNL_Stable_naluwind_KP_z89_wturb_mean.pkl
+    precursorrun:
+      filename: DATA_SNL_Stable_naluwind_KP_z89_noturb_mean.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/DATA_SNL_Stable_naluwind_KP_z89_noturb_mean.pkl
+  std:
+    turbinerun:
+      filename: 
+      url: 
+    precursorrun:
+      filename: 
+      url: 
