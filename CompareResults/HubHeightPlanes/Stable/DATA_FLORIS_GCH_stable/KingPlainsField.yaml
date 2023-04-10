@@ -1,0 +1,7 @@
+KingPlains:
+  instantaneous:
+    turbinerun:
+      filename: FLORIS_GCH_stable.p
+  mean:
+    turbinerun:
+      filename: FLORIS_GCH_stable.p
