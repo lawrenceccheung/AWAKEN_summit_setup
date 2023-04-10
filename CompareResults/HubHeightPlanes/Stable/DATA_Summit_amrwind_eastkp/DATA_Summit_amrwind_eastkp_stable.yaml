@@ -1,23 +1,23 @@
 KingPlains:
   instantaneous:
     turbinerun:
-      filename: unst_ekp_amr_inst_xy_wturb.pk
-      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/unst_ekp_amr_inst_xy_wturb.pk
+      filename: st_ekp_amr_inst_xy_wturb.pk
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/st_ekp_amr_inst_xy_wturb.pk
     precursorrun:
-      filename: unst_ekp_amr_inst_xy_noturb.pk
-      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/unst_ekp_amr_inst_xy_noturb.pk
+      filename: st_ekp_amr_inst_xy_noturb.pk
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/st_ekp_amr_inst_xy_noturb.pk
   mean:
     turbinerun:
-      filename: unst_ekp_amr_avg_xy_wturb.pk
-      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/unst_ekp_amr_avg_xy_wturb.pk
+      filename: st_ekp_amr_avg_xy_wturb.pk
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/st_ekp_amr_avg_xy_wturb.pk
     precursorrun:
-      filename: unst_ekp_amr_avg_xy_noturb.pk
-      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/unst_ekp_amr_avg_xy_noturb.pk
+      filename: st_ekp_amr_avg_xy_noturb.pk
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/st_ekp_amr_avg_xy_noturb.pk
   std:
     turbinerun:
-      filename: unst_ekp_amr_std_xy_wturb.pk
-      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/unst_ekp_amr_std_xy_wturb.pk
+      filename: st_ekp_amr_std_xy_wturb.pk
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/st_ekp_amr_std_xy_wturb.pk
     precursorrun:
-      filename: unst_ekp_amr_std_xy_noturb.pk
-      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/unst_ekp_amr_std_xy_noturb.pk
+      filename: st_ekp_amr_std_xy_noturb.pk
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/st_ekp_amr_std_xy_noturb.pk
 
