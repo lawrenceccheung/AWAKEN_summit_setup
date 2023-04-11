@@ -169,3 +169,49 @@ precursorrun:
   centerline: T39/KP_T39_CL_noturb.dat
 - name: T40
   centerline: T40/KP_T40_CL_noturb.dat
+catagories:
+  frontrow:
+  - T03
+  - T05
+  - T09
+  - T15
+  - T16
+  - T18
+  - T19
+  - T21
+  - T31
+  - T34
+  - T35
+  - T40
+  midrow:
+  - T38
+  - T00
+  - T06
+  - T08
+  - T10
+  - T12
+  - T13
+  - T14
+  - T17
+  - T20
+  - T24
+  - T25
+  - T26
+  - T27
+  - T28
+  - T29
+  - T31
+  - T36
+  - T37
+  - T39
+  backrow:
+  - T01
+  - T02
+  - T04
+  - T07
+  - T11
+  - T22
+  - T23
+  - T32
+  - T33
+  - T38
