@@ -24,7 +24,6 @@ turbinegroups:
 
   midrow:
     filelist:
-    - OpenFAST_038/NREL-2p8-127.T37.out
     - OpenFAST_000/NREL-2p8-127.T1.out
     - OpenFAST_006/NREL-2p8-127.T7.out
     - OpenFAST_008/NREL-2p8-127.T9.out
