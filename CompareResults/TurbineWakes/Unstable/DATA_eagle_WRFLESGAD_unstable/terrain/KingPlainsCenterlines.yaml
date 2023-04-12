@@ -206,3 +206,57 @@ precursorrun:
   centerline: NREL-2p8-127.wt48_noturb.dat
 - name: NREL-2p8-127.wt49
   centerline: NREL-2p8-127.wt49_noturb.dat
+categories:
+  frontrow:
+  - NREL-2p8-127.wt4
+  - NREL-2p8-127.wt6
+  - NREL-2p8-127.wt8
+  - NREL-2p8-127.wt11
+  - NREL-2p8-127.wt17
+  - NREL-2p8-127.wt19
+  - NREL-2p8-127.wt21
+  - NREL-2p8-127.wt22
+  - NREL-2p8-127.wt24
+  - NREL-2p8-127.wt28
+  - NREL-2p8-127.wt38
+  - NREL-2p8-127.wt44
+  - NREL-2p8-127.wt45
+  - NREL-2p8-127.wt50
+  midrow:
+  - NREL-2p8-127.wt1
+  - NREL-2p8-127.wt7
+  - NREL-2p8-127.wt10
+  - NREL-2p8-127.wt12
+  - NREL-2p8-127.wt14
+  - NREL-2p8-127.wt15
+  - NREL-2p8-127.wt16
+  - NREL-2p8-127.wt18
+  - NREL-2p8-127.wt20
+  - NREL-2p8-127.wt23
+  - NREL-2p8-127.wt26
+  - NREL-2p8-127.wt31
+  - NREL-2p8-127.wt32
+  - NREL-2p8-127.wt33
+  - NREL-2p8-127.wt34
+  - NREL-2p8-127.wt35
+  - NREL-2p8-127.wt36
+  - NREL-2p8-127.wt37
+  - NREL-2p8-127.wt39
+  - NREL-2p8-127.wt46
+  - NREL-2p8-127.wt47
+  - NREL-2p8-127.wt49
+  backrow:
+  - NREL-2p8-127.wt2
+  - NREL-2p8-127.wt3
+  - NREL-2p8-127.wt5
+  - NREL-2p8-127.wt9
+  - NREL-2p8-127.wt13
+  - NREL-2p8-127.wt25
+  - NREL-2p8-127.wt27
+  - NREL-2p8-127.wt29
+  - NREL-2p8-127.wt30
+  - NREL-2p8-127.wt40
+  - NREL-2p8-127.wt41
+  - NREL-2p8-127.wt42
+  - NREL-2p8-127.wt43
+  - NREL-2p8-127.wt48
