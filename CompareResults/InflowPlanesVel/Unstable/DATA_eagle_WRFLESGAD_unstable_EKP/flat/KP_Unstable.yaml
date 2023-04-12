@@ -1,0 +1,22 @@
+
+turbinerun:
+- distance: 0  
+  filename: EKP_unstable_inflowPlanes_0D_case1_WRFLESGAD.txt
+- distance: 20  
+  filename: EKP_unstable_inflowPlanes_20D_case1_WRFLESGAD.txt
+- distance: 30  
+  filename: EKP_unstable_inflowPlanes_30D_case1_WRFLESGAD.txt
+- distance: 50  
+  filename: EKP_unstable_inflowPlanes_50D_case1_WRFLESGAD.txt
+
+precursorrun:
+- distance: 0
+  filename: EKP_unstable_inflowPlanes_0D_case2_WRFLESGAD.txt
+- distance: 20
+  filename: EKP_unstable_inflowPlanes_20D_case2_WRFLESGAD.txt
+- distance: 30
+  filename: EKP_unstable_inflowPlanes_30D_case2_WRFLESGAD.txt
+- distance: 50
+  filename: EKP_unstable_inflowPlanes_50D_case2_WRFLESGAD.txt
+
+
