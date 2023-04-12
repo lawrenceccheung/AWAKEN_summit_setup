@@ -169,7 +169,7 @@ precursorrun:
   centerline: T39/KP_T39_CL_noturb.dat
 - name: T40
   centerline: T40/KP_T40_CL_noturb.dat
-catagories:
+categories:
   frontrow:
   - T03
   - T05
