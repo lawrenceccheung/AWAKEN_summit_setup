@@ -1,0 +1,23 @@
+KingPlains:
+  instantaneous:
+    turbinerun:
+      filename: case1_map_d02_2000-01-01_04.00.00.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/case1_map_d02_2000-01-01_04.00.00.pkl
+    precursorrun:
+      filename: case2_map_d02_2000-01-01_04.00.00.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/case2_map_d02_2000-01-01_04.00.00.pkl
+  mean:
+    turbinerun:
+      filename: case1_map_avg_d02_2000-01-01_04.00.00.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/case1_map_avg_d02_2000-01-01_04.00.00.pkl
+    precursorrun:
+      filename: case2_map_avg_d02_2000-01-01_04.00.00.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/case2_map_avg_d02_2000-01-01_04.00.00.pkl
+  std:
+    turbinerun:
+      filename: case1_map_std_d02_2000-01-01_04.00.00.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/case1_map_std_d02_2000-01-01_04.00.00.pkl
+    precursorrun:
+      filename: case2_map_std_d02_2000-01-01_04.00.00.pkl
+      url: https://github.com/lawrenceccheung/AWAKEN_summit_setup/releases/download/v0.0.0-temp1/case2_map_std_d02_2000-01-01_04.00.00.pkl
+
