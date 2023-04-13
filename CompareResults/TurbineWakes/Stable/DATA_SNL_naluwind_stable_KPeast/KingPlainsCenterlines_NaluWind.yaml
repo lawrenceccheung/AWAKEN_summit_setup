@@ -129,3 +129,37 @@ precursorrun:
   centerline: T29/KP_T29_CL_noturb.dat
 - name: T30
   centerline: T30/KP_T30_CL_noturb.dat
+categories:
+  frontrow:
+  - T01
+  - T02
+  - T05
+  - T10
+  - T11
+  - T13
+  - T14
+  - T16
+  - T23
+  - T25
+  - T26
+  - T30
+  midrow:
+  - T00
+  - T03
+  - T04
+  - T06
+  - T07
+  - T08
+  - T09
+  - T12
+  - T15
+  - T17
+  - T18
+  - T19
+  - T20
+  - T21
+  - T22
+  - T24
+  - T27
+  - T28
+  - T29
