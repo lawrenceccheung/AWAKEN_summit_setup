@@ -17,7 +17,7 @@ turbinegroups:
     - OpenFAST_018/NREL-2p8-127.T19.out
     - OpenFAST_019/NREL-2p8-127.T20.out
     - OpenFAST_021/NREL-2p8-127.T22.out
-    - OpenFAST_031/NREL-2p8-127.T31.out
+    - OpenFAST_031/NREL-2p8-127.T32.out
     - OpenFAST_034/NREL-2p8-127.T35.out
     - OpenFAST_035/NREL-2p8-127.T36.out
     - OpenFAST_040/NREL-2p8-127.T41.out

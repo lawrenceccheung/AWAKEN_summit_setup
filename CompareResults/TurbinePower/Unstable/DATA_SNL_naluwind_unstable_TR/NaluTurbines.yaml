@@ -1,5 +1,5 @@
 title:           Thunder Ranch # Optional, some descriptive stuff
-skiprows:        0           # Optional, how many rows to skip at the start of each file
+skiprows:        1           # Optional, how many rows to skip at the start of each file
 timeoffset:      17000       # Optional, the amount of time to add since the start of the simulation
 avgover:         # Optional, only average over this amount of data
 

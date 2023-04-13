@@ -1,5 +1,5 @@
 title:           King Plains # Optional, some descriptive stuff
-skiprows:        0           # Optional, how many rows to skip at the start of each file
+skiprows:        1           # Optional, how many rows to skip at the start of each file
 #timeoffset:      16125       # Optional, the amount of time to add since the start of the simulation
 avgover:         [300, 1000] # Optional, only average over this amount of data
 
@@ -20,7 +20,7 @@ turbinegroups:
     - OpenFAST_023/NREL-2p8-127.T24.out
     - OpenFAST_025/NREL-2p8-127.T26.out
     - OpenFAST_026/NREL-2p8-127.T27.out
-    - OpenFAST_031/NREL-2p8-127.T31.out
+#    - OpenFAST_031/NREL-2p8-127.T32.out
 
 
   midrow:
