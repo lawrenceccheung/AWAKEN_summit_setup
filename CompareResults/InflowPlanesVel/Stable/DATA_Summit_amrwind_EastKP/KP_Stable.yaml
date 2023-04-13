@@ -1,0 +1,24 @@
+
+turbinerun:
+- distance: -30.18
+  filename: KP_stable_turbine_InflowPlane_-30.18D.dat
+- distance: 3.29
+  filename: KP_stable_turbine_InflowPlane_3.29D.dat
+- distance: 36.75
+  filename: KP_stable_turbine_InflowPlane_36.75D.dat
+- distance: 70.22
+  filename: KP_stable_turbine_InflowPlane_70.22D.dat
+- distance: 103.68
+  filename: KP_stable_turbine_InflowPlane_103.68D.dat
+
+precursorrun:
+- distance: -30.18
+  filename: KP_stable_precursor_InflowPlane_-30.18D.dat
+- distance: 3.29
+  filename: KP_stable_precursor_InflowPlane_3.29D.dat
+- distance: 36.75
+  filename: KP_stable_precursor_InflowPlane_36.75D.dat
+- distance: 70.22
+  filename: KP_stable_precursor_InflowPlane_70.22D.dat
+- distance: 103.68
+  filename: KP_stable_precursor_InflowPlane_103.68D.dat
