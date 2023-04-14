@@ -1,26 +1,26 @@
 
 turbinerun:
-- distance: -20
+- distance: -12.08
   filename: KP_Stable_Turbine_InflowPlane-20D_Nalu.txt
-- distance: -32  
+- distance: -24.08  
   filename: KP_Stable_Turbine_InflowPlane-32D_Nalu.txt
-- distance: 0  
+- distance: 7.92
   filename: KP_Stable_Turbine_InflowPlane0D_Nalu.txt
-- distance: 20  
+- distance: 27.92
   filename: KP_Stable_Turbine_InflowPlane20D_Nalu.txt
-- distance: 30  
+- distance: 37.92
   filename: KP_Stable_Turbine_InflowPlane30D_Nalu.txt
 
 precursorrun:
-- distance: -20
+- distance: -12.08
   filename: KP_Stable_NoTurbine_InflowPlane-20D_Nalu.txt
-- distance: -32
+- distance: -24.08
   filename: KP_Stable_NoTurbine_InflowPlane-32D_Nalu.txt
-- distance: 0
+- distance: 7.92
   filename: KP_Stable_NoTurbine_InflowPlane0D_Nalu.txt
-- distance: 20
+- distance: 27.92
   filename: KP_Stable_NoTurbine_InflowPlane20D_Nalu.txt
-- distance: 30
+- distance: 37.92
   filename: KP_Stable_NoTurbine_InflowPlane30D_Nalu.txt
 
 
