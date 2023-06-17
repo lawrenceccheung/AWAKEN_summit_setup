@@ -1,7 +1,7 @@
 # --- Simulation time control parameters ---
 time.stop_time                           = 30000.0             # Max (simulated) time to evolve [s]
 time.max_step                            = -1                  
-time.cfl                                 = 0.5                 # Limit timesteps to maximum CFL
+time.fixed_dt                            = 0.125               # Fixed timestep size (in seconds). If negative, then time.cfl is used
 time.checkpoint_interval                 = 8000                
 incflo.physics                           = ABL                 # List of physics models to include in simulation.
 incflo.verbose                           = 3                   
@@ -25,9 +25,9 @@ transport.laminar_prandtl                = 0.7                 # Laminar prandtl
 transport.turbulent_prandtl              = 0.3333              # Turbulent prandtl number
 
 # --- Geometry and Mesh ---
-geometry.prob_lo                         = 609500.0 4005500.0 0.0
-geometry.prob_hi                         = 651500.0 4040500.0 800.0
-amr.n_cell                               = 4200 3500 80        # Number of cells in x, y, and z directions
+geometry.prob_lo                         = 609380.0 4005240.0 0.0
+geometry.prob_hi                         = 651620.0 4040760.0 800.0
+amr.n_cell                               = 4224 3552 80        # Number of cells in x, y, and z directions
 amr.max_level                            = 2                   
 geometry.is_periodic                     = 1 1 0               
 zlo.type                                 = wall_model          
@@ -38,7 +38,7 @@ zhi.temperature_type                     = fixed_gradient
 zhi.temperature                          = 0.00125             
 
 # --- ABL parameters ---
-ICNS.source_terms                        = ABLForcing BoussinesqBuoyancy CoriolisForcing ABLMeanBoussinesq
+ICNS.source_terms                        = ABLForcing BoussinesqBuoyancy CoriolisForcing
 ABL.stats_output_frequency               = 1                   
 ABL.stats_output_format                  = netcdf              
 incflo.velocity                          = -0.8759152146139654 10.011756715822044 0.0
@@ -116,13 +116,13 @@ sampling.fields                          = velocity
 sampling.labels                          = p_hub               
 sampling.p_hub.type                      = PlaneSampler        
 sampling.p_hub.num_points                = 421 351             
-sampling.p_hub.origin                    = 609500.0 4005500.0 0.0
+sampling.p_hub.origin                    = 609380.0 4005240.0 0.0
 sampling.p_hub.axis1                     = 42000.0 0.0 0.0     
 sampling.p_hub.axis2                     = 0.0 35000.0 0.0     
 sampling.p_hub.normal                    = 0.0 0.0 1.0         
 sampling.p_hub.offsets                   = 60 91               
 
 #---- extra params ----
-amr.blocking_factor                      = 32                  
+amr.blocking_factor                      = 16                  
 amr.max_grid_size                        = 64                  
 #== END AMR-WIND INPUT ==
