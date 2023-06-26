@@ -1,0 +1,1567 @@
+turbines:
+  defaults:
+    turbfile: /hpc_projects/AWAKEN/turbines/NREL-2.8-127_Surface/nrel_2p8_127_nospinnac.stl
+    hubheight: 90.0
+    yaw: 175.0
+    azimuth: 12960.0
+  turbinelist:
+  - name: 2019-WTW-4713-KP
+    pos:
+    - 644600.601753
+    - 4027108.285963
+    azimuth: 12960.0
+  - name: 2019-WTW-4655-KP
+    pos:
+    - 642097.122368
+    - 4030694.510509
+    azimuth: 12960.0
+  - name: 2019-WTW-4651-KP
+    pos:
+    - 640524.009474
+    - 4030645.516444
+    azimuth: 12960.0
+  - name: 2019-WTW-4726-KP
+    pos:
+    - 647045.61963
+    - 4026325.291169
+    azimuth: 12960.0
+  - name: 2019-WTW-4671-KP
+    pos:
+    - 643717.500753
+    - 4029868.723641
+    azimuth: 12960.0
+  - name: 2019-WTW-4715-KP
+    pos:
+    - 641404.515835
+    - 4025585.036081
+    azimuth: 12960.0
+  - name: 2019-WTW-4691-KP
+    pos:
+    - 640525.539569
+    - 4027810.309735
+    azimuth: 12960.0
+  - name: 2019-WTW-7913-KP
+    pos:
+    - 638938.794021
+    - 4027387.685619
+    azimuth: 12960.0
+  - name: 2019-WTW-4657-KP
+    pos:
+    - 642927.453405
+    - 4030718.728327
+    azimuth: 12960.0
+  - name: 2019-WTW-4694-KP
+    pos:
+    - 641659.228636
+    - 4028640.259465
+    azimuth: 12960.0
+  - name: 2019-WTW-4718-KP
+    pos:
+    - 642621.397465
+    - 4025659.569623
+    azimuth: 12960.0
+  - name: 2019-WTW-4690-KP
+    pos:
+    - 640175.944241
+    - 4027374.995134
+    azimuth: 12960.0
+  - name: 2019-WTW-4656-KP
+    pos:
+    - 642480.91706
+    - 4030612.715718
+    azimuth: 12960.0
+  - name: 2019-WTW-4697-KP
+    pos:
+    - 642940.656099
+    - 4028713.362363
+    azimuth: 12960.0
+  - name: 2019-WTW-4698-KP
+    pos:
+    - 643348.753181
+    - 4028746.408167
+    azimuth: 12960.0
+  - name: 2019-WTW-4701-KP
+    pos:
+    - 644923.445904
+    - 4028068.654069
+    azimuth: 12960.0
+  - name: 2019-WTW-4723-KP
+    pos:
+    - 644814.999895
+    - 4025506.305084
+    azimuth: 12960.0
+  - name: 2019-WTW-4673-KP
+    pos:
+    - 638413.264818
+    - 4028657.223273
+    azimuth: 12960.0
+  - name: 2019-WTW-4716-KP
+    pos:
+    - 641814.750726
+    - 4025661.091204
+    azimuth: 12960.0
+  - name: 2019-WTW-4693-KP
+    pos:
+    - 641344.229254
+    - 4028146.648135
+    azimuth: 12960.0
+  - name: 2019-WTW-4725-KP
+    pos:
+    - 646632.028126
+    - 4026329.268115
+    azimuth: 12960.0
+  - name: 2019-WTW-7915-KP
+    pos:
+    - 643050.58826
+    - 4025581.533244
+    azimuth: 12960.0
+  - name: 2019-WTW-4674-KP
+    pos:
+    - 638814.19917
+    - 4028667.414756
+    azimuth: 12960.0
+  - name: 2019-WTW-4689-KP
+    pos:
+    - 639255.563856
+    - 4026972.002639
+    azimuth: 12960.0
+  - name: 2019-WTW-7921-KP
+    pos:
+    - 639314.463247
+    - 4030543.400608
+    azimuth: 12960.0
+  - name: 2019-WTW-4710-KP
+    pos:
+    - 643380.072473
+    - 4027477.818622
+    azimuth: 12960.0
+  - name: 2019-WTW-4648-KP
+    pos:
+    - 638913.48724
+    - 4030881.937825
+    azimuth: 12960.0
+  - name: 2019-WTW-4721-KP
+    pos:
+    - 643798.350971
+    - 4025700.544683
+    azimuth: 12960.0
+  - name: 2019-WTW-4652-KP
+    pos:
+    - 640910.306246
+    - 4030667.888581
+    azimuth: 12960.0
+  - name: 2019-WTW-4658-KP
+    pos:
+    - 643350.893237
+    - 4030724.0689
+    azimuth: 12960.0
+  - name: 2019-WTW-4692-KP
+    pos:
+    - 640933.981632
+    - 4028117.103278
+    azimuth: 12960.0
+  - name: 2019-WTW-4695-KP
+    pos:
+    - 642076.518358
+    - 4028698.362385
+    azimuth: 12960.0
+  - name: 2019-WTW-7914-KP
+    pos:
+    - 642457.921904
+    - 4027436.415416
+    azimuth: 12960.0
+  - name: 2019-WTW-4675-KP
+    pos:
+    - 639300.397636
+    - 4028608.312909
+    azimuth: 12960.0
+  - name: 2019-WTW-4702-KP
+    pos:
+    - 645358.125553
+    - 4028064.509708
+    azimuth: 12960.0
+  - name: 2019-WTW-4704-KP
+    pos:
+    - 646974.461559
+    - 4027853.432924
+    azimuth: 12960.0
+  - name: 2019-WTW-4712-KP
+    pos:
+    - 644188.833666
+    - 4027458.287371
+    azimuth: 12960.0
+  - name: 2019-WTW-7916-KP
+    pos:
+    - 643397.166173
+    - 4025740.058856
+    azimuth: 12960.0
+  - name: 2019-WTW-4711-KP
+    pos:
+    - 643783.390821
+    - 4027510.359202
+    azimuth: 12960.0
+  - name: 2019-WTW-7912-KP
+    pos:
+    - 638530.555187
+    - 4030610.819023
+    azimuth: 12960.0
+  - name: 2019-WTW-4654-KP
+    pos:
+    - 641724.24211
+    - 4030603.28502
+    azimuth: 12960.0
+  - name: 2019-WTW-4650-KP
+    pos:
+    - 639794.706255
+    - 4030635.811134
+    azimuth: 12960.0
+  - name: 2019-WTW-4653-KP
+    pos:
+    - 641314.488418
+    - 4030638.527849
+    azimuth: 12960.0
+  - name: 2019-WTW-4722-KP
+    pos:
+    - 644226.975274
+    - 4025657.288795
+    azimuth: 12960.0
+  - name: 2019-WTW-4717-KP
+    pos:
+    - 642230.912822
+    - 4025670.906861
+    azimuth: 12960.0
+  - name: 2019-WTW-4703-KP
+    pos:
+    - 645793.907141
+    - 4028042.983919
+    azimuth: 12960.0
+  - name: 2019-WTW-4709-KP
+    pos:
+    - 642965.369043
+    - 4027428.242381
+    azimuth: 12960.0
+  - name: 2019-WTW-4672-KP
+    pos:
+    - 644154.802531
+    - 4029911.505343
+    azimuth: 12960.0
+  - name: 2019-WTW-4696-KP
+    pos:
+    - 642514.984532
+    - 4028712.337357
+    azimuth: 12960.0
+  - name: 2019-WTW-4724-KP
+    pos:
+    - 646247.346919
+    - 4026321.879238
+    azimuth: 12960.0
+  - name: 2019-WTW-7910-KP
+    pos:
+    - 637401.036692
+    - 4031331.039918
+    azimuth: 12960.0
+  - name: 2019-WTW-4683-KP
+    pos:
+    - 636235.526112
+    - 4027734.995615
+    azimuth: 12960.0
+  - name: 2019-WTW-4737-KP
+    pos:
+    - 633734.559459
+    - 4030915.512953
+    azimuth: 12960.0
+  - name: 2019-WTW-4732-KP
+    pos:
+    - 632834.785566
+    - 4032606.990429
+    azimuth: 12960.0
+  - name: 2019-WTW-4668-KP
+    pos:
+    - 635372.783244
+    - 4029680.476047
+    azimuth: 12960.0
+  - name: 2019-WTW-4643-KP
+    pos:
+    - 636725.8754
+    - 4030884.817552
+    azimuth: 12960.0
+  - name: 2019-WTW-4663-KP
+    pos:
+    - 633391.63515
+    - 4029680.119585
+    azimuth: 12960.0
+  - name: 2019-WTW-7919-KP
+    pos:
+    - 630600.9744
+    - 4030811.276166
+    azimuth: 12960.0
+  - name: 2019-WTW-4730-KP
+    pos:
+    - 632100.730266
+    - 4032340.094514
+    azimuth: 12960.0
+  - name: 2019-WTW-7918-KP
+    pos:
+    - 630219.179279
+    - 4030853.788154
+    azimuth: 12960.0
+  - name: 2019-WTW-4736-KP
+    pos:
+    - 631381.80261
+    - 4030531.0548
+    azimuth: 12960.0
+  - name: 2019-WTW-4731-KP
+    pos:
+    - 632447.540894
+    - 4032611.258469
+    azimuth: 12960.0
+  - name: 2019-WTW-4677-KP
+    pos:
+    - 633862.671942
+    - 4027716.636723
+    azimuth: 12960.0
+  - name: 2019-WTW-4670-KP
+    pos:
+    - 636163.364816
+    - 4029716.068174
+    azimuth: 12960.0
+  - name: 2019-WTW-4642-KP
+    pos:
+    - 636203.833047
+    - 4030883.352077
+    azimuth: 12960.0
+  - name: 2019-WTW-4662-KP
+    pos:
+    - 632855.967343
+    - 4030071.445194
+    azimuth: 12960.0
+  - name: 2019-WTW-7920-KP
+    pos:
+    - 630971.891815
+    - 4030717.464337
+    azimuth: 12960.0
+  - name: 2019-WTW-4678-KP
+    pos:
+    - 634173.247999
+    - 4027950.019616
+    azimuth: 12960.0
+  - name: 2019-WTW-7911-KP
+    pos:
+    - 637771.124628
+    - 4031203.549323
+    azimuth: 12960.0
+  - name: 2019-WTW-4664-KP
+    pos:
+    - 633779.843054
+    - 4029622.198386
+    azimuth: 12960.0
+  - name: 2019-WTW-4679-KP
+    pos:
+    - 634558.867378
+    - 4028023.688247
+    azimuth: 12960.0
+  - name: 2019-WTW-4669-KP
+    pos:
+    - 635763.500759
+    - 4029681.047854
+    azimuth: 12960.0
+  - name: 2019-WTW-4687-KP
+    pos:
+    - 637579.297844
+    - 4027992.03113
+    azimuth: 12960.0
+  - name: 2019-WTW-4680-KP
+    pos:
+    - 635058.42212
+    - 4027677.168786
+    azimuth: 12960.0
+  - name: 2019-WTW-4666-KP
+    pos:
+    - 634591.13136
+    - 4029687.70395
+    azimuth: 12960.0
+  - name: 2019-WTW-4644-KP
+    pos:
+    - 637073.450334
+    - 4031057.869794
+    azimuth: 12960.0
+  - name: 2019-WTW-4682-KP
+    pos:
+    - 635847.60463
+    - 4027767.849445
+    azimuth: 12960.0
+  - name: 2019-WTW-7917-KP
+    pos:
+    - 630974.933834
+    - 4029657.192357
+    azimuth: 12960.0
+  - name: 2019-WTW-4676-KP
+    pos:
+    - 633470.804878
+    - 4027651.33658
+    azimuth: 12960.0
+  - name: 2019-WTW-4667-KP
+    pos:
+    - 634980.309855
+    - 4029700.533133
+    azimuth: 12960.0
+  - name: 2019-WTW-4681-KP
+    pos:
+    - 635451.505122
+    - 4027710.048887
+    azimuth: 12960.0
+  - name: 2019-WTW-4740-KP
+    pos:
+    - 636720.230076
+    - 4027948.355637
+    azimuth: 12960.0
+  - name: 2019-WTW-4686-KP
+    pos:
+    - 637134.03765
+    - 4028138.983408
+    azimuth: 12960.0
+  - name: 2019-WTW-4741-KP
+    pos:
+    - 632536.636273
+    - 4031039.217841
+    azimuth: 12960.0
+  - name: 2019-WTW-4665-KP
+    pos:
+    - 634191.867004
+    - 4029665.859119
+    azimuth: 12960.0
+  - name: 2019-WTW-4641-KP
+    pos:
+    - 635811.679157
+    - 4030971.948244
+    azimuth: 12960.0
+  - name: 2019-WTW-4661-KP
+    pos:
+    - 632452.218202
+    - 4029581.918469
+    azimuth: 12960.0
+  - name: 2019-WTW-4729-KP
+    pos:
+    - 631731.778256
+    - 4032084.697297
+    azimuth: 12960.0
+sampleplanes:
+  sampleplanelist:
+  - name: 2019-WTW-4713-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4713-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4713-KP_SWplane_clip2
+      origin:
+      - 644594.065072294
+      - 4027183.0005653566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4655-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4655-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4655-KP_SWplane_clip2
+      origin:
+      - 642090.5856872939
+      - 4030769.225111357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4651-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4651-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4651-KP_SWplane_clip2
+      origin:
+      - 640517.4727932939
+      - 4030720.2310463567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4726-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4726-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4726-KP_SWplane_clip2
+      origin:
+      - 647039.0829492939
+      - 4026400.0057713566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4671-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4671-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4671-KP_SWplane_clip2
+      origin:
+      - 643710.964072294
+      - 4029943.438243357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4715-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4715-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4715-KP_SWplane_clip2
+      origin:
+      - 641397.9791542939
+      - 4025659.750683357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4691-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4691-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4691-KP_SWplane_clip2
+      origin:
+      - 640519.0028882939
+      - 4027885.024337357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7913-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7913-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7913-KP_SWplane_clip2
+      origin:
+      - 638932.257340294
+      - 4027462.4002213567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4657-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4657-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4657-KP_SWplane_clip2
+      origin:
+      - 642920.916724294
+      - 4030793.442929357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4694-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4694-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4694-KP_SWplane_clip2
+      origin:
+      - 641652.6919552939
+      - 4028714.974067357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4718-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4718-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4718-KP_SWplane_clip2
+      origin:
+      - 642614.860784294
+      - 4025734.2842253568
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4690-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4690-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4690-KP_SWplane_clip2
+      origin:
+      - 640169.4075602939
+      - 4027449.709736357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4656-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4656-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4656-KP_SWplane_clip2
+      origin:
+      - 642474.3803792939
+      - 4030687.430320357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4697-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4697-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4697-KP_SWplane_clip2
+      origin:
+      - 642934.1194182939
+      - 4028788.0769653567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4698-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4698-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4698-KP_SWplane_clip2
+      origin:
+      - 643342.2165002939
+      - 4028821.1227693567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4701-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4701-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4701-KP_SWplane_clip2
+      origin:
+      - 644916.9092232939
+      - 4028143.3686713567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4723-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4723-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4723-KP_SWplane_clip2
+      origin:
+      - 644808.4632142939
+      - 4025581.0196863567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4673-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4673-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4673-KP_SWplane_clip2
+      origin:
+      - 638406.728137294
+      - 4028731.937875357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4716-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4716-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4716-KP_SWplane_clip2
+      origin:
+      - 641808.214045294
+      - 4025735.805806357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4693-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4693-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4693-KP_SWplane_clip2
+      origin:
+      - 641337.6925732939
+      - 4028221.3627373567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4725-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4725-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4725-KP_SWplane_clip2
+      origin:
+      - 646625.4914452939
+      - 4026403.9827173566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7915-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7915-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7915-KP_SWplane_clip2
+      origin:
+      - 643044.0515792939
+      - 4025656.2478463566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4674-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4674-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4674-KP_SWplane_clip2
+      origin:
+      - 638807.662489294
+      - 4028742.129358357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4689-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4689-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4689-KP_SWplane_clip2
+      origin:
+      - 639249.0271752939
+      - 4027046.7172413566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7921-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7921-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7921-KP_SWplane_clip2
+      origin:
+      - 639307.9265662939
+      - 4030618.1152103567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4710-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4710-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4710-KP_SWplane_clip2
+      origin:
+      - 643373.535792294
+      - 4027552.533224357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4648-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4648-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4648-KP_SWplane_clip2
+      origin:
+      - 638906.950559294
+      - 4030956.6524273567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4721-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4721-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4721-KP_SWplane_clip2
+      origin:
+      - 643791.814290294
+      - 4025775.259285357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4652-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4652-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4652-KP_SWplane_clip2
+      origin:
+      - 640903.7695652939
+      - 4030742.6031833566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4658-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4658-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4658-KP_SWplane_clip2
+      origin:
+      - 643344.3565562939
+      - 4030798.7835023566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4692-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4692-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4692-KP_SWplane_clip2
+      origin:
+      - 640927.4449512939
+      - 4028191.8178803567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4695-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4695-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4695-KP_SWplane_clip2
+      origin:
+      - 642069.9816772939
+      - 4028773.076987357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7914-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7914-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7914-KP_SWplane_clip2
+      origin:
+      - 642451.3852232939
+      - 4027511.1300183567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4675-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4675-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4675-KP_SWplane_clip2
+      origin:
+      - 639293.8609552939
+      - 4028683.027511357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4702-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4702-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4702-KP_SWplane_clip2
+      origin:
+      - 645351.5888722939
+      - 4028139.2243103567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4704-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4704-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4704-KP_SWplane_clip2
+      origin:
+      - 646967.9248782939
+      - 4027928.147526357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4712-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4712-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4712-KP_SWplane_clip2
+      origin:
+      - 644182.296985294
+      - 4027533.0019733566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7916-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7916-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7916-KP_SWplane_clip2
+      origin:
+      - 643390.6294922939
+      - 4025814.773458357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4711-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4711-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4711-KP_SWplane_clip2
+      origin:
+      - 643776.8541402939
+      - 4027585.0738043566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7912-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7912-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7912-KP_SWplane_clip2
+      origin:
+      - 638524.0185062939
+      - 4030685.533625357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4654-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4654-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4654-KP_SWplane_clip2
+      origin:
+      - 641717.7054292939
+      - 4030677.9996223566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4650-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4650-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4650-KP_SWplane_clip2
+      origin:
+      - 639788.1695742939
+      - 4030710.5257363566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4653-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4653-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4653-KP_SWplane_clip2
+      origin:
+      - 641307.951737294
+      - 4030713.2424513567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4722-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4722-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4722-KP_SWplane_clip2
+      origin:
+      - 644220.4385932939
+      - 4025732.0033973567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4717-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4717-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4717-KP_SWplane_clip2
+      origin:
+      - 642224.3761412939
+      - 4025745.621463357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4703-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4703-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4703-KP_SWplane_clip2
+      origin:
+      - 645787.370460294
+      - 4028117.6985213566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4709-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4709-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4709-KP_SWplane_clip2
+      origin:
+      - 642958.832362294
+      - 4027502.9569833567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4672-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4672-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4672-KP_SWplane_clip2
+      origin:
+      - 644148.2658502939
+      - 4029986.2199453567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4696-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4696-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4696-KP_SWplane_clip2
+      origin:
+      - 642508.447851294
+      - 4028787.0519593568
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4724-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4724-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4724-KP_SWplane_clip2
+      origin:
+      - 646240.810238294
+      - 4026396.593840357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7910-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7910-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7910-KP_SWplane_clip2
+      origin:
+      - 637394.5000112939
+      - 4031405.7545203567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4683-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4683-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4683-KP_SWplane_clip2
+      origin:
+      - 636228.9894312939
+      - 4027809.7102173567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4737-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4737-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4737-KP_SWplane_clip2
+      origin:
+      - 633728.0227782939
+      - 4030990.227555357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4732-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4732-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4732-KP_SWplane_clip2
+      origin:
+      - 632828.248885294
+      - 4032681.705031357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4668-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4668-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4668-KP_SWplane_clip2
+      origin:
+      - 635366.246563294
+      - 4029755.1906493567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4643-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4643-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4643-KP_SWplane_clip2
+      origin:
+      - 636719.3387192939
+      - 4030959.5321543566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4663-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4663-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4663-KP_SWplane_clip2
+      origin:
+      - 633385.0984692939
+      - 4029754.8341873568
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7919-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7919-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7919-KP_SWplane_clip2
+      origin:
+      - 630594.4377192939
+      - 4030885.9907683567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4730-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4730-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4730-KP_SWplane_clip2
+      origin:
+      - 632094.193585294
+      - 4032414.809116357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7918-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7918-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7918-KP_SWplane_clip2
+      origin:
+      - 630212.642598294
+      - 4030928.5027563567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4736-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4736-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4736-KP_SWplane_clip2
+      origin:
+      - 631375.2659292939
+      - 4030605.769402357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4731-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4731-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4731-KP_SWplane_clip2
+      origin:
+      - 632441.0042132939
+      - 4032685.973071357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4677-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4677-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4677-KP_SWplane_clip2
+      origin:
+      - 633856.135261294
+      - 4027791.351325357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4670-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4670-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4670-KP_SWplane_clip2
+      origin:
+      - 636156.8281352939
+      - 4029790.7827763567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4642-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4642-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4642-KP_SWplane_clip2
+      origin:
+      - 636197.2963662939
+      - 4030958.0666793566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4662-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4662-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4662-KP_SWplane_clip2
+      origin:
+      - 632849.4306622939
+      - 4030146.1597963567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7920-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7920-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7920-KP_SWplane_clip2
+      origin:
+      - 630965.3551342939
+      - 4030792.178939357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4678-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4678-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4678-KP_SWplane_clip2
+      origin:
+      - 634166.7113182939
+      - 4028024.7342183567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7911-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7911-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7911-KP_SWplane_clip2
+      origin:
+      - 637764.5879472939
+      - 4031278.263925357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4664-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4664-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4664-KP_SWplane_clip2
+      origin:
+      - 633773.306373294
+      - 4029696.912988357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4679-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4679-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4679-KP_SWplane_clip2
+      origin:
+      - 634552.330697294
+      - 4028098.4028493566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4669-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4669-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4669-KP_SWplane_clip2
+      origin:
+      - 635756.9640782939
+      - 4029755.7624563565
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4687-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4687-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4687-KP_SWplane_clip2
+      origin:
+      - 637572.761163294
+      - 4028066.745732357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4680-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4680-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4680-KP_SWplane_clip2
+      origin:
+      - 635051.8854392939
+      - 4027751.883388357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4666-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4666-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4666-KP_SWplane_clip2
+      origin:
+      - 634584.5946792939
+      - 4029762.418552357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4644-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4644-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4644-KP_SWplane_clip2
+      origin:
+      - 637066.913653294
+      - 4031132.5843963567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4682-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4682-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4682-KP_SWplane_clip2
+      origin:
+      - 635841.0679492939
+      - 4027842.5640473566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-7917-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-7917-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-7917-KP_SWplane_clip2
+      origin:
+      - 630968.397153294
+      - 4029731.9069593567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4676-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4676-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4676-KP_SWplane_clip2
+      origin:
+      - 633464.268197294
+      - 4027726.0511823567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4667-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4667-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4667-KP_SWplane_clip2
+      origin:
+      - 634973.7731742939
+      - 4029775.247735357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4681-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4681-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4681-KP_SWplane_clip2
+      origin:
+      - 635444.9684412939
+      - 4027784.7634893567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4740-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4740-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4740-KP_SWplane_clip2
+      origin:
+      - 636713.6933952939
+      - 4028023.0702393567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4686-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4686-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4686-KP_SWplane_clip2
+      origin:
+      - 637127.5009692939
+      - 4028213.6980103566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4741-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4741-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4741-KP_SWplane_clip2
+      origin:
+      - 632530.099592294
+      - 4031113.9324433566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4665-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4665-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4665-KP_SWplane_clip2
+      origin:
+      - 634185.3303232939
+      - 4029740.5737213567
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4641-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4641-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4641-KP_SWplane_clip2
+      origin:
+      - 635805.142476294
+      - 4031046.6628463566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4661-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4661-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4661-KP_SWplane_clip2
+      origin:
+      - 632445.6815212939
+      - 4029656.633071357
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: 2019-WTW-4729-KP_SWplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/KP_turbSW/T2019-WTW-4729-KP_KPsw_16605.0.vtk
+    clip:
+      name: 2019-WTW-4729-KP_SWplane_clip2
+      origin:
+      - 631725.2415752939
+      - 4032159.4118993566
+      - 90.0
+      normal:
+      - 0.08715574274765824
+      - -0.9961946980917455
+      - -0.0
+  - name: Farm_KPplane
+    files: /ascldap/users/lcheung/GPFS/AWAKEN/fancymovies/vtkfiles/farm_KP//TFarm_KP090_16605.0.vtk
+solidplanes:
+  defaults:
+    color:
+    - 0.4
+    - 0.475
+    - 0.4
+    representation: Surface
+  planelist:
+  - name: ground
+    origin:
+    - 653106.1017967543
+    - 4023617.986548658
+    - 0.0
+    p1:
+    - 651885.921398287
+    - 4037564.712321942
+    - 0.0
+    p2:
+    - 628201.2343444607
+    - 4021439.0929799667
+    - 0.0
+renderview:
+  properties:
+    CameraPosition:
+    - 632000
+    - 4027500
+    - 750.0
+    CameraFocalPoint:
+    - 632000
+    - 4030000
+    - 20.0
+    CameraViewUp:
+    - -0.015831871495391725
+    - 0.14554974560510944
+    - 0.9892242533415977
+    CameraParallelScale: 184.53144999999495
+colorbar:
+  defaults:
+    var: velocity
+    colormap: Blue Orange (divergent)
+  properties:
+    TitleFontSize: 4
+    LabelFontSize: 4
+    ScalarBarThickness: 5
+    ScalarBarLength: 0.33
+    AutoOrient: 0
+    Orientation: Horizontal
+  limits:
+  - 4
+  - 14.0
+runcommands:
+  execstring: "\n# find settings proxy\ncolorPalette = GetSettingsProxy('ColorPalette')\n\
+    # Properties modified on colorPalette\ncolorPalette.BackgroundColorMode = 'Gradient'\n\
+    colorPalette.Background2 = [0.6666666666666666, 1.0, 1.0]\n#colorPalette.Background1\
+    \ = [0.0, 0.0, 0.0]\nRenderAllViews()\n"
+output:
+  filename: pngdir/scene3A_16605.00.png
+  imagesize:
+  - 1900
+  - 1200
