@@ -1,12 +1,12 @@
 # --- Simulation time control parameters ---
-time.stop_time                           = 17525.0             # Max (simulated) time to evolve [s]
+time.stop_time                           = 16400.0             # Max (simulated) time to evolve [s]
 time.max_step                            = -1                  
 time.fixed_dt                            = 0.1                 # Fixed timestep size (in seconds). If negative, then time.cfl is used
 time.checkpoint_interval                 = 2000                
 incflo.physics                           = ABL Actuator        # List of physics models to include in simulation.
 incflo.verbose                           = 3                   
 io.check_file                            = chk                 
-io.restart_file                          = /gpfs/alpine/cfd162/scratch/lcheung/AWAKEN/UnstableABL1_precursor2/chk64500
+io.restart_file                          = /gpfs/lcheung/AWAKEN/TCF_smallcase/precursor/chk60000
 incflo.use_godunov                       = true                
 incflo.godunov_type                      = weno_z              
 incflo.diffusion_type                    = 0                   # Type of diffusion scheme used.  0 = explicit diffusion, 1 = Crank-Nicolson, 2 = fully implicit
@@ -14,8 +14,8 @@ turbulence.model                         = OneEqKsgsM84
 TKE.source_terms                         = KsgsM84Src          
 nodal_proj.mg_rtol                       = 1e-06               
 nodal_proj.mg_atol                       = 1e-12               
-mac_proj.mg_rtol                         = 1e-06               
-mac_proj.mg_atol                         = 1e-12               
+mac_proj.mg_rtol                         = 1e-11               
+mac_proj.mg_atol                         = 1e-09               
 diffusion.mg_rtol                        = 1e-06               
 diffusion.mg_atol                        = 1e-12               
 temperature_diffusion.mg_rtol            = 1e-10               
@@ -45,9 +45,9 @@ zhi.temperature_type                     = fixed_gradient
 zhi.temperature                          = 0.003               
 
 # --- ABL parameters ---
-ICNS.source_terms                        =  BoussinesqBuoyancy CoriolisForcing ActuatorForcing BodyForce ABLMeanBoussinesq
+ICNS.source_terms                        = BoussinesqBuoyancy CoriolisForcing ActuatorForcing BodyForce ABLMeanBoussinesq
 ABL.bndry_io_mode                        = 1                   
-ABL.bndry_file                           = /ccs/home/lcheung/scratch.cfd162/AWAKEN/UnstableABL1_precursor2/bndry_fdata
+ABL.bndry_file                           = /gpfs/lcheung/AWAKEN/TCF_smallcase/precursor/bndry_fdata
 ABL.bndry_planes                         = ylo                 
 ABL.bndry_output_start_time              = 15000.0             
 ABL.bndry_var_names                      = velocity temperature tke
@@ -71,7 +71,7 @@ CoriolisForcing.rotational_time_period   = 86164.0900027328
 CoriolisForcing.north_vector             = 0.0 1.0 0.0         
 CoriolisForcing.east_vector              = 1.0 0.0 0.0         
 BoussinesqBuoyancy.reference_temperature = 303.803             
-BodyForce.magnitude                      = -0.0008322974243443176 0.00012478819121495535 0.0
+BodyForce.magnitude                      = -0.0008382055615472171 0.00017692470106951357 0.0
 ABL.temperature_heights                  = 0       1400.0  1500.0  2560.0
 ABL.temperature_values                   = 305.803 305.803 313.803 314.553
 time.plot_interval                       = 1000                
@@ -637,14 +637,11 @@ Actuator.2016-WTW-14593-TR.use_tip_correction = true
 Actuator.2016-WTW-14593-TR.use_root_correction = true                
 
 #---- postprocessing defs ----
-incflo.post_processing                   = averaging metmast_ farm_z90_ TRturbhh_ TRsw_ TRrotor_
+incflo.post_processing                   = averaging farm_z90_ TRturbhh_ TRsw_ TRrotor_
 averaging.type                           = TimeAveraging       
 averaging.averaging_window               = 60.0                
-averaging.averaging_start_time           = 16125.0             
+averaging.averaging_start_time           = 15000.0             
 averaging.averaging_stop_time            = 1000000.0           
-metmast_.type                            = Sampling            
-metmast_.output_frequency                = 1                   
-metmast_.fields                          = velocity            
 farm_z90_.type                           = Sampling            
 farm_z90_.output_frequency               = 10                  
 farm_z90_.fields                         = velocity temperature tke velocity_mean
@@ -980,4 +977,28 @@ TRrotor_.2016-WTW-14593-TR_TRrotor.normal = -0.08715574274765824 0.9961946980917
 TRrotor_.2016-WTW-14593-TR_TRrotor.offsets = 0.0 255.0 510.0 765.0 1020.0 1275.0 1530.0 1785.0 2040.0
 
 #---- extra params ----
+mac_proj.do_semicoarsening               = true                
+mac_proj.bottom_solver                   = hypre               
+mac_proj.bottom_verbose                  = 0                   
+mac_proj.max_coarsening_level            = 0                   
+mac_proj.bottom_rtol                     = 1.0e-12             
+mac_proj.bottom_atol                     = 1.0e-12             
+hypre.hypre_solver                       = GMRES               
+hypre.hypre_preconditioner               = BoomerAMG           
+hypre.verbose                            = 0                   
+hypre.bamg_verbose                       = 0                   
+hypre.num_krylov                         = 20                  
+hypre.bamg_max_levels                    = 5                   
+hypre.bamg_num_sweeps                    = 1                   
+hypre.bamg_coarsen_type                  = 8                   
+hypre.bamg_interp_type                   = 6                   
+hypre.bamg_cycle_type                    = 1                   
+hypre.bamg_relax_order                   = 0                   
+hypre.bamg_trunc_factor                  = 0.25                
+hypre.bamg_agg_num_levels                = 1                   
+hypre.bamg_agg_interp_type               = 7                   
+hypre.bamg_agg_pmax_elmts                = 3                   
+hypre.bamg_pmax_elmts                    = 3                   
+hypre.bamg_strong_threshold              = 0.57                
+hypre.recompute_preconditioner           = 0                   
 #== END AMR-WIND INPUT ==
