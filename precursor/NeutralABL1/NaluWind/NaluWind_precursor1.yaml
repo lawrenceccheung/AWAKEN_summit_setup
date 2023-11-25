@@ -47,7 +47,8 @@ nalu_preprocess:
 
     temperature:
       heights: [0,     650.0, 750.0, 1000.0]
-      values:  [314.4, 314.4, 322.4, 323.15]
+      values:  [307.8, 307.8, 315.8, 316.55]
+      #values:  [314.4, 314.4, 322.4, 323.15]
 
       # Optional section to add random perturbations to temperature field
 #      perturbations:
@@ -60,10 +61,10 @@ nalu_preprocess:
       - 0
       - 500.0
       values:
-      - - 8.69
+      - - 6.931
         - 0.0
         - 0.0
-      - - 8.69
+      - - 6.931
         - 0.0
         - 0.0
       perturbations:
@@ -153,7 +154,7 @@ realms:
 
     constant_specification:
       universal_gas_constant: 8314.4621
-      reference_pressure: 91492.34 # rho_ref*(R/mw)*314.4K
+      reference_pressure: 101214.8080 # rho_ref*(R/mw)*307.8K 
         # 100117.591  
         #86011.67689655174
 
@@ -167,11 +168,11 @@ realms:
         # Density here was computed such that P_ref = rho_ref*(R/mw)*300K
     - name: density
       type: constant
-      value: 1.015
+      value: 1.147
 
     - name: viscosity
       type: constant
-      value: 1.5E-5
+      value: 1.642E-5 
 
     - name: specific_heat
       type: constant
@@ -233,9 +234,9 @@ realms:
     #    q = rho*Cp*<w'Theta'> = 1.17*1007*0.106706 = 134.8203 W/m^2       
         surface_heating_table:
           #   Time     Tflux    T   weight (1=Tflux specified, 2=T specified)
-        - [0.0,      0.0, 314.4, 1.0]
-        - [999999.9, 0.0, 314.4, 1.0]
-        reference_temperature: 314.400
+        - [0.0,      0.0, 307.8, 1.0]
+        - [999999.9, 0.0, 307.8, 1.0]
+        reference_temperature: 307.800
         roughness_height: 0.01   # ITERATE on this
         kappa:   0.4
         beta_m:  5.0
@@ -295,13 +296,13 @@ realms:
         - rodi
 
     - user_constants:
-        reference_density: 1.015
-        reference_temperature: 314.4
+        reference_density: 1.147
+        reference_temperature: 307.8
         gravity: [0.0, 0.0, -9.81]
         thermal_expansion_coefficient: 0.00318066157760814249
         east_vector:  [0.0, -1.0, 0.0]  #[1.0, 0.0, 0.0]
         north_vector: [1.0,  0.0, 0.0]  #[0.0, 1.0, 0.0]
-        latitude: 33.6    # SWIFT facility
+        latitude: 36.57236455833334    # SAME AS UNSTABLE ABL1
         earth_angular_velocity: 7.2921159e-5
 
     - limiter:
@@ -356,7 +357,7 @@ realms:
       from_target_part: fluid_part  
       plane_specifications:        
         - name: sliceData/HHplane
-          corner_coordinates:  [0, 0, 32.1]
+          corner_coordinates:  [0, 0, 90]
           edge1_vector:    [4000, 0, 0]
           edge2_vector:    [0, 4000, 0]
           edge1_numPoints: 401
@@ -391,10 +392,10 @@ realms:
       type: computed
       relaxation_factor: 1.0
       heights:
-      - 32.1
+      - 90
       velocity_x:
-      - [0,      8.69]
-      - [100000, 8.69]
+      - [0,      6.931]
+      - [100000, 6.931]
       velocity_y:
       - [0,      0]
       - [100000, 0]
