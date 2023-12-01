@@ -154,9 +154,7 @@ realms:
 
     constant_specification:
       universal_gas_constant: 8314.4621
-      reference_pressure: 101214.8080 # rho_ref*(R/mw)*307.8K 
-        # 100117.591  
-        #86011.67689655174
+      reference_pressure: 96884.58 # Close to rho_ref*(R/mw)*307.8K (see Ken email)
 
     reference_quantities:
     - species_name: Air
@@ -168,7 +166,7 @@ realms:
         # Density here was computed such that P_ref = rho_ref*(R/mw)*300K
     - name: density
       type: constant
-      value: 1.147
+      value: 1.08923
 
     - name: viscosity
       type: constant
@@ -227,11 +225,6 @@ realms:
     wall_user_data:
       velocity: [0.0, 0.0, 0.0]
       abl_wall_function:
-    # Put in guesses for the applied temperature flux.
-    # From Mithu's measurements, kinematic heat flux is
-    #    <w'Theta'> = 0.11443 K*m/s                       
-    # The equivalent heat flux is                    
-    #    q = rho*Cp*<w'Theta'> = 1.17*1007*0.106706 = 134.8203 W/m^2       
         surface_heating_table:
           #   Time     Tflux    T   weight (1=Tflux specified, 2=T specified)
         - [0.0,      0.0, 307.8, 1.0]
@@ -296,7 +289,7 @@ realms:
         - rodi
 
     - user_constants:
-        reference_density: 1.147
+        reference_density: 1.08923
         reference_temperature: 307.8
         gravity: [0.0, 0.0, -9.81]
         thermal_expansion_coefficient: 0.00318066157760814249
