@@ -38,7 +38,7 @@ zhi.temperature_type                     = fixed_gradient
 zhi.temperature                          = 0.003               
 
 # --- ABL parameters ---
-ICNS.source_terms                        = ABLForcing BoussinesqBuoyancy CoriolisForcing
+ICNS.source_terms                        = ABLForcing BoussinesqBuoyancy CoriolisForcing ABLMeanBoussinesq
 ABL.stats_output_frequency               = 1                   
 ABL.stats_output_format                  = netcdf              
 incflo.velocity                          = 6.265 0.0 0.0       
