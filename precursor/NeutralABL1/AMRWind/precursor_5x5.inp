@@ -1,0 +1,103 @@
+# --- Simulation time control parameters ---
+time.stop_time                           = 20000.0             # Max (simulated) time to evolve [s]
+time.max_step                            = 80000               
+time.fixed_dt                            = 0.25                # Fixed timestep size (in seconds). If negative, then time.cfl is used
+time.checkpoint_interval                 = 4000                
+incflo.physics                           = ABL                 # List of physics models to include in simulation.
+incflo.verbose                           = 3                   
+io.check_file                            = chk                 
+incflo.use_godunov                       = true                
+incflo.godunov_type                      = weno_z              
+turbulence.model                         = OneEqKsgsM84        
+TKE.source_terms                         = KsgsM84Src          
+nodal_proj.mg_rtol                       = 1e-06               
+nodal_proj.mg_atol                       = 1e-12               
+mac_proj.mg_rtol                         = 1e-06               
+mac_proj.mg_atol                         = 1e-12               
+diffusion.mg_rtol                        = 1e-06               
+diffusion.mg_atol                        = 1e-12               
+temperature_diffusion.mg_rtol            = 1e-10               
+temperature_diffusion.mg_atol            = 1e-13               
+incflo.gravity                           = 0.0 0.0 -9.81       # Gravitational acceleration vector (x,y,z) [m/s^2]
+incflo.density                           = 1.08812             # Fluid density [kg/m^3]
+transport.viscosity                      = 1.642e-05           # Fluid dynamic viscosity [kg/m-s]
+transport.laminar_prandtl                = 0.7                 # Laminar prandtl number
+transport.turbulent_prandtl              = 0.3333              # Turbulent prandtl number
+
+# --- Geometry and Mesh ---
+geometry.prob_lo                         = 0.0 0.0 0.0         
+geometry.prob_hi                         = 5120.0 5120.0 960.0 
+amr.n_cell                               = 512 512 96          # Number of cells in x, y, and z directions
+amr.max_level                            = 1                   
+geometry.is_periodic                     = 1 1 0               
+zlo.type                                 = wall_model          
+zlo.temperature_type                     = wall_model          
+zlo.tke_type                             = zero_gradient       
+zhi.type                                 = slip_wall           
+zhi.temperature_type                     = fixed_gradient      
+zhi.temperature                          = 0.003               
+
+# --- ABL parameters ---
+ICNS.source_terms                        = ABLForcing BoussinesqBuoyancy CoriolisForcing
+ABL.stats_output_frequency               = 1                   
+ABL.stats_output_format                  = netcdf              
+incflo.velocity                          = 6.265 0.0 0.0       
+ABLForcing.abl_forcing_height            = 90.0                
+ABL.kappa                                = 0.4                 
+ABL.normal_direction                     = 2                   
+ABL.surface_roughness_z0                 = 0.03                
+ABL.reference_temperature                = 305.0               
+ABL.surface_temp_rate                    = 0.0                 
+ABL.surface_temp_flux                    = 0.0                 # Surface temperature flux [K-m/s]
+ABL.mo_beta_m                            = 16.0                # Monin-Obukhov Beta m parameter
+ABL.mo_gamma_m                           = 5.0                 # Monin-Obukhov Gamma m parameter
+ABL.mo_gamma_h                           = 5.0                 # Monin-Obukhov Gamma h parameter
+ABL.random_gauss_mean                    = 0.0                 
+ABL.random_gauss_var                     = 1.0                 
+CoriolisForcing.latitude                 = 36.57236455833334   
+CoriolisForcing.rotational_time_period   = 86164.0900027328    
+CoriolisForcing.north_vector             = 0.0 1.0 0.0         
+CoriolisForcing.east_vector              = 1.0 0.0 0.0         
+BoussinesqBuoyancy.reference_temperature = 305.0               
+ABL.temperature_heights                  = 0     650.0 750.0 1000.0
+ABL.temperature_values                   = 305, 305, 313.0, 313.75
+ABL.perturb_velocity                     = true                
+ABL.perturb_ref_height                   = 50.0                
+ABL.Uperiods                             = 4.0                 
+ABL.Vperiods                             = 4.0                 
+ABL.deltaU                               = 1.0                 
+ABL.deltaV                               = 1.0                 
+ABL.perturb_temperature                  = true                
+time.plot_interval                       = 2000                
+io.plot_file                             = plt                 
+io.KE_int                                = -1                  
+
+#---- tagging defs ----
+tagging.labels                           = T0_level_0_zone     
+tagging.T0_level_0_zone.type             = GeometryRefinement  
+tagging.T0_level_0_zone.shapes           = T0_level_0_zone     
+tagging.T0_level_0_zone.level            = 0                   
+tagging.T0_level_0_zone.T0_level_0_zone.type = box                 
+tagging.T0_level_0_zone.T0_level_0_zone.origin = 730.0 1798.0 -5.25  
+tagging.T0_level_0_zone.T0_level_0_zone.xaxis = 3429.0 0.0 0.0      
+tagging.T0_level_0_zone.T0_level_0_zone.yaxis = -0.0 1524.0 -0.0    
+tagging.T0_level_0_zone.T0_level_0_zone.zaxis = 0.0 0.0 603.25      
+
+#---- postprocessing defs ----
+incflo.post_processing                   = sampling_           
+sampling_.type                           = Sampling            
+sampling_.output_frequency               = 1000                
+sampling_.fields                         = velocity temperature tke
+
+#---- sample defs ----
+sampling_.labels                         = p_hub               
+sampling_.p_hub.type                     = PlaneSampler        
+sampling_.p_hub.num_points               = 513 513             
+sampling_.p_hub.origin                   = 0.0 0.0 0.0         
+sampling_.p_hub.axis1                    = 5120.0 0.0 0.0      
+sampling_.p_hub.axis2                    = 0.0 5120.0 0.0      
+sampling_.p_hub.normal                   = 0.0 0.0 1.0         
+sampling_.p_hub.offsets                  = 90.0                
+
+#---- extra params ----
+#== END AMR-WIND INPUT ==
