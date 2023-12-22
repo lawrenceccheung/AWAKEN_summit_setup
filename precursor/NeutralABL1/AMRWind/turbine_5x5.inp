@@ -92,20 +92,51 @@ tagging.T0_level_1_zone.T0_level_1_zone.yaxis = -0.0 381.0 -0.0
 tagging.T0_level_1_zone.T0_level_1_zone.zaxis = 0.0 0.0 247.65      
 
 #---- postprocessing defs ----
-incflo.post_processing                   = sampling_           
+incflo.post_processing                   = sampling_ turbhh_ turbsw rotor_
 sampling_.type                           = Sampling            
 sampling_.output_frequency               = 1000                
 sampling_.fields                         = velocity temperature tke
+turbhh_.type                             = Sampling            
+turbhh_.output_frequency                 = 10                  
+turbhh_.fields                           = velocity temperature tke
+turbsw.type                              = Sampling            
+turbsw.output_frequency                  = 10                  
+turbsw.fields                            = velocity temperature tke
+rotor_.type                              = Sampling            
+rotor_.output_frequency                  = 10                  
+rotor_.fields                            = velocity temperature tke
 
 #---- sample defs ----
-sampling_.labels                         = p_hub               
-sampling_.p_hub.type                     = PlaneSampler        
-sampling_.p_hub.num_points               = 513 513             
-sampling_.p_hub.origin                   = 0.0 0.0 0.0         
-sampling_.p_hub.axis1                    = 5120.0 0.0 0.0      
-sampling_.p_hub.axis2                    = 0.0 5120.0 0.0      
-sampling_.p_hub.normal                   = 0.0 0.0 1.0         
-sampling_.p_hub.offsets                  = 90.0                
+sampling_.labels                         = XYslice             
+turbhh_.labels                           = T0_turbhh           
+turbsw.labels                            = T0_sw               
+rotor_.labels                            = T0_rotor            
+sampling_.XYslice.type                   = PlaneSampler        
+sampling_.XYslice.num_points             = 513 513             
+sampling_.XYslice.origin                 = 0.0 0.0 0.0         
+sampling_.XYslice.axis1                  = 5120.0 0.0 0.0      
+sampling_.XYslice.axis2                  = 0.0 5120.0 0.0      
+sampling_.XYslice.normal                 = 0.0 0.0 1.0         
+sampling_.XYslice.offsets                = 90.0                
+turbhh_.T0_turbhh.type                   = PlaneSampler        
+turbhh_.T0_turbhh.num_points             = 601 121             
+turbhh_.T0_turbhh.origin                 = 730.0 2179.0 90.0   
+turbhh_.T0_turbhh.axis1                  = 3810.0 0.0 0.0      
+turbhh_.T0_turbhh.axis2                  = -0.0 762.0 -0.0     
+turbhh_.T0_turbhh.normal                 = 0.0 0.0 0.0         
+turbsw.T0_sw.type                        = PlaneSampler        
+turbsw.T0_sw.num_points                  = 601 35              
+turbsw.T0_sw.origin                      = 730.0 2560.0 1.1000000000000085
+turbsw.T0_sw.axis1                       = 3810.0 0.0 0.0      
+turbsw.T0_sw.axis2                       = 0.0 0.0 215.89999999999998
+turbsw.T0_sw.normal                      = 0.0 0.0 0.0         
+rotor_.T0_rotor.type                     = PlaneSampler        
+rotor_.T0_rotor.num_points               = 61 16               
+rotor_.T0_rotor.origin                   = 730.0 2179.0 26.5   
+rotor_.T0_rotor.axis1                    = -0.0 762.0 -0.0     
+rotor_.T0_rotor.axis2                    = 0.0 0.0 190.5       
+rotor_.T0_rotor.normal                   = 1.0 0.0 0.0         
+rotor_.T0_rotor.offsets                  = 0.0 238.125 476.25 714.375 952.5 1190.625 1428.75 1666.875 1905.0 2143.125 2381.25 2619.375 2857.5 3095.625 3333.75 3571.875 3810.0
 
 #---- extra params ----
 #== END AMR-WIND INPUT ==
