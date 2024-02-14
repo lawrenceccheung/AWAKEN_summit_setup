@@ -1,0 +1,50 @@
+
+nalu_abl_mesh:
+  output_db: mesh_abl.exo
+  spec_type: bounding_box
+  fluid_part_name: fluid_part
+  vertices:
+  - [0.0, 0.0, 0.0]
+  - [5120.000000, 5120.000000, 960.000000] 
+
+  mesh_dimensions: [512, 512, 96] 
+  xmin_boundary_name: west
+  xmax_boundary_name: east
+  ymin_boundary_name: south
+  ymax_boundary_name: north
+  zmin_boundary_name: lower
+  zmax_boundary_name: upper
+
+# Mandatory section for Nalu preprocessing
+nalu_preprocess:
+  # Name of the input exodus database
+  input_db: mesh_abl.exo
+  # Name of the output exodus database
+  output_db: precursorbase.exo
+
+  # Nalu preprocessor expects a list of tasks to be performed on the mesh and
+  # field data structures
+  tasks:
+    - mesh_local_refinement
+
+  mesh_local_refinement:
+    fluid_parts: [fluid_part]
+    write_percept_files: true
+    percept_file_prefix: adapt
+    search_tolerance: 21.0
+
+    turbine_locations:
+      - [ 2000.000000, 2560.000000, 0.0 ]
+
+    turbine_diameters: 127.000000          # Provide a list for variable diameters
+    turbine_heights: 90.000000            # Provide a list for variable tower heights
+    orientation:
+      type: wind_direction
+      wind_direction:  270.0 
+    refinement_levels:  
+    # Upstream, downstream, lateral, and vertical heights in turbine D
+      - [10, 17, 6, 4 ]    # level 1 (5m mesh)
+      - [5,  15, 2.5, 1.2 ]     # level 2 (2.5m mesh)
+#      - [30, 20, 5,  4 ]     # level 3 (1.25m mesh)
+#      - [2.5,2.5,2.5,2 ]     # level 4 (0.625m mesh)
+

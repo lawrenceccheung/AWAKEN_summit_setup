@@ -1,0 +1,280 @@
+
+        - name: sliceData/YZslice/YZslice_-10.00D
+          corner_coordinates:  [730.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_-8.00D
+          corner_coordinates:  [984.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_-6.00D
+          corner_coordinates:  [1238.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_-4.00D
+          corner_coordinates:  [1492.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_-2.00D
+          corner_coordinates:  [1746.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_00.00D
+          corner_coordinates:  [2000.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_02.00D
+          corner_coordinates:  [2254.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_04.00D
+          corner_coordinates:  [2508.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_06.00D
+          corner_coordinates:  [2762.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_08.00D
+          corner_coordinates:  [3016.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_10.00D
+          corner_coordinates:  [3270.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_12.00D
+          corner_coordinates:  [3524.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_14.00D
+          corner_coordinates:  [3778.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_16.00D
+          corner_coordinates:  [4032.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_18.00D
+          corner_coordinates:  [4286.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/YZslice/YZslice_20.00D
+          corner_coordinates:  [4540.000000, 2052.000000, 0.000000]
+          edge1_vector:    [0,  1016.000000, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 161
+          edge2_numPoints: 45
+
+        - name: sliceData/XZslice/XZslice_velocity_-4.00D
+          corner_coordinates:  [730.000000, 2052.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: velocity
+
+        - name: sliceData/XZslice/XZslice_pressure_-4.00D
+          corner_coordinates:  [730.000000, 2052.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: pressure
+
+        - name: sliceData/XZslice/XZslice_temperature_-4.00D
+          corner_coordinates:  [730.000000, 2052.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: temperature
+
+        - name: sliceData/XZslice/XZslice_velocity_-2.00D
+          corner_coordinates:  [730.000000, 2306.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: velocity
+
+        - name: sliceData/XZslice/XZslice_pressure_-2.00D
+          corner_coordinates:  [730.000000, 2306.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: pressure
+
+        - name: sliceData/XZslice/XZslice_temperature_-2.00D
+          corner_coordinates:  [730.000000, 2306.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: temperature
+
+        - name: sliceData/XZslice/XZslice_velocity_00.00D
+          corner_coordinates:  [730.000000, 2560.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: velocity
+
+        - name: sliceData/XZslice/XZslice_pressure_00.00D
+          corner_coordinates:  [730.000000, 2560.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: pressure
+
+        - name: sliceData/XZslice/XZslice_temperature_00.00D
+          corner_coordinates:  [730.000000, 2560.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: temperature
+
+        - name: sliceData/XZslice/XZslice_velocity_02.00D
+          corner_coordinates:  [730.000000, 2814.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: velocity
+
+        - name: sliceData/XZslice/XZslice_pressure_02.00D
+          corner_coordinates:  [730.000000, 2814.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: pressure
+
+        - name: sliceData/XZslice/XZslice_temperature_02.00D
+          corner_coordinates:  [730.000000, 2814.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: temperature
+
+        - name: sliceData/XZslice/XZslice_velocity_04.00D
+          corner_coordinates:  [730.000000, 3068.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: velocity
+
+        - name: sliceData/XZslice/XZslice_pressure_04.00D
+          corner_coordinates:  [730.000000, 3068.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: pressure
+
+        - name: sliceData/XZslice/XZslice_temperature_04.00D
+          corner_coordinates:  [730.000000, 3068.000000, 0.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   0, 280.000000]
+          edge1_numPoints: 601
+          edge2_numPoints: 45
+          only_output_field: temperature
+
+        - name: sliceData/XYslice/XYslice_velocity_00.00D
+          corner_coordinates:  [730.000000, 2052.000000, 90.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   1016.000000, 0]
+          edge1_numPoints: 601
+          edge2_numPoints: 161
+          only_output_field: velocity
+
+        - name: sliceData/XYslice/XYslice_pressure_00.00D
+          corner_coordinates:  [730.000000, 2052.000000, 90.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   1016.000000, 0]
+          edge1_numPoints: 601
+          edge2_numPoints: 161
+          only_output_field: pressure
+
+        - name: sliceData/XYslice/XYslice_temperature_00.00D
+          corner_coordinates:  [730.000000, 2052.000000, 90.000000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   1016.000000, 0]
+          edge1_numPoints: 601
+          edge2_numPoints: 161
+          only_output_field: temperature
+
+        - name: sliceData/XYslice/XYslice_velocity_190.50D
+          corner_coordinates:  [730.000000, 2052.000000, 280.500000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   1016.000000, 0]
+          edge1_numPoints: 601
+          edge2_numPoints: 161
+          only_output_field: velocity
+
+        - name: sliceData/XYslice/XYslice_pressure_190.50D
+          corner_coordinates:  [730.000000, 2052.000000, 280.500000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   1016.000000, 0]
+          edge1_numPoints: 601
+          edge2_numPoints: 161
+          only_output_field: pressure
+
+        - name: sliceData/XYslice/XYslice_temperature_190.50D
+          corner_coordinates:  [730.000000, 2052.000000, 280.500000]
+          edge1_vector:    [3810.000000,  0, 0]
+          edge2_vector:    [0,   1016.000000, 0]
+          edge1_numPoints: 601
+          edge2_numPoints: 161
+          only_output_field: temperature
