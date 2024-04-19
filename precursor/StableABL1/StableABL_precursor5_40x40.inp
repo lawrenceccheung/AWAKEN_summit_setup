@@ -107,10 +107,10 @@ sampling.fields                          = velocity
 #---- sample defs ----
 sampling.labels                          = p_hub               
 sampling.p_hub.type                      = PlaneSampler        
-sampling.p_hub.num_points                = 421 351             
+sampling.p_hub.num_points                = 1025 1025           
 sampling.p_hub.origin                    = 609520.0 4003020.0 0.0
-sampling.p_hub.axis1                     = 42000.0 0.0 0.0     
-sampling.p_hub.axis2                     = 0.0 35000.0 0.0     
+sampling.p_hub.axis1                     = 40960.0 0.0 0.0     
+sampling.p_hub.axis2                     = 0.0 40960.0 0.0     
 sampling.p_hub.normal                    = 0.0 0.0 1.0         
 sampling.p_hub.offsets                   = 60 91               
 
