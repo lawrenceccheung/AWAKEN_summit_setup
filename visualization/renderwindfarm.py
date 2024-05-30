@@ -11,12 +11,21 @@ paraview.simple._DisableFirstRenderCameraReset()
 import sys
 import argparse
 import numpy as np
-import ruamel.yaml as yaml
+import json
+
 try:
+    import ruamel.yaml as yaml
     yaml = yaml.YAML()
+    yamlokay = True
 except:
-    print('Cannot do yaml=yaml.YAML()')
-    pass
+    yamlokay = False
+
+# import ruamel.yaml as yaml
+# try:
+#    yaml = yaml.YAML()
+# except:
+#    print('Cannot do yaml=yaml.YAML()')
+#    pass
         
 
 # Helper functions to get defaults from a dictionary
@@ -720,11 +729,15 @@ def saveoutput(outputdict):
     return
 
 # =====================================
-def processyamlinput(yamlfile, verbose=False):
+def processyamlinput(yamlfile, usejson=False, verbose=False):
     # Load the yaml input file
     with open(yamlfile) as fp:
-        Loader = yaml.load
-        yamldict = Loader(fp)
+        if (usejson is False) and yamlokay:
+            Loader = yaml.load
+            yamldict = Loader(fp)
+        else:
+            yamldict = json.load(fp)
+
         # Plot the turbines
         if 'turbines' in yamldict:
             if verbose: print("Loading turbines")
@@ -762,6 +775,10 @@ if __name__ == "__main__":
     title="Render wind farm scene"
     parser = argparse.ArgumentParser(description=title)
     parser.add_argument('inputfile')
+    parser.add_argument('-j', '--json', 
+                        help="Use json input file",
+                        default=False,
+                        action='store_true')
     parser.add_argument('-v', '--verbose', 
                         help="Verbose output",
                         default=False,
@@ -770,5 +787,6 @@ if __name__ == "__main__":
     args      = parser.parse_args()
     inputfile = args.inputfile
     verbose   = args.verbose
+    usejson   = args.json
 
-    processyamlinput(inputfile, verbose=verbose)
+    processyamlinput(inputfile, usejson=usejson, verbose=verbose)
