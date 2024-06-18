@@ -14,6 +14,9 @@ import numpy as np
 import argparse
 from collections            import OrderedDict 
 
+# Get the location where this script is being run
+scriptpath = os.path.dirname(os.path.realpath(__file__))
+
 
 # ========================================================================
 #
@@ -31,23 +34,53 @@ parser.add_argument(
     required=False,
     default=-1,
 )
+parser.add_argument(
+    '--rpm',
+    help="Rotor speed",
+    type=float,
+    required=False,
+    default=6.0,
+)
+parser.add_argument(
+    '--fps',
+    help="Frames per second",
+    type=float,
+    required=False,
+    default=30.0,
+)
+parser.add_argument(
+    '--jsondir',
+    help="json directory",
+    type=str,
+    required=False,
+    default='jsondir',
+)
+parser.add_argument(
+    '--pngdir',
+    help="png directory",
+    type=str,
+    required=False,
+    default='pngdir',
+)
 
 # Load the options
 args      = parser.parse_args()
 Nturbs    = args.nturbines
 
-rpm       = 7.0
+rpm       = args.rpm
+fps       = args.fps
+jsondir   = args.jsondir
+pngdir    = args.pngdir
 
-basedir     = '/ccs/proj/cfd162/lcheung/AWAKEN_summit_setup/NeutralABL_turbine1/HPC_story_video/'
+basedir     = os.path.dirname(scriptpath)
 turbxy      = np.loadtxt(basedir+'/KPcoordsXY.txt')
 t1          = 20900.0
 t2          = 20905.0
-dt          = 1.0/30.0
+dt          = 1.0/fps
 tvec        = np.arange(t1, t2+1.0e-6, dt)
-jsonfile    = 'jsondir/frame_%0.2f.json'
-pngprefix   = 'pngdir/frame_%0.2f'
+jsonfile    = jsondir+'/frame_%0.2f.json'
+pngprefix   = pngdir+'/frame_%0.2f'
 
-print(tvec)
 for t in tvec:
     print('TIME = %0.2f'%t)
     azimuth     = KP.getazimuthal(t, rpm, toffset=t1)
@@ -56,8 +89,10 @@ for t in tvec:
     basedict    = yaml.safe_load(KP.baseyaml)
 
     # Add turbine
-    turbdefault = {'turbfile':basedir+'/nrel_2p8_127_nospinnac.stl','yaw':270.0,'azimuth':azimuth, 'hubheight':90.0}
+    turbdefault = {'turbfile':basedir+'/STL/nrel_2p8_127_nospinnac.stl','yaw':270.0,'azimuth':azimuth, 'hubheight':90.0}
     basedict['turbines'] = KP.maketurbdict(turbdefault, turbxy[:Nturbs], turboffset=KP.turboffset)
+    basedict['turbines']['turbinelist'].append(KP.makeSTLdict('house', basedir+'/STL/Cottage_FREE.stl', [1900, 2400, 0.0]))
+    basedict['turbines']['turbinelist'].append(KP.makeSTLdict('tree', basedir+'/STL/tree01.stl',       [1950, 2400, 0.0]))
 
     # Add sampling planes
     clipdict={'name':'clip1', 'origin':KP.turbhub, 'normal':[-1, 0, 0]}
@@ -69,5 +104,6 @@ for t in tvec:
     basedict['output']   = {'filename':pngprefix%t+'.png',
                             #'savestate':outputprefix+'.pvsm',
                             'imagesize':[1900, 1080]}
+    basedict['runcommands'] = {'execstring':KP.cmds}    
     with open(jsonfile%t, 'w') as fpo:
         json.dump(basedict, fpo, indent=2)
