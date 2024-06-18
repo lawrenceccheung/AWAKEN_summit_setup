@@ -1,0 +1,73 @@
+#!/usr/bin/python
+#
+
+# Add any possible locations of amr-wind-frontend here
+rootdirs = ['../',
+            ]
+import sys, os, shutil
+for x in rootdirs: sys.path.insert(1, x)
+
+import KPfarm as KP
+import yaml
+import json
+import numpy as np
+import argparse
+from collections            import OrderedDict 
+
+
+# ========================================================================
+#
+# Main
+#
+# ========================================================================
+
+helpstring="""Generate input files for renderfarm.py"""
+# Handle arguments
+parser     = argparse.ArgumentParser(description=helpstring)
+parser.add_argument(
+    '-n','--nturbines',
+    help="Number of turbines",
+    type=int,
+    required=False,
+    default=-1,
+)
+
+# Load the options
+args      = parser.parse_args()
+Nturbs    = args.nturbines
+
+rpm       = 7.0
+
+basedir     = '/ccs/proj/cfd162/lcheung/AWAKEN_summit_setup/NeutralABL_turbine1/HPC_story_video/'
+turbxy      = np.loadtxt(basedir+'/KPcoordsXY.txt')
+t1          = 20900.0
+t2          = 20905.0
+dt          = 1.0/30.0
+tvec        = np.arange(t1, t2+1.0e-6, dt)
+jsonfile    = 'jsondir/frame_%0.2f.json'
+pngprefix   = 'pngdir/frame_%0.2f'
+
+print(tvec)
+for t in tvec:
+    print('TIME = %0.2f'%t)
+    azimuth     = KP.getazimuthal(t, rpm, toffset=t1)
+    view        = KP.interpdict(t, t1, t2, KP.view['front1'], KP.view['side1'])
+
+    basedict    = yaml.safe_load(KP.baseyaml)
+
+    # Add turbine
+    turbdefault = {'turbfile':basedir+'/nrel_2p8_127_nospinnac.stl','yaw':270.0,'azimuth':azimuth, 'hubheight':90.0}
+    basedict['turbines'] = KP.maketurbdict(turbdefault, turbxy[:Nturbs], turboffset=KP.turboffset)
+
+    # Add sampling planes
+    clipdict={'name':'clip1', 'origin':KP.turbhub, 'normal':[-1, 0, 0]}
+    sampledictlist = [ KP.sampleplanedict('SW', basedir+'/turbsw/turbsw_%0.1f.vtk'%round(t), clip=clipdict) ] 
+    basedict['sampleplanes'] = {'sampleplanelist':sampledictlist}
+
+    # Write out png and json
+    basedict['renderview'] = {'properties':view}
+    basedict['output']   = {'filename':pngprefix%t+'.png',
+                            #'savestate':outputprefix+'.pvsm',
+                            'imagesize':[1900, 1080]}
+    with open(jsonfile%t, 'w') as fpo:
+        json.dump(basedict, fpo, indent=2)
