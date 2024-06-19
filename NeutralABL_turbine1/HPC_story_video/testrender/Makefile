@@ -1,7 +1,7 @@
 # Set some definitions
 EXE    = testrender.py
 RENDER = ../renderwindfarm.py
-NTURBS = -1
+NTURBS = 1000
 RPM    = 6.0
 FPS    = 30
 
@@ -11,7 +11,9 @@ LOGDIR  = logdir
 MP4DIR  = mp4dir
 OUTNAME = testrender
 
-all: json png
+NTHREADS= 1
+
+all: json
 
 json:
 	if [ ! -d $(JSONDIR) ]; then \
@@ -26,6 +28,8 @@ pngdir:
 	fi
 
 %.json: FORCE pngdir
+	export KNOB_MAX_WORKER_THREADS=$(NTHREADS)
+	export OSPRAY_NUM_THREADS=$(NTHREADS)
 	pvbatch $(RENDER) -v $@
 
 mp4:

@@ -32,7 +32,7 @@ parser.add_argument(
     help="Number of turbines",
     type=int,
     required=False,
-    default=-1,
+    default=100,
 )
 parser.add_argument(
     '--rpm',
@@ -75,7 +75,7 @@ pngdir    = args.pngdir
 basedir     = os.path.dirname(scriptpath)
 turbxy      = np.loadtxt(basedir+'/KPcoordsXY.txt')
 t1          = 20900.0
-t2          = 20905.0
+t2          = 20910.0
 dt          = 1.0/fps
 tvec        = np.arange(t1, t2+1.0e-6, dt)
 jsonfile    = jsondir+'/frame_%0.2f.json'
@@ -91,6 +91,11 @@ for t in tvec:
     # Add turbine
     turbdefault = {'turbfile':basedir+'/STL/nrel_2p8_127_nospinnac.stl','yaw':270.0,'azimuth':azimuth, 'hubheight':90.0}
     basedict['turbines'] = KP.maketurbdict(turbdefault, turbxy[:Nturbs], turboffset=KP.turboffset)
+    # Set last two turbines to zero azimuth
+    if Nturbs>len(turbxy)-2:
+        basedict['turbines']['turbinelist'][-1]['azimuth'] = 0.0
+        basedict['turbines']['turbinelist'][-2]['azimuth'] = 0.0
+    # Add house and tree
     basedict['turbines']['turbinelist'].append(KP.makeSTLdict('house', basedir+'/STL/Cottage_FREE.stl', [1900, 2400, 0.0]))
     basedict['turbines']['turbinelist'].append(KP.makeSTLdict('tree', basedir+'/STL/tree01.stl',       [1950, 2400, 0.0]))
 
@@ -98,6 +103,11 @@ for t in tvec:
     clipdict={'name':'clip1', 'origin':KP.turbhub, 'normal':[-1, 0, 0]}
     sampledictlist = [ KP.sampleplanedict('SW', basedir+'/turbsw/turbsw_%0.1f.vtk'%round(t), clip=clipdict) ] 
     basedict['sampleplanes'] = {'sampleplanelist':sampledictlist}
+
+    # Annotation
+    basedict['annotate2D'] = {'defaults':KP.textdefaults,
+                              'textlist':[{'name':'TimeTitle',
+                                           'text':"Time: %0.2f sec"%t}]}
 
     # Write out png and json
     basedict['renderview'] = {'properties':view}
