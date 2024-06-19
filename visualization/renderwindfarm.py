@@ -668,6 +668,44 @@ def plot3DTextList(textdict):
     return
 
 # =====================================
+
+def add2DText(name, text, pos, color=[0.0, 0.0, 0.0], fontsize=12,
+              WindowLocation='Any Location'):
+    text1 = Text(registrationName=name)
+    # get active view
+    renderView1 = GetActiveViewOrCreate('RenderView')
+    
+    # show data in view
+    text1Display = Show(text1, renderView1, 'TextSourceRepresentation')
+    # Properties modified on text1Display
+    text1.Text = text
+    text1Display.Color = color
+    text1Display.FontSize = fontsize
+    # Properties modified on text1Display
+    text1Display.WindowLocation = WindowLocation
+    # Properties modified on text1Display
+    text1Display.Position = pos    
+    return
+
+def plot2DTextList(textdict):
+    defaultdict =  {'color':[0,0,0],
+                    'pos':[0.9, 0.9],
+                    'fontsize':12,
+                    'WindowLocation':'Any Location'}
+    defaults = textdict['defaults'] if 'defaults' in textdict else defaultdict
+    for textspec in textdict['textlist']:
+        name       = textspec['name']
+        text       = textspec['text']
+        pos        = getdictval(textspec, 'pos', defaults)
+        fontsize   = getdictval(textspec, 'fontsize', defaults)
+        color      = getdictval(textspec, 'color', defaults)
+        WindowLocation = getdictval(textspec, 'WindowLocation', defaults)
+        add2DText(name, text, pos, color=color, fontsize=fontsize,
+                  WindowLocation=WindowLocation)
+    return
+
+
+# =====================================
 def setRenderViewProps(renderdict):
     # get active view
     exestr="renderView1 = GetActiveViewOrCreate('RenderView')\n"
@@ -754,6 +792,9 @@ def processyamlinput(yamlfile, usejson=False, verbose=False):
         if 'annotate3D' in yamldict:
             if verbose: print("Adding annotation")
             plot3DTextList(yamldict['annotate3D'])
+        if 'annotate2D' in yamldict:
+            if verbose: print("Adding 2D annotation")
+            plot2DTextList(yamldict['annotate2D'])            
         if 'renderview' in yamldict:
             if verbose: print("Setting renderview")
             setRenderViewProps(yamldict['renderview'])

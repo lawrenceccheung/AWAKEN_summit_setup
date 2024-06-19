@@ -8,6 +8,8 @@ FPS    = 30
 JSONDIR = jsondir
 PNGDIR  = pngdir
 LOGDIR  = logdir
+MP4DIR  = mp4dir
+OUTNAME = testrender
 
 all: json png
 
@@ -25,6 +27,13 @@ pngdir:
 
 %.json: FORCE pngdir
 	pvbatch $(RENDER) -v $@
+
+mp4:
+	if [ ! -d $(MP4DIR) ]; then \
+		mkdir $(MP4DIR);\
+	fi
+	ffmpeg -framerate $(FPS) -pattern_type glob -i '$(PNGDIR)/*.png' -c:v libx264 -pix_fmt yuv420p $(MP4DIR)/$(OUTNAME).mp4
+
 
 FORCE:
 

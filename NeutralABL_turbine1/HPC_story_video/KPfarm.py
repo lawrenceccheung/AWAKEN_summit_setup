@@ -1,6 +1,10 @@
 #!/usr/bin/python
 #
 
+# Get the location where this script is being run
+import sys, os
+scriptpath = os.path.dirname(os.path.realpath(__file__))
+
 import yaml
 import json
 import numpy as np
@@ -87,6 +91,12 @@ solidplanes:
     - 0.0
     - 10000.0
     - 0.0
+# annotate2D:
+#   textlist:
+#   - name: Title
+#     text: Test text
+#     fontsize: 5
+#     pos: [0.9, 0.9]
 
 colorbar:
   defaults:
@@ -105,6 +115,26 @@ colorbar:
   - 8.0
 """
 
+# ==== Text defaults ====
+textdefaults={'color':[0,0,0],
+              'pos':[0.7, 0.9],
+              'fontsize':12,
+              'WindowLocation':'Any Location'}
+
+# ==== Run commands ====
+cmds="""
+# find settings proxy
+colorPalette = GetSettingsProxy('ColorPalette')
+# Properties modified on colorPalette
+colorPalette.BackgroundColorMode = 'Single Color'
+colorPalette.Background = [0.16666666666666666, 0.6666666666666666, 1.0]
+#colorPalette.BackgroundColorMode = 'Gradient'
+#colorPalette.Background2 = [0.6666666666666666, 1.0, 1.0]
+#colorPalette.Background1 = [0.0, 0.0, 0.0]
+RenderAllViews()
+"""
+
+
 turboffset = [2000.0, 2560.0]
 turbhub    = [2000, 2650, 90]
 
@@ -112,6 +142,11 @@ view={}
 view['front1'] = {
     'CameraPosition':[1500, 2350, 60.0],
     'CameraFocalPoint':[2000, 2500, 100],
+    'CameraViewUp':[0, 0, 1],
+}
+view['front1'] = {
+    'CameraPosition':[1650, 2500, 45.0],
+    'CameraFocalPoint':[2000, 2540, 80],
     'CameraViewUp':[0, 0, 1],
 }
 
@@ -219,15 +254,15 @@ if __name__ == "__main__":
     
     rpm       = 7.0
 
-    basedir     = '/ccs/proj/cfd162/lcheung/AWAKEN_summit_setup/NeutralABL_turbine1/HPC_story_video/'
+    basedir     = scriptpath
     basedict    = yaml.safe_load(baseyaml)
     turbxy      = np.loadtxt(basedir+'/KPcoordsXY.txt')
     azimuth     = getazimuthal(time, rpm)
     
-    turbdefault = {'turbfile':basedir+'/nrel_2p8_127_nospinnac.stl','yaw':270.0,'azimuth':azimuth, 'hubheight':90.0}
+    turbdefault = {'turbfile':basedir+'/STL/nrel_2p8_127_nospinnac.stl','yaw':270.0,'azimuth':azimuth, 'hubheight':90.0}
     basedict['turbines'] = maketurbdict(turbdefault, turbxy[:Nturbs], turboffset=turboffset)
     basedict['turbines']['turbinelist'].append(makeSTLdict('house', basedir+'/STL/Cottage_FREE.stl', [1900, 2400, 0.0]))
-    basedict['turbines']['turbinelist'].append(makeSTLdict('house', basedir+'/STL/tree01.stl',       [1950, 2400, 0.0]))
+    basedict['turbines']['turbinelist'].append(makeSTLdict('tree', basedir+'/STL/tree01.stl',       [1950, 2400, 0.0]))
 
     # Sample planes
     clipdict={'name':'clip1', 'origin':turbhub, 'normal':[-1, 0, 0]}
@@ -242,6 +277,9 @@ if __name__ == "__main__":
     basedict['output']   = {'filename':outputprefix+'.png',
                             #'savestate':outputprefix+'.pvsm',
                             'imagesize':[1900, 1080]}
-
+    basedict['annotate2D'] = {'defaults':textdefaults,
+                              'textlist':[{'name':'TimeTitle',
+                                           'text':"Time: %0.2f sec"%time}]}
+    basedict['runcommands'] = {'execstring':cmds}
     with open(outfile, 'w') as fpo:
         json.dump(basedict, fpo, indent=2)
