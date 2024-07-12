@@ -330,7 +330,7 @@ def plotPlaneList(planedict):
 
 # =====================================
 
-def getClipPlane(name, targetplane, origin, normal):
+def getClipPlane(name, targetplane, origin, normal, displayprop=None):
     kPHHplane = FindSource(targetplane)
     # create a new 'Clip'
     clip1 = Clip(registrationName=name, Input=kPHHplane)
@@ -388,6 +388,11 @@ def getClipPlane(name, targetplane, origin, normal):
     clip1Display.ScaleTransferFunction.Points = [-3.67132568359375, 0.0, 0.5, 0.0, 3.2155568599700928, 1.0, 0.5, 0.0]
     # init the 'PiecewiseFunction' selected for 'OpacityTransferFunction'
     clip1Display.OpacityTransferFunction.Points = [-3.67132568359375, 0.0, 0.5, 0.0, 3.2155568599700928, 1.0, 0.5, 0.0]
+
+    if displayprop:
+        for k,g in displayprop.items():
+            exestr = 'clip1Display.%s = %s\n'%(k, repr(g))
+            exec(exestr)
     
     # set active source
     SetActiveSource(FindSource(targetplane))
@@ -482,7 +487,7 @@ def plotSamplePlane(name, filename, clipopt={}, displayprop={}):
         origin    = clipopt['origin']
         clipname  = clipopt['name']
         targetname = name
-        getClipPlane(clipname, targetname, origin, normal)
+        getClipPlane(clipname, targetname, origin, normal, displayprop=displayprop)
         # hide data in view
         Hide(sampleplane, renderView1)
 

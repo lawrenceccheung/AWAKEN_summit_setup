@@ -60,12 +60,14 @@ def interpdict(t, t1, t2, dict1, dict2, holdendpoints=True):
         outputdict[k] = convertarray(x)
     return outputdict
 
-def sampleplanedict(name, vtkfile, clip=None):
+def sampleplanedict(name, vtkfile, clip=None, displayprop=None):
     sampledict = OrderedDict()
     sampledict['name'] = name
     sampledict['files'] = vtkfile
     if clip is not None:
-        sampledict['clip'] = clip 
+        sampledict['clip'] = clip
+    if displayprop is not None:
+        sampledict['displayprop'] = displayprop
     return sampledict
 
 
@@ -80,16 +82,16 @@ solidplanes:
   planelist:
   - name: ground
     origin:
-    - 0
-    - 0
+    - -10000
+    - -10000
     - 0.0
     p1:
-    - 10000.0
+    - 20000.0
     - 0.0
     - 0.0
     p2:
     - 0.0
-    - 10000.0
+    - 20000.0
     - 0.0
 # annotate2D:
 #   textlist:
@@ -176,6 +178,11 @@ view['above2'] = {
     'CameraViewUp':[1, 0, 0],
 }
 
+view['endside1'] = {
+    'CameraPosition':[1847.1666666637975, 2077.500000006148, 53.449999999877036],
+    'CameraFocalPoint':[2000.0, 2517.4666666669946, 91.26666666650272],
+    'CameraViewUp':[0, 0, 1],
+}
 
 
 # ========================================================================
@@ -240,6 +247,18 @@ if __name__ == "__main__":
         required=False,
         default='visualization',
     )
+    parser.add_argument(
+        '--pvsm',
+        help="Add pvsm output",
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '--SurfRep',
+        help="Set surface representation",
+        default=None,
+        required=False
+    )
 
     # Load the options
     args      = parser.parse_args()
@@ -251,6 +270,8 @@ if __name__ == "__main__":
     hh        = args.hh
     sw        = args.sw
     rp        = args.rp
+    pvsm      = args.pvsm
+    surfrep   = args.SurfRep
     
     rpm       = 7.0
 
@@ -266,17 +287,22 @@ if __name__ == "__main__":
 
     # Sample planes
     clipdict={'name':'clip1', 'origin':turbhub, 'normal':[-1, 0, 0]}
+    if surfrep:
+        displayprop = {'Representation':surfrep}
+    else:
+        displayprop = None
     sampledictlist = []
-    sampledictlist += [ sampleplanedict('RP', basedir+'/turbrp/plane_10/turbrp_20900.0.vtk', clip=None)      ] if args.rp else []
-    sampledictlist += [ sampleplanedict('HH', basedir+'/turbhh/turbhh_20900.0.vtk',          clip=clipdict), ] if args.hh else []
-    sampledictlist += [ sampleplanedict('SW', basedir+'/turbsw/turbsw_20900.0.vtk',          clip=clipdict), ] if args.sw else []
+    sampledictlist += [ sampleplanedict('RP', basedir+'/turbrp/plane_10/turbrp_20900.0.vtk', clip=None,     displayprop=displayprop), ] if args.rp else []
+    sampledictlist += [ sampleplanedict('HH', basedir+'/turbhh/turbhh_20900.0.vtk',          clip=clipdict, displayprop=displayprop), ] if args.hh else []
+    sampledictlist += [ sampleplanedict('SW', basedir+'/turbsw/turbsw_20900.0.vtk',          clip=clipdict, displayprop=displayprop), ] if args.sw else []
     
     basedict['sampleplanes'] = {'sampleplanelist':sampledictlist}
     
     basedict['renderview'] = {'properties':view[viewcam]}
     basedict['output']   = {'filename':outputprefix+'.png',
-                            #'savestate':outputprefix+'.pvsm',
                             'imagesize':[1900, 1080]}
+    if pvsm:
+        basedict['output']['savestate'] = outputprefix+'.pvsm'
     basedict['annotate2D'] = {'defaults':textdefaults,
                               'textlist':[{'name':'TimeTitle',
                                            'text':"Time: %0.2f sec"%time}]}

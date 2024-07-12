@@ -1,15 +1,15 @@
 # Set some definitions
 EXE    = scene4.py
 RENDER = ../renderwindfarm.py
-NTURBS = 1 #1000
+NTURBS = 86 #1000
 RPM    = 6.0
-FPS    = 10
+FPS    = 30
 
 JSONDIR = jsondir
 PNGDIR  = pngdir
 LOGDIR  = logdir
 MP4DIR  = mp4dir
-OUTNAME = scene3
+OUTNAME = scene4
 
 NTHREADS= 1
 
