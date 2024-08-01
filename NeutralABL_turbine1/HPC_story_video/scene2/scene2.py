@@ -74,6 +74,7 @@ pngdir    = args.pngdir
 
 basedir     = os.path.dirname(scriptpath)
 turbxy      = np.loadtxt(basedir+'/KPcoordsXY.txt')
+tstart      = 20900.0
 t1          = 20910.0
 t2hold      = 20920.0
 t2          = 20930.0
@@ -108,7 +109,7 @@ for t in tvec:
     # Annotation
     basedict['annotate2D'] = {'defaults':KP.textdefaults,
                               'textlist':[{'name':'TimeTitle',
-                                           'text':"Time: %0.2f sec"%t}]}
+                                           'text':"Time: %0.2f sec"%(t-tstart)}]}
 
     # Write out png and json
     basedict['renderview'] = {'properties':view}

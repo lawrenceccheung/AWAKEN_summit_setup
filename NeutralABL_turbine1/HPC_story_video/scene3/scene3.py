@@ -75,9 +75,8 @@ pngdir    = args.pngdir
 basedir     = os.path.dirname(scriptpath)
 turbxy      = np.loadtxt(basedir+'/KPcoordsXY.txt')
 tstart      = 20900.0
-t1          = 20940.0
-t2hold      = 20950.0
-t2          = 20960.0
+t1          = 20930.0
+t2          = 20940.0
 dt          = 1.0/fps
 tvec        = np.arange(t1, t2+1.0e-6, dt)
 jsonfile    = jsondir+'/frame_%0.2f.json'
@@ -86,7 +85,7 @@ pngprefix   = pngdir+'/frame_%0.2f'
 for t in tvec:
     print('TIME = %0.2f'%t)
     azimuth     = KP.getazimuthal(t, rpm, toffset=t1)
-    view        = KP.interpdict(t, t1, t2hold, KP.view['above1'], KP.view['above2'])
+    view        = KP.interpdict(t, t1, t2, KP.view['side2'], KP.view['above1'])
 
     basedict    = yaml.safe_load(KP.baseyaml)
 
@@ -103,9 +102,8 @@ for t in tvec:
 
     # Add sampling planes
     clipdict={'name':'clip1', 'origin':KP.turbhub, 'normal':[-1, 0, 0]}
-    #sampledictlist += [ KP.sampleplanedict('SW', basedir+'/turbsw/turbsw_%0.1f.vtk'%round(t), clip=clipdict) ]
-    sampledictlist = [ KP.sampleplanedict('HH', basedir+'/turbhh/turbhh_%0.1f.vtk'%round(t),   clip=clipdict) ]
-    sampledictlist += [ KP.sampleplanedict('RP', basedir+'/turbrp/plane_10/turbrp_%0.1f.vtk'%round(t), clip=None) ] 
+    sampledictlist = [ KP.sampleplanedict('SW', basedir+'/turbsw/turbsw_%0.1f.vtk'%round(t), clip=clipdict) ]
+    sampledictlist += [ KP.sampleplanedict('HH', basedir+'/turbhh/turbhh_%0.1f.vtk'%round(t),   clip=clipdict) ] 
 
     basedict['sampleplanes'] = {'sampleplanelist':sampledictlist}
 

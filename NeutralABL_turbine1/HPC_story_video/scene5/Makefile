@@ -11,7 +11,9 @@ JSONDIR2= jsondirwire
 PNGDIR2 = pngdirwire
 LOGDIR  = logdir
 MP4DIR  = mp4dir
-OUTNAME = testrender
+OUTNAME = scene5
+OUTNAME2= scene5wire
+
 
 NTHREADS= 1
 
@@ -46,6 +48,7 @@ mp4:
 		mkdir $(MP4DIR);\
 	fi
 	ffmpeg -framerate $(FPS) -pattern_type glob -i '$(PNGDIR)/*.png' -c:v libx264 -pix_fmt yuv420p $(MP4DIR)/$(OUTNAME).mp4
+	ffmpeg -framerate $(FPS) -pattern_type glob -i '$(PNGDIR2)/*.png' -c:v libx264 -pix_fmt yuv420p $(MP4DIR)/$(OUTNAME2).mp4
 
 
 FORCE:

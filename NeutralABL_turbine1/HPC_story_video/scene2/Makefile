@@ -1,7 +1,7 @@
 # Set some definitions
 EXE    = scene2.py
 RENDER = ../renderwindfarm.py
-NTURBS = 1 #1000
+NTURBS = 1000
 RPM    = 6.0
 FPS    = 30
 

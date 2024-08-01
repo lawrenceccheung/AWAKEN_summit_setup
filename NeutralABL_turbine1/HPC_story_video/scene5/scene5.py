@@ -81,6 +81,7 @@ surfrep   = args.SurfRep
 
 basedir     = os.path.dirname(scriptpath)
 turbxy      = np.loadtxt(basedir+'/KPcoordsXY.txt')
+tstart      = 20900.0
 t1          = 20960.0
 t2          = 20970.0
 dt          = 1.0/fps
@@ -122,7 +123,7 @@ for t in tvec:
     # Annotation
     basedict['annotate2D'] = {'defaults':KP.textdefaults,
                               'textlist':[{'name':'TimeTitle',
-                                           'text':"Time: %0.2f sec"%t}]}
+                                           'text':"Time: %0.2f sec"%(t-tstart)}]}
 
     # Write out png and json
     basedict['renderview'] = {'properties':view}

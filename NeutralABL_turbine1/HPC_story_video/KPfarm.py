@@ -274,6 +274,7 @@ if __name__ == "__main__":
     surfrep   = args.SurfRep
     
     rpm       = 7.0
+    tstart    = 20900.0
 
     basedir     = scriptpath
     basedict    = yaml.safe_load(baseyaml)
@@ -305,7 +306,7 @@ if __name__ == "__main__":
         basedict['output']['savestate'] = outputprefix+'.pvsm'
     basedict['annotate2D'] = {'defaults':textdefaults,
                               'textlist':[{'name':'TimeTitle',
-                                           'text':"Time: %0.2f sec"%time}]}
+                                           'text':"Time: %0.2f sec"%(time-tstart)}]}
     basedict['runcommands'] = {'execstring':cmds}
     with open(outfile, 'w') as fpo:
         json.dump(basedict, fpo, indent=2)
