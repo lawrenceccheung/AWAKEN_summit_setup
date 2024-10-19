@@ -1,0 +1,142 @@
+# --- Simulation time control parameters ---
+time.stop_time                           = 32000.0             # Max (simulated) time to evolve [s]
+time.max_step                            = -1                  
+time.fixed_dt                            = 0.1                 # Fixed timestep size (in seconds). If negative, then time.cfl is used
+time.checkpoint_interval                 = 2000                
+time.checkpoint_start                    = 48000               
+incflo.physics                           = ABL                 # List of physics models to include in simulation.
+incflo.verbose                           = 3                   
+io.check_file                            = chk                 
+io.restart_file                          = /gpfs/lcheung/AWAKEN/Benchmark1/Phase1/PrecursorLayout/MMC_BM1_BigPrecursor/chk48000
+incflo.use_godunov                       = true                
+incflo.godunov_type                      = weno_z              
+turbulence.model                         = OneEqKsgsM84        
+TKE.source_terms                         = KsgsM84Src          
+nodal_proj.mg_rtol                       = 1e-06               
+nodal_proj.mg_atol                       = 1e-12               
+mac_proj.mg_rtol                         = 1e-06               
+mac_proj.mg_atol                         = 1e-12               
+diffusion.mg_rtol                        = 1e-06               
+diffusion.mg_atol                        = 1e-12               
+temperature_diffusion.mg_rtol            = 1e-10               
+temperature_diffusion.mg_atol            = 1e-13               
+incflo.do_initial_proj                   = 0                   
+incflo.initial_iterations                = 0                   
+incflo.gravity                           = 0.0 0.0 -9.81       # Gravitational acceleration vector (x,y,z) [m/s^2]
+incflo.density                           = 1.103707            # Fluid density [kg/m^3]
+transport.viscosity                      = 1.771e-05           # Fluid dynamic viscosity [kg/m-s]
+transport.laminar_prandtl                = 0.7                 # Laminar prandtl number
+transport.turbulent_prandtl              = 0.3333              # Turbulent prandtl number
+
+# --- Geometry and Mesh ---
+geometry.prob_lo                         = 617080.0 4008140.0 0.0
+geometry.prob_hi                         = 652920.0 4038860.0 960.0
+amr.n_cell                               = 3584 3072 96        # Number of cells in x, y, and z directions
+amr.max_level                            = 1                   
+geometry.is_periodic                     = 0 0 0               
+xlo.type                                 = pressure_outflow    
+xhi.type                                 = mass_inflow         
+xhi.density                              = 1.103707            
+xhi.temperature                          = 0.0                 
+xhi.tke                                  = 0.0                 
+ylo.type                                 = mass_inflow         
+ylo.density                              = 1.103707            
+ylo.temperature                          = 0.0                 
+ylo.tke                                  = 0.0                 
+yhi.type                                 = pressure_outflow    
+zlo.type                                 = wall_model          
+zlo.tke_type                             = zero_gradient       
+zhi.type                                 = slip_wall           
+zhi.temperature_type                     = fixed_gradient      
+
+# --- ABL parameters ---
+ICNS.source_terms                        = BoussinesqBuoyancy ABLMeanBoussinesq ABLMesoForcingMom
+ABL.stats_output_frequency               = 10                  
+ABL.stats_output_format                  = netcdf              
+Temperature.source_terms                 = ABLMesoForcingTemp  
+ABLMesoForcingMom.forcing_scheme         = direct              
+ABLMesoForcingTemp.forcing_scheme        = direct              
+ABL.tendency_forcing                     = true                
+ABL.initial_condition_input_file         = init.nc             
+ABL.mesoscale_forcing                    = ./tendencyforcing.nc
+ABL.bndry_io_mode                        = 1                   
+ABL.bndry_file                           = /gpfs/lcheung/AWAKEN/Benchmark1/Phase1/PrecursorLayout/MMC_BM1_BigPrecursor//bndry_file/
+ABL.bndry_planes                         = ylo xhi             
+ABL.bndry_output_start_time              = 24000.0             
+ABL.bndry_var_names                      = velocity temperature tke
+ABL.bndry_output_format                  = native              
+incflo.velocity                          = 0.0 0.0 0.0         
+ABLForcing.abl_forcing_height            = 150.0               
+ABL.kappa                                = 0.4                 
+ABL.normal_direction                     = 2                   
+ABL.surface_roughness_z0                 = 0.0001              
+ABL.reference_temperature                = 300.0               
+ABL.surface_temp_rate                    = 0.0                 
+ABL.mo_beta_m                            = 16.0                # Monin-Obukhov Beta m parameter
+ABL.mo_gamma_m                           = 5.0                 # Monin-Obukhov Gamma m parameter
+ABL.mo_gamma_h                           = 5.0                 # Monin-Obukhov Gamma h parameter
+ABL.random_gauss_mean                    = 0.0                 
+ABL.random_gauss_var                     = 1.0                 
+ABL.wall_shear_stress_type               = local               
+BoussinesqBuoyancy.reference_temperature = 300.0               
+ABL.temperature_heights                  = 0.0 40.0 60.0 80.0 100.0 120.0 140.0 160.0 180.0 200.0 220.0 240.0 260.0 280.0 300.0 320.0 340.0 360.0 380.0 400.0 420.0 440.0 460.0 480.0 500.0 520.0 540.0 560.0 580.0 600.0 620.0 640.0 660.0 680.0 700.0 720.0 740.0 760.0 780.0 800.0 820.0 840.0 860.0 880.0 900.0 920.0 940.0 960.0 980.0 1000.0
+ABL.temperature_values                   = 310.3404373956493 310.69100062234725 310.8242669187964 310.93558028640547 311.02855702650123 311.1062177278573 311.17108539829735 311.22526743109967 311.27052406909297 311.30832559067767 311.3399000756037 311.36627330230516 311.3883020729581 311.4067020489294 311.4220710010012 311.43490823009546 311.4456307913305 311.45458705788263 311.4620681118139 311.4683175621556 311.4735412491443 311.47792279422083 311.4816734494022 311.48525623834314 311.4904762441856 311.5058462613251 311.5727118986709 311.88444451748376 313.17459927969526 316.4973813708197 319.81944901141463 321.1081996639603 321.41834937627544 321.48340776050406 321.49664578463086 321.49932263805306 321.49986323959547 321.4999723889248 321.4999944255217 321.49999887455095 321.499999772779 321.4999999541254 321.49999999073816 321.4999999981301 321.4999999996225 321.4999999999238 321.4999999999846 321.4999999999969 321.4999999999994 321.49999999999983
+ABL.perturb_velocity                     = true                
+ABL.perturb_ref_height                   = 50.0                
+ABL.Uperiods                             = 4.0                 
+ABL.Vperiods                             = 4.0                 
+ABL.deltaU                               = 1.0                 
+ABL.deltaV                               = 1.0                 
+ABL.perturb_temperature                  = true                
+ABL.theta_amplitude                      = 0.8                 
+ABL.cutoff_height                        = 100.0               
+time.plot_interval                       = -1                  
+io.plot_file                             = plt                 
+io.KE_int                                = -1                  
+
+#---- tagging defs ----
+tagging.labels                           = Farm_level_0_center_639000_4029000_100 Farm_level_0_center_628000_4017500_100
+tagging.Farm_level_0_center_639000_4029000_100.type = GeometryRefinement  
+tagging.Farm_level_0_center_639000_4029000_100.shapes = Farm_level_0_center_639000_4029000_100
+tagging.Farm_level_0_center_639000_4029000_100.level = 0                   
+tagging.Farm_level_0_center_639000_4029000_100.Farm_level_0_center_639000_4029000_100.type = box                 
+tagging.Farm_level_0_center_639000_4029000_100.Farm_level_0_center_639000_4029000_100.origin = 648300.0 4023000.0 0.0
+tagging.Farm_level_0_center_639000_4029000_100.Farm_level_0_center_639000_4029000_100.xaxis = 7.347880794884119e-13 12000.0 0.0
+tagging.Farm_level_0_center_639000_4029000_100.Farm_level_0_center_639000_4029000_100.yaxis = -18600.0 1.1389215232070384e-12 -0.0
+tagging.Farm_level_0_center_639000_4029000_100.Farm_level_0_center_639000_4029000_100.zaxis = 0.0 0.0 450.0       
+tagging.Farm_level_0_center_628000_4017500_100.type = GeometryRefinement  
+tagging.Farm_level_0_center_628000_4017500_100.shapes = Farm_level_0_center_628000_4017500_100
+tagging.Farm_level_0_center_628000_4017500_100.level = 0                   
+tagging.Farm_level_0_center_628000_4017500_100.Farm_level_0_center_628000_4017500_100.type = box                 
+tagging.Farm_level_0_center_628000_4017500_100.Farm_level_0_center_628000_4017500_100.origin = 636000.0 4009500.0 0.0
+tagging.Farm_level_0_center_628000_4017500_100.Farm_level_0_center_628000_4017500_100.xaxis = 9.797174393178826e-13 16000.0 0.0
+tagging.Farm_level_0_center_628000_4017500_100.Farm_level_0_center_628000_4017500_100.yaxis = -16000.0 9.797174393178826e-13 -0.0
+tagging.Farm_level_0_center_628000_4017500_100.Farm_level_0_center_628000_4017500_100.zaxis = 0.0 0.0 450.0       
+
+#---- postprocessing defs ----
+incflo.post_processing                   = sw_ hubheight_      
+sw_.type                                 = Sampling            
+sw_.output_frequency                     = 20                  
+sw_.fields                               = velocity temperature tke
+hubheight_.type                          = Sampling            
+hubheight_.output_frequency              = 20                  
+hubheight_.fields                        = velocity temperature tke
+
+#---- sample defs ----
+sw_.labels                               = Farm_sw1            
+hubheight_.labels                        = Farm_hh             
+sw_.Farm_sw1.type                        = PlaneSampler        
+sw_.Farm_sw1.num_points                  = 359 11              
+sw_.Farm_sw1.origin                      = 617080.0001 4023500.0 0.00010000000000331966
+sw_.Farm_sw1.axis1                       = 35839.9998 0.0 0.0  
+sw_.Farm_sw1.axis2                       = 0.0 0.0 959.9998    
+sw_.Farm_sw1.offset_vector               = 0.0 0.0 0.0         
+hubheight_.Farm_hh.type                  = PlaneSampler        
+hubheight_.Farm_hh.num_points            = 359 308             
+hubheight_.Farm_hh.origin                = 617080.0001 4008140.0001 90.0
+hubheight_.Farm_hh.axis1                 = 35839.9998 0.0 0.0  
+hubheight_.Farm_hh.axis2                 = 0.0 30719.9998 0.0  
+hubheight_.Farm_hh.offset_vector         = 0.0 0.0 0.0         
+
+#---- extra params ----
+#== END AMR-WIND INPUT ==
