@@ -1,3 +1,4 @@
+See https://github.com/lawrenceccheung/AWAKEN_summit_setup/blob/main/Benchmark1/Phase1/FarmRuns/prod1/BM1_FarmRunProd1.ipynb for input file and case setup.
 
 Domain:
 - 35840m x 30720m x 960 m
@@ -5,6 +6,7 @@ Domain:
 Resolution
 - Background mesh size: 10m x 10m x 10m
 - Mesh size at rotor: 2.5m x 2.5m x 2.5m
+- Total mesh size: 3.28B
 
 Temporal resolution
 - dt = 0.1s (results submitted as instantaneous, time-varying)
