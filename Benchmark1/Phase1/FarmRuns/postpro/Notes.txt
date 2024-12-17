@@ -1,0 +1,22 @@
+
+Domain:
+- 35840m x 30720m x 960 m
+
+Resolution
+- Background mesh size: 10m x 10m x 10m
+- Mesh size at rotor: 2.5m x 2.5m x 2.5m
+
+Temporal resolution
+- dt = 0.1s (results submitted as instantaneous, time-varying)
+
+Model choices
+- Use 1-equation k-sgs for subgrid scale model
+- Use Boussinesq bouyancy approximation
+- No moisture model included (dry calculation)
+- No terrain (flat bottom surface in domain)
+
+Turbulence calculation
+- No TI calculated or included
+- Resolved TKE is not included in results
+
+
