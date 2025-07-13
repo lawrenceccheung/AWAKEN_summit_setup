@@ -17,8 +17,10 @@ try:
     import ruamel.yaml as yaml
     yaml = yaml.YAML()
     yamlokay = True
+    print('loaded ruamel.yaml')
 except:
     yamlokay = False
+    print('no loaded yaml')
 
 # import ruamel.yaml as yaml
 # try:
@@ -92,7 +94,8 @@ def plotTower(towername, xpos, ypos, towerheight, yaw,
                    ypos + toweroffset[1],
                    0.5*towerheight + toweroffset[2]]
     # Properties modified on turbinestlDisplay
-    cylinder1Display.Position = towercenter
+    #cylinder1Display.Position = towercenter
+    cylinder1Display.Translation = towercenter
     # Properties modified on turbinestlDisplay.DataAxesGrid
     cylinder1Display.DataAxesGrid.Position = towercenter
     # Properties modified on turbinestlDisplay.PolarAxes
@@ -155,7 +158,8 @@ def plotNacelle(nacellename, xpos, ypos, zpos, yaw,
                      ypos + nacelleoffset[1],
                      zpos + nacelleoffset[2]]
     # Properties modified on turbinestlDisplay
-    box1Display.Position = nacellecenter
+    #box1Display.Position = nacellecenter
+    box1Display.Translation = nacellecenter
     # Properties modified on turbinestlDisplay.DataAxesGrid
     box1Display.DataAxesGrid.Position = nacellecenter
     # Properties modified on turbinestlDisplay.PolarAxes
@@ -173,12 +177,20 @@ def plotNacelle(nacellename, xpos, ypos, zpos, yaw,
 def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw, 
                 azimuth=0.0, 
                 yawoffset=270.0,
+                scale=[1.0, 1.0, 1.0],
                 drawnacelle=True, drawtower=True):
     """
     Plot a turbine from an stl file in turbstl
     """
     # create a new 'STL Reader'
-    turbinestl = STLReader(registrationName=turbname, FileNames=[turbstl])
+    if turbstl.lower().endswith('.iges') or turbstl.lower().endswith('.igs'):
+        turbinestl = IGESReader(registrationName=turbname, FileNames=[turbstl])
+        turbinestl.LinearDeflection = 1.0
+        turbinestl.AngularDeflection = 2.0
+    elif turbstl.lower().endswith('.obj'):
+        turbinestl = WavefrontOBJReader(registrationName=turbname, FileName=turbstl)
+    else:
+        turbinestl = STLReader(registrationName=turbname, FileNames=[turbstl])
 
     # get active view
     renderView1 = GetActiveViewOrCreate('RenderView')
@@ -208,8 +220,11 @@ def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw,
     turbinestlDisplay.SelectInputVectors = [None, '']
     turbinestlDisplay.WriteLog = ''
 
+    turbinestlDisplay.Scale = scale
+    
     # Properties modified on turbinestlDisplay
-    turbinestlDisplay.Position = [xpos, ypos, zpos]
+    #turbinestlDisplay.Position = [xpos, ypos, zpos]
+    turbinestlDisplay.Translation = [xpos, ypos, zpos]
     # Properties modified on turbinestlDisplay.DataAxesGrid
     turbinestlDisplay.DataAxesGrid.Position = [xpos, ypos, zpos]
     # Properties modified on turbinestlDisplay.PolarAxes
@@ -236,8 +251,9 @@ def plotTurbineList(turbdict, verbose=True):
     """
     Plot a list of turbines from the dict in turbdict
     """
-    defaults = {'turbfile':'', 'azimuth':0.0, 'yaw':0.0, 
-                   'drawnacelle':True, 'drawtower':True}
+    defaults = {'turbfile':'', 'azimuth':0.0, 'yaw':0.0,
+                'scale':[1.0, 1.0, 1.0],
+                'drawnacelle':True, 'drawtower':True}
     if 'defaults' in turbdict: defaults.update(turbdict['defaults'])
 
     for iturb, turbspec in enumerate(turbdict['turbinelist']):
@@ -253,10 +269,12 @@ def plotTurbineList(turbdict, verbose=True):
         ypos     = pos[1]
         zpos     = defaults['hubheight'] if len(pos)<3 else pos[2]
         yaw      = getdictval(turbspec, 'yaw', defaults)
+        scale    = getdictval(turbspec, 'scale', defaults)
         drawtower= getdictval(turbspec, 'drawtower', defaults)
         drawnacelle= getdictval(turbspec, 'drawnacelle', defaults)
         turbstl, turbstlDisplay = plotTurbine(turbname, turbfile, 
-                                              xpos, ypos, zpos, yaw, 
+                                              xpos, ypos, zpos, yaw,
+                                              scale=scale,
                                               azimuth=azimuth, 
                                               drawnacelle=drawnacelle,
                                               drawtower=drawtower)
@@ -265,7 +283,7 @@ def plotTurbineList(turbdict, verbose=True):
 # =====================================
 def plotPlane(name, origin, p1, p2, 
               xres=10, yres=10, color=[0.0, 0.0, 0.0], 
-              representation='Surface'):
+              representation='Surface', texture=None):
 
     # create a new 'Plane'
     plane1             = Plane(registrationName=name)
@@ -310,23 +328,35 @@ def plotPlane(name, origin, p1, p2,
     # init the 'PiecewiseFunction' selected for 'OpacityTransferFunction'
     plane1Display.OpacityTransferFunction.Points = [0.0, 0.0, 0.5, 0.0, 1.1757813367477812e-38, 1.0, 0.5, 0.0]
 
+    if texture is not None:
+        print('Apply texture '+texture+' DOES NOT WORK IN PARAVIEW 5.13.1')
+        textureimage = FindTextureOrCreate(registrationName=name+'_texture',
+                                           filename=texture)
+        plane1Display.Texture = textureimage
+    else:
+        # change solid color
+        plane1Display.AmbientColor = color
+        plane1Display.DiffuseColor = color
 
-    # change solid color
-    plane1Display.AmbientColor = color
-    plane1Display.DiffuseColor = color
+    return
 
 def plotPlaneList(planedict):
-    defaultdict = {'color':[0.0, 0.0, 0.0], 'reprenstation':'Surface'}
+    defaultdict = {'color':[0.0, 0.0, 0.0], 'representation':'Surface', 'texture':None}
     defaults = planedict['defaults']  if 'defaults' in planedict else defaultdict
+    for k,g in defaultdict.items():
+        if k not in defaults: defaults[k] = defaultdict[k]
+        
     for planespec in planedict['planelist']:
         name   = planespec['name']
         origin = planespec['origin']
         p1     = planespec['p1']
         p2     = planespec['p2']
         color  = getdictval(planespec, 'color', defaults)
+        texture         = getdictval(planespec, 'texture', defaults)
         representation  = getdictval(planespec, 'representation', defaults)
         plotPlane(name, origin, p1, p2, color=color, 
-                  representation=representation)
+                  representation=representation,
+                  texture=texture)
 
 # =====================================
 
@@ -646,7 +676,8 @@ def add3DText(name, text, pos, color=[0.0, 0.0, 0.0], scale=[1,1,1]):
     a3DText1Display.AmbientColor = color
     a3DText1Display.DiffuseColor = color
     # Properties modified on a3DText1Display
-    a3DText1Display.Position = pos
+    #a3DText1Display.Position = pos
+    a3DText1Display.Translation = pos
     # Properties modified on a3DText1Display.DataAxesGrid
     a3DText1Display.DataAxesGrid.Position = pos
     # Properties modified on a3DText1Display.PolarAxes
@@ -689,7 +720,8 @@ def add2DText(name, text, pos, color=[0.0, 0.0, 0.0], fontsize=12,
     # Properties modified on text1Display
     text1Display.WindowLocation = WindowLocation
     # Properties modified on text1Display
-    text1Display.Position = pos    
+    #text1Display.Position = pos
+    text1Display.Translation = pos    
     return
 
 def plot2DTextList(textdict):
