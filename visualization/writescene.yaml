@@ -1,0 +1,92 @@
+
+farmxy:
+  - [2250, 2000]
+  - [3000, 2000]
+  - [1500, 2000]
+  - [1750, 3000]
+  - [2750, 3000]
+
+floatermesh: ../assets/IEA-15-240-RWT_VolturnUS-S_floater.stl
+floaterscale: [1,1,1]
+floatercolor:
+  AmbientColor: [1.0, 1.0, 0.0]
+  DiffuseColor: [1.0, 1.0, 0.0]
+turbinerpm: 7.8
+
+pythonudf:
+  - def1:  "bvel = 25.0; y0=550"
+  - def2:  "camposOS=np.array([2250, y0, 200]); camfpOS=np.array([2250,y0,200])"
+  - def3:  "t0=0.0; t1=16; omega = 0.5*np.pi/t1; R=100"
+  - func1: "birdpath1 = lambda t: np.array([0, t*bvel, 0])"
+  - func2: "boatpath1 = lambda t: np.array([-t*5, 0, 0])"
+  - func3: "boatpath2 = lambda t: np.array([0, -t*50, 0])"
+  - func4: "camerapos = lambda t: birdpath1(t)+camposOS + np.array([R*np.cos(omega*t), -R*np.sin(omega*t) - y0/t1*t, 0.0]) if (t0<=t) and (t <= t1) else (birdpath1(t)+camposOS + np.array([0.0, -R - y0, 0.0]) if t>t1 else birdpath1(t)+camposOS + np.array([R, 0, 0.0]) )"
+  - func5: "camerafp  = lambda t: birdpath1(t)+camfpOS + np.array([-R*np.cos(omega*t), R*np.sin(omega*t) + 2000/t1*t, 0]) if (t0<=t) and (t <= t1) else (birdpath1(t)+camfpOS + np.array([0.0, R, 0]) if t>t1 else birdpath1(t)+camfpOS + np.array([-R, 0, 0.0]))"
+    
+    
+movingobjects:
+  - name: boat1_
+    turbfile: ../assets/12219_boat_v2_L2.obj
+    azimuth: 0.0
+    yaw: 270.0
+    scale: [0.025, 0.025, 0.025]
+    trajectoryfunc: boatpath1
+    xyzlist:
+      - [2000, 1500, -2.5]
+  - name: boat2_
+    turbfile: ../assets/11806_boat_v1_L3.obj
+    azimuth: 0.0
+    yaw: 90.0
+    scale: [0.1, 0.1, 0.1]
+    trajectoryfunc: boatpath2
+    xyzlist:
+      - [2500, 2500, -2.5]      
+  - name: birds_
+    turbfile: ../assets/seagull_new2.obj
+    azimuth: 90.0
+    yaw: 270.0
+    scale: [2.5, 2.5, 2.5]
+    origin: [-38, 54, 19]
+    trajectoryfunc: birdpath1
+    xyzlist:
+      - [2300, 500, 175]
+      - [2250, 500, 180]
+
+# Base template to use for adding objects
+basetemplate:
+  turbines:
+    defaults:
+      turbfile: ../assets/iea15mw-mesh-iges.iges
+      hubheight: 150.0
+      yaw: 180.0
+      azimuth: 0.0
+      scale: [0.001, 0.001, 0.001]
+      
+  solidplanes:
+    defaults:
+      color: [0.055, 0.68, 0.98]
+      representation: Surface
+    planelist:
+    - name: ground
+      origin: [0, 0, 0]
+      p1: [4000, 0, 0]
+      p2: [0, 4000, 0]
+      texture: ../assets/sea-water-ocean-texture-wave-frost-677700-pxhere.com.jpg
+
+  renderview:
+    properties:
+      CameraPosition: camerapos
+      CameraFocalPoint: camerafp
+      CameraViewUp: [0, 0, 1]
+      OrientationAxesVisibility: 0
+      BackgroundColorMode: 'Gradient'
+      Background2: [0.6666666865348816, 1.0, 1.0]
+      Background: [1.0, 1.0, 1.0]
+
+  output:
+    filename: pngdir/scene_{time:05.2f}.png
+    #savestate: testfarm.pvsm
+    imagesize:
+      - 1900
+      - 1200
+

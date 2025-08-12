@@ -177,7 +177,7 @@ def plotNacelle(nacellename, xpos, ypos, zpos, yaw,
 def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw, 
                 azimuth=0.0, 
                 yawoffset=270.0,
-                scale=[1.0, 1.0, 1.0],
+                scale=[1.0, 1.0, 1.0], origin=[0.0, 0.0, 0.0], colordict=None,
                 drawnacelle=True, drawtower=True):
     """
     Plot a turbine from an stl file in turbstl
@@ -221,6 +221,7 @@ def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw,
     turbinestlDisplay.WriteLog = ''
 
     turbinestlDisplay.Scale = scale
+    turbinestlDisplay.Origin = origin
     
     # Properties modified on turbinestlDisplay
     #turbinestlDisplay.Position = [xpos, ypos, zpos]
@@ -232,6 +233,12 @@ def plotTurbine(turbname, turbstl, xpos, ypos, zpos, yaw,
 
     newyaw = yawoffset - yaw #360.0 - yaw
 
+    if colordict is not None:
+        turbinestlDisplay.Set(
+            AmbientColor=colordict['AmbientColor'],
+            DiffuseColor=colordict['DiffuseColor'],
+        )
+    
     # Properties modified on turbinestlDisplay
     turbinestlDisplay.Orientation = [azimuth, 0.0, newyaw] #[0.0, azimuth, newyaw]
     # Properties modified on turbinestlDisplay.PolarAxes
@@ -252,7 +259,8 @@ def plotTurbineList(turbdict, verbose=True):
     Plot a list of turbines from the dict in turbdict
     """
     defaults = {'turbfile':'', 'azimuth':0.0, 'yaw':0.0,
-                'scale':[1.0, 1.0, 1.0],
+                'scale':[1.0, 1.0, 1.0], 'origin':[0.0, 0.0, 0.0],
+                'colordict':None,
                 'drawnacelle':True, 'drawtower':True}
     if 'defaults' in turbdict: defaults.update(turbdict['defaults'])
 
@@ -270,11 +278,15 @@ def plotTurbineList(turbdict, verbose=True):
         zpos     = defaults['hubheight'] if len(pos)<3 else pos[2]
         yaw      = getdictval(turbspec, 'yaw', defaults)
         scale    = getdictval(turbspec, 'scale', defaults)
+        origin   = getdictval(turbspec, 'origin', defaults)
+        colordict= getdictval(turbspec, 'colordict', defaults)
         drawtower= getdictval(turbspec, 'drawtower', defaults)
         drawnacelle= getdictval(turbspec, 'drawnacelle', defaults)
         turbstl, turbstlDisplay = plotTurbine(turbname, turbfile, 
                                               xpos, ypos, zpos, yaw,
                                               scale=scale,
+                                              origin=origin,
+                                              colordict=colordict,
                                               azimuth=azimuth, 
                                               drawnacelle=drawnacelle,
                                               drawtower=drawtower)
